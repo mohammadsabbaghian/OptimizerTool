@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Vizualization.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Vizualization"
+    Shell.FlyoutBehavior="Flyout">
+
+    
+
+<ShellContent Title = "Cartesian Charts" ContentTemplate = "{DataTemplate local:CartesianChartsFeatures}" Route ="CartesianChartsFeatures" /> 
+<ShellContent Title = "Maps" ContentTemplate = "{DataTemplate local:MapsFeatures}" Route ="MapsFeatures" /> 
+<ShellContent Title = "Autocomplete" ContentTemplate = "{DataTemplate local:AutocompleteFeatures}" Route ="AutocompleteFeatures" /> 
+<ShellContent Title = "Numeric Entry" ContentTemplate = "{DataTemplate local:NumericEntryFeatures}" Route ="NumericEntryFeatures" /> 
+<ShellContent Title = "TimePicker" ContentTemplate = "{DataTemplate local:TimePickerFeatures}" Route ="TimePickerFeatures" /> 
+<ShellContent Title = "Tab View" ContentTemplate = "{DataTemplate local:TabViewFeatures}" Route ="TabViewFeatures" /> 
+
+
+</Shell>

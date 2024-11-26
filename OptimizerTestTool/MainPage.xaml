@@ -23,6 +23,7 @@
                 Text="Load file" 
                 Clicked="OnLoadClicked"
                 HorizontalOptions="Fill" />
+            
             <Picker x:Name="TrainTypePicker" WidthRequest="150" SelectedIndexChanged="TrainTypePicker_SelectedIndexChanged"/>
                 
         </VerticalStackLayout>

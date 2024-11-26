@@ -1,4 +1,4 @@
-﻿using SpeedOptimizer.Models;
+﻿using SpeedOptimizer.Models.Inputs;
 
 namespace TrainCharacteristicsManager
 {

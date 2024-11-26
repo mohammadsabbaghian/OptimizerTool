@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models
+﻿namespace SpeedOptimizer.Models.Internal
 {
     public class SpeedProfile
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using TrainCharacteristicsManager;
-using SpeedOptimizer.Models;
+using SpeedOptimizer.Models.Inputs;
 
 
 namespace OptimizerTestTool

@@ -6,7 +6,7 @@ namespace SferaHandlers
 {
     public class XmlParser
     {
-        static ISferaMessage DeserializeXmlFile(string filePath)
+        public static ISferaMessage DeserializeXmlFile(string filePath)
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filePath);
@@ -43,7 +43,7 @@ namespace SferaHandlers
             }
         }
 
-        static T DeserializeXml<T>(string filePath)
+         static T DeserializeXml<T>(string filePath)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open))

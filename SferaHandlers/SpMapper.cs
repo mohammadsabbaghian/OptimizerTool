@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedOptimizer.Models
+namespace SferaHandlers
 {
-    internal class SegmentProfile
+    internal class SpMapper
     {
     }
 }
