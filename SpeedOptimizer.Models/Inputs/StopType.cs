@@ -1,6 +1,6 @@
 ﻿namespace SpeedOptimizer.Models.Inputs
 {
-    public class AdhesionSegment
+    public class StopType
     {
     }
 }

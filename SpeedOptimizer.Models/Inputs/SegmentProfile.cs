@@ -5,7 +5,10 @@ namespace SpeedOptimizer.Models.Inputs
     {
         public List<SpeedRestrictionSegment> SpeedRestrictionSegments { get; set; }
         public List<GradientSegment> GradientSegments { get; set; }
-        public List<AdhesionSegment> AdhesionSegments { get; set; }
-        public List<PowerSegment> PowerSegments { get; set; }
+        public List<AdhesionLimitationSegment> AdhesionSegments { get; set; }
+        public List<PowerRestrictionSegment> PowerSegments { get; set; }
+        public List<SegmentPosition> Points { get; set; }
+        public List<TunnelSegment> Tunnels { get; set; }
+        public List<CurveSegment> Curves{ get; set; }
     }
 }

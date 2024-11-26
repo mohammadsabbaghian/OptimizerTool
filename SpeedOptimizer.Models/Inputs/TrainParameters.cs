@@ -18,5 +18,8 @@
         public double RotatingMassCoefficient { get; set; }
         public int NumberOfCars { get; set; }
         public TrafficType Type { get; set; }
+        public PowerMap PowerMap { get; set; }
+        public SpeedForce[] BrakingCurve { get; set; }
+        public SpeedForce[] TractionCurve { get; set; }
     }
 }
