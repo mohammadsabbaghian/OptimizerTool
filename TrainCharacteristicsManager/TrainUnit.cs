@@ -1,0 +1,10 @@
+﻿namespace TrainCharacteristicsManager
+{
+    public class TrainUnit
+    {
+        public string Class { get; set; }
+        public float TotalMass { get; set; }
+        public float TractionPercentage { get; set; }
+        public float BrakeWeightPercentage { get; set; }
+    }
+}

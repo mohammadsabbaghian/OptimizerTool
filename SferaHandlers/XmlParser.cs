@@ -8,47 +8,54 @@ namespace SferaHandlers
     {
         public static ISferaMessage DeserializeXmlFile(string filePath)
         {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
+            }
+
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("The specified file does not exist.", filePath);
+            }
+
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
+            try
+            {
+                xmlDoc.Load(filePath);
+            }
+            catch (XmlException ex)
+            {
+                throw new InvalidOperationException("Failed to load XML document.", ex);
+            }
 
-            string rootElement = xmlDoc.DocumentElement.Name;
+            XmlElement? documentElement = xmlDoc.DocumentElement;
+            if (documentElement == null)
+            {
+                throw new InvalidOperationException("The XML document is empty.");
+            }
 
-            if (rootElement == "SFERA_B2G_EventMessage")
+            string rootElement = documentElement.Name;
+
+            return rootElement switch
             {
-                return DeserializeXml<SFERA_B2G_EventMessage>(filePath);
-            }
-            else if (rootElement == "SFERA_B2G_RequestMessage")
-            {
-                return DeserializeXml<SFERA_B2G_RequestMessage>(filePath);
-            }
-            else if (rootElement == "SFERA_B2G_ReplyMessage")
-            {
-                return DeserializeXml<SFERA_B2G_ReplyMessage>(filePath);
-            }
-            else if (rootElement == "SFERA_G2B_EventMessage")
-            {
-                return DeserializeXml<SFERA_G2B_EventMessage>(filePath);
-            }
-            else if (rootElement == "SFERA_G2B_ReplyMessage")
-            {
-                return DeserializeXml<SFERA_G2B_ReplyMessage>(filePath);
-            }
-            else if (rootElement == "SFERA_G2B_RequestMessage")
-            {
-                return DeserializeXml<SFERA_G2B_RequestMessage>(filePath);
-            }
-            else
-            {
-                throw new InvalidOperationException("Unknown XML type");
-            }
+                "SFERA_B2G_EventMessage" => DeserializeXml<SFERA_B2G_EventMessage>(filePath),
+                "SFERA_B2G_RequestMessage" => DeserializeXml<SFERA_B2G_RequestMessage>(filePath),
+                "SFERA_B2G_ReplyMessage" => DeserializeXml<SFERA_B2G_ReplyMessage>(filePath),
+                "SFERA_G2B_EventMessage" => DeserializeXml<SFERA_G2B_EventMessage>(filePath),
+                "SFERA_G2B_ReplyMessage" => DeserializeXml<SFERA_G2B_ReplyMessage>(filePath),
+                "SFERA_G2B_RequestMessage" => DeserializeXml<SFERA_G2B_RequestMessage>(filePath),
+                _ => throw new InvalidOperationException("Unknown XML type")
+            };
         }
 
-         static T DeserializeXml<T>(string filePath)
+        static T DeserializeXml<T>(string filePath) where T : class
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
+      
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
             {
-                return (T)serializer.Deserialize(fileStream);
+                return serializer.Deserialize(fileStream) as T ?? 
+                    throw new InvalidOperationException($"Failed to deserialize XML to {typeof(T).Name}.");
             }
         }
     }

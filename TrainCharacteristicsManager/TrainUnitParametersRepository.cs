@@ -2,14 +2,14 @@
 
 namespace TrainCharacteristicsManager
 {
-    public static class TrainCharacteristicsRepository
+    public static class TrainUnitParametersRepository
     {
         //Load the parameters from a DB instead
-        public static async Task<Dictionary<string, TrainParameters>> GetTrainParametersAsync()
+        public static async Task<Dictionary<string, TrainUnitParameters>> GetTrainUnitParametersAsync()
         {
-            return new Dictionary<string, TrainParameters>
+            return new Dictionary<string, TrainUnitParameters>
             {
-                ["High-speed"] = new TrainParameters
+                ["TGV"] = new TrainUnitParameters
                 {
                     Class = "TGV",
                     Type = TrafficType.HighSpeed,
@@ -28,11 +28,11 @@ namespace TrainCharacteristicsManager
                     RotatingMassCoefficient = 1.05,
                     NumberOfCars = 6
                 },
-                ["Regional"] = new TrainParameters
+                ["CoradiaStreamHC3"] = new TrainUnitParameters
                 {
-                    Class = "Coradia",
+                    Class = "CoradiaStreamHC3",
                     Type = TrafficType.Regional,
-                    BaseClassType = "Coradia",
+                    BaseClassType = "CoradiaStream",
                     CurveRes = 6,
                     Power = 8800,
                     Force = 220,
@@ -48,16 +48,16 @@ namespace TrainCharacteristicsManager
                     NumberOfCars = 3
 
                 },
-                ["Freight"] = new TrainParameters
+                ["Freight"] = new TrainUnitParameters
                 {
                     Class = "Euro4000",
                     Type = TrafficType.Freight,
                     BaseClassType = "Euro4000",
                     CurveRes = 6,
-                    Power = 8800,
-                    Force = 220,
-                    Mass = 380000,
-                    Length = 200,
+                    Power = 8800000,
+                    Force = 420000,
+                    Mass = 38000000,
+                    Length = 2000,
                     Amass = 2000,
                     Aaxle = 2000,
                     Bmass = 2000,

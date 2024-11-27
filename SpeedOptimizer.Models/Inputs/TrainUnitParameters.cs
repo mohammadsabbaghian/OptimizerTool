@@ -1,6 +1,6 @@
 ﻿namespace SpeedOptimizer.Models.Inputs
 {
-    public class TrainParameters
+    public class TrainUnitParameters
     {
         public string Class { get; set; }
         public string BaseClassType { get; set; }

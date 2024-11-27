@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OptimizerTestTool.Pages.ConsistBuilderPage"
+             Title="Build the consist">
+    <VerticalStackLayout>
+        <Picker x:Name="TrainTypePicker" WidthRequest="250" SelectedIndexChanged="TrainTypePicker_SelectedIndexChanged"/>
+        <Button x:Name="AddTrainUnitBtn" WidthRequest="250" Text="Add" Clicked="AddBtn_Clicked"/>
+        <Button x:Name="ConfirmBtn" WidthRequest="250" Text="Confirm" Clicked="ConfirmBtn_Clicked"/>
+        <HorizontalStackLayout>
+            <Label Text="Unit Type" WidthRequest="250"/>
+            <Label Text="Mass" WidthRequest="100"/>
+            <Label Text="Traction %" WidthRequest="100"/>
+            <Label Text="BrakeWeight %" WidthRequest="100"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

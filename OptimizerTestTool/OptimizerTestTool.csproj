@@ -62,6 +62,9 @@
     <ProjectReference Include="..\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\ConsistBuilderPage.xaml.cs">
+      <DependentUpon>ConsistBuilderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\VizualizationPage.xaml.cs">
       <DependentUpon>VizualizationPage.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <MauiXaml Update="Pages\ConsistBuilderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\VizualizationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>

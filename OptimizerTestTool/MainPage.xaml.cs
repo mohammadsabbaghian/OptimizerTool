@@ -7,32 +7,34 @@ namespace OptimizerTestTool
 {
     public partial class MainPage : ContentPage
     {
-        private TrainCharacteristicsBuilder _trainCharacteristicsBuilder;
-        
-        private Dictionary<string, TrainParameters> _trainParameters;
+
 
         public MainPage()
         {
             InitializeComponent();
-            InitializeTrainParameters();
         }
 
-        private void OnLoadClicked(object sender, EventArgs e)
+        private async void OnLoadClicked(object sender, EventArgs e)
         {
-            SemanticScreenReader.Announce(LoaderBtn.Text);
-        }
+            try
+            {
+                var result = await FilePicker.PickAsync(new PickOptions
+                {
+                    PickerTitle = "Please select an XML file",
+                });
 
-        private async void InitializeTrainParameters()
-        {
-            _trainCharacteristicsBuilder = new TrainCharacteristicsBuilder();
-            _trainParameters = await TrainCharacteristicsRepository.GetTrainParametersAsync();
-            TrainTypePicker.ItemsSource = new ObservableCollection<string>(_trainParameters.Keys);
-            TrainTypePicker.SelectedIndex = 0;
-        }
-
-        private void TrainTypePicker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                if (result != null && result.FileName.Contains(".xml"))
+                {
+                    string filePath = result.FullPath;
+                    // Assuming SferaHandlers.XmlParser.DeserializeXmlFile() accepts a file path
+                    SferaHandlers.XmlParser.DeserializeXmlFile(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, such as when the user cancels the file picker
+                await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+            }
         }
     }
 }
