@@ -14,9 +14,9 @@ namespace SpeedOptimizerTests
             // Arrange
             var gradientSegments = new List<GradientSegment>
             {
-                new GradientSegment { Start = 0, End = 10, Gradient = 1 },
-                new GradientSegment { Start = 10, End = 20, Gradient = 2 },
-                new GradientSegment { Start = 20, End = 30, Gradient = 3 }
+                new GradientSegment(0f,10f, 1f),
+                new GradientSegment(10f,20f, 2f),
+                new GradientSegment(20f,30f, 3f)
             };
             double interval = 5;
             var ranges = new List<(double start, double end, double weight)>
@@ -25,10 +25,9 @@ namespace SpeedOptimizerTests
                 (10, 20, 1),
                 (20, 30, 1)
             };
-            var preProcessor = new PreProcessor();
 
             // Act
-            var result = preProcessor.GetWeightedAverageGradientArray(gradientSegments, interval, ranges);
+            var result = GradientHelper.GetWeightedAverageGradientArray(gradientSegments, interval, ranges);
 
             // Assert
             Assert.AreEqual(1, result[0]);
@@ -43,8 +42,8 @@ namespace SpeedOptimizerTests
             // Arrange
             var gradientSegments = new List<GradientSegment>
             {
-                new GradientSegment { Start = 0, End = 10, Gradient = 1 },
-                new GradientSegment { Start = 10, End = 20, Gradient = 2 }
+                new GradientSegment(0,10, 1),
+                new GradientSegment(10,20, 2)
             };
             double interval = 5;
             var ranges = new List<(double start, double end, double weight)>
@@ -53,15 +52,14 @@ namespace SpeedOptimizerTests
                 (10, 20, 1),
                 (20, 30, 1)
             };
-            var preProcessor = new PreProcessor();
 
             // Act
-            var result = preProcessor.GetWeightedAverageGradientArray(gradientSegments, interval, ranges);
+            var result = GradientHelper.GetWeightedAverageGradientArray(gradientSegments, interval, ranges);
 
             // Assert
             Assert.AreEqual(1, result[0]);
             Assert.AreEqual(1.5, result[1]);
-            Assert.AreEqual(2, result[2]);
+            Assert.AreEqual(2, result[2]); 
             Assert.AreEqual(2, result[3]); // Using the last segment's gradient
         }
     }

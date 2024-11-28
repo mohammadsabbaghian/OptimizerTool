@@ -1,9 +1,7 @@
 ﻿namespace SpeedOptimizer.Models.Inputs
 {
-    public class CurveSegment
+    public class CurveSegment : Segment
     {
-        public double Start { get; set; }
-        public double End { get; set; }
-        public double Radius { get; set; }
+        public float Radius { get; set; }
     }
 }

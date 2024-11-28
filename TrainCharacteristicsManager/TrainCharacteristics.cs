@@ -4,11 +4,6 @@ namespace TrainCharacteristicsManager
 {
     public class TrainCharacteristics
     {
-        public TrainCharacteristics()
-        {
-            // Initialize the object
-        }
-
         public List<TrainUnit> TrainUnits { get; set; }
         public Propulsion Propulsion { get; set; }
         public string Class { get; set; }

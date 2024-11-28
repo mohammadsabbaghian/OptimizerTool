@@ -1,9 +1,14 @@
 ﻿namespace SpeedOptimizer.Models.Inputs
 {
-    public class GradientSegment
+    public class GradientSegment : Segment
     {
-        public double Start { get; set; }
-        public double End { get; set; }
-        public double Gradient { get; set; }
+        public GradientSegment(float start, float end, float gradient)
+        {
+            Start = start;
+            End = end;
+            Gradient = gradient;
+        }
+
+        public float Gradient { get; set; }
     }
 }

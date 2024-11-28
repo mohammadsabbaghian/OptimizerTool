@@ -1,9 +1,8 @@
 ﻿namespace SpeedOptimizer.Models.Inputs
 {
-    public class SpeedRestrictionSegment
+    public class SpeedRestrictionSegment : Segment
     {
-        public double StartP { get; set; }
-        public double End { get; set; }
         public double Speed { get; set; }
+        public SpeedRestrictionType Type { get; set; }
     }
 }
