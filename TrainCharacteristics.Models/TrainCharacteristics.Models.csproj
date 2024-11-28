@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
-    <ProjectReference Include="..\TrainCharacteristics.Models\TrainCharacteristics.Models.csproj" />
   </ItemGroup>
 
 </Project>

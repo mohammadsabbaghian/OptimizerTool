@@ -5,18 +5,18 @@ namespace TrainCharacteristicsManager
     public static class TrainUnitParametersRepository
     {
         //Load the parameters from a DB instead
-        public static async Task<Dictionary<string, TrainUnitParameters>> GetTrainUnitParametersAsync()
+        public static async Task<Dictionary<string, TrainUnitParametersSimple>> GetTrainUnitParametersAsync()
         {
-            return new Dictionary<string, TrainUnitParameters>
+            return new Dictionary<string, TrainUnitParametersSimple>
             {
-                ["TGV"] = new TrainUnitParameters
+                ["TGV"] = new TrainUnitParametersSimple
                 {
                     Class = "TGV",
                     Type = TrafficType.HighSpeed,
                     BaseClassType = "TGV",
                     CurveRes = 6,
-                    Power = 8800,
-                    Force = 220,
+                    MaxPower = 8800,
+                    MaxForce = 220,
                     Mass = 380000,
                     Length = 200,
                     DragAmass = 2000,
@@ -28,14 +28,14 @@ namespace TrainCharacteristicsManager
                     RotatingMassCoefficient = 1.05,
                     NumberOfCars = 6
                 },
-                ["CoradiaStreamHC3"] = new TrainUnitParameters
+                ["CoradiaStreamHC3"] = new TrainUnitParametersSimple
                 {
                     Class = "CoradiaStreamHC3",
                     Type = TrafficType.Regional,
                     BaseClassType = "CoradiaStream",
                     CurveRes = 6,
-                    Power = 8800,
-                    Force = 220,
+                    MaxPower = 8800,
+                    MaxForce = 220,
                     Mass = 380000,
                     Length = 200,
                     DragAmass = 2000,
@@ -48,14 +48,14 @@ namespace TrainCharacteristicsManager
                     NumberOfCars = 3
 
                 },
-                ["Freight"] = new TrainUnitParameters
+                ["Freight"] = new TrainUnitParametersSimple
                 {
                     Class = "Euro4000",
                     Type = TrafficType.Freight,
                     BaseClassType = "Euro4000",
                     CurveRes = 6,
-                    Power = 8800000,
-                    Force = 420000,
+                    MaxPower = 8800000,
+                    MaxForce = 420000,
                     Mass = 38000000,
                     Length = 2000,
                     DragAmass = 2000,
