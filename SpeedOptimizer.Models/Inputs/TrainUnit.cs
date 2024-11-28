@@ -7,5 +7,7 @@
         public float Length { get; set; }
         public float TractionPercentage { get; set; }
         public float BrakeWeightPercentage { get; set; }
+        public float Start { get; set; }
+        public float End { get; set; }
     }
 }

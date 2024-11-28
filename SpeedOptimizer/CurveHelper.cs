@@ -13,7 +13,7 @@ namespace SpeedOptimizer
             _effortInCurveCoefficient = effortInCurve;
         }
 
-        public List<GradientSegment> MergeSegments(List<CurveSegment> curveSegments, List<GradientSegment> gradientSegments)
+        public GradientSegment[] MergeSegments(CurveSegment[] curveSegments, GradientSegment[] gradientSegments)
         {
             var mergedList = new List<GradientSegment>();
             var curveGradientSegments = curveSegments.Select(curve => new GradientSegment(curve.Start, curve.End, GetCurveGradient(curve))).ToList();
@@ -73,7 +73,7 @@ namespace SpeedOptimizer
                 }
             }
 
-            return mergedList;
+            return mergedList.ToArray();
         }
 
         private float GetCurveGradient(CurveSegment curve)

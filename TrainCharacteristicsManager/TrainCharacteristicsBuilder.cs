@@ -15,9 +15,12 @@ namespace TrainCharacteristicsManager
         {
             var tc = new TrainCharacteristicsSimple();
 
-            foreach (var parameter in trainUnits)
+            var end = 0f;
+            foreach (var unit in trainUnits)
             {
-                // Build the TrainCharacteristicsSimple object
+                unit.Start = end;
+                end = end + (int)unit.Length;
+                unit.End = end;
             }
             return tc;
         }

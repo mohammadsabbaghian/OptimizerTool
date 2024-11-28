@@ -1,14 +1,14 @@
 ﻿
 namespace SpeedOptimizer.Models.Inputs
 {
-    public class RouteConstraints
+    public class RouteConstraints : Segment
     {
-        public List<SpeedRestrictionSegment> SpeedRestrictionSegments { get; set; }
-        public List<GradientSegment> GradientSegments { get; set; }
-        public List<AdhesionLimitationSegment> AdhesionSegments { get; set; }
-        public List<PowerRestrictionSegment> PowerSegments { get; set; }
-        public List<SegmentPosition> Points { get; set; }
-        public List<TunnelSegment> Tunnels { get; set; }
-        public List<CurveSegment> Curves{ get; set; }
+        public SpeedRestrictionSegment[] SpeedRestrictionSegments { get; set; }
+        public GradientSegment[] GradientSegments { get; set; }
+        public AdhesionLimitationSegment[] AdhesionSegments { get; set; }
+        public PowerLimitSegment[] PowerSegments { get; set; }
+        public SegmentPosition[] Points { get; set; }
+        public TunnelSegment[] Tunnels { get; set; }
+        public CurveSegment[] Curves{ get; set; }
     }
 }

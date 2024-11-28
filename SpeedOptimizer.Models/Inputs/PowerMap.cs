@@ -2,13 +2,23 @@
 {
     public class PowerMap
     {
-        public int[,] Map;
+        public int[,] Powers;
+        public float[] Speeds;
+        public float[] TractionPercentages;
 
-        public PowerMap(int[,] powers, double[] speeds, double[] tractionPercentages)
+        
+        public PowerMap(int[,] powers, float[] speeds, float[] tractionPercentages)
         {
-            int newRowCount = (int)Math.Ceiling(tractionPercentages[^1]) + 1;
-            int newColCount = (int)Math.Ceiling(speeds[^1]) + 1;
-            Map = new int[newRowCount, newColCount];
+            Powers = powers;
+            Speeds = speeds;
+            TractionPercentages = tractionPercentages;
+        }
+
+        public void Normalize()
+        {
+            int newRowCount = (int)Math.Ceiling(TractionPercentages[^1]) + 1;
+            int newColCount = (int)Math.Ceiling(Speeds[^1]) + 1;
+            Powers = new int[newRowCount, newColCount];
 
             for (int i = 0; i < newRowCount; i++)
             {
@@ -16,15 +26,15 @@
                 {
                     double traction = i;
                     double speed = j;
-                    Map[i, j] = GetPowerValue(powers, speeds, tractionPercentages, speed, traction);
+                    Powers[i, j] = GetPowerValue(speed, traction);
                 }
             }
         }
 
-        private int GetPowerValue(int[,] powers, double[] speeds, double[] tractionPercentages, double speed, double traction)
+        private int GetPowerValue(double speed, double traction)
         {
-            int row = Array.FindLastIndex(tractionPercentages, t => t <= traction);
-            int col = Array.FindLastIndex(speeds, s => s <= speed);
+            int row = Array.FindLastIndex(TractionPercentages, t => t <= traction);
+            int col = Array.FindLastIndex(Speeds, s => s <= speed);
 
             if (row == -1 || col == -1)
             {
@@ -32,64 +42,80 @@
             }
 
             // Check if both values match exactly
-            if (traction == tractionPercentages[row] && speed == speeds[col])
+            if (traction == TractionPercentages[row] && speed == Speeds[col])
             {
-                return powers[row, col];
+                return Powers[row, col];
             }
 
             // Check if only traction matches exactly
-            if (traction == tractionPercentages[row])
+            if (traction == TractionPercentages[row])
             {
-                return Interpolate1D(powers, speeds, row, speed, col, true);
+                return Interpolate1D(Speeds, row, speed, col, true);
             }
 
             // Check if only speed matches exactly
-            if (speed == speeds[col])
+            if (speed == Speeds[col])
             {
-                return Interpolate1D(powers, tractionPercentages, col, traction, row, false);
+                return Interpolate1D(TractionPercentages, col, traction, row, false);
             }
 
             // Perform 2D interpolation if neither value matches exactly
-            return Interpolate2D(powers, speeds, tractionPercentages, speed, traction, row, col);
+            return Interpolate2D(speed, traction, row, col);
         }
 
-        private int Interpolate1D(int[,] powers, double[] values, int fixedIndex, double variableValue, int variableIndex, bool isRowFixed)
+        private int Interpolate1D(float[] values, int fixedIndex, double variableValue, int variableIndex, bool isRowFixed)
         {
             if (variableIndex == values.Length - 1)
             {
-                return isRowFixed ? powers[fixedIndex, variableIndex] : powers[variableIndex, fixedIndex];
+                return isRowFixed ? Powers[fixedIndex, variableIndex] : Powers[variableIndex, fixedIndex];
             }
 
             double v1 = values[variableIndex];
             double v2 = values[variableIndex + 1];
 
-            double q1 = isRowFixed ? powers[fixedIndex, variableIndex] : powers[variableIndex, fixedIndex];
-            double q2 = isRowFixed ? powers[fixedIndex, variableIndex + 1] : powers[variableIndex + 1, fixedIndex];
+            double q1 = isRowFixed ? Powers[fixedIndex, variableIndex] : Powers[variableIndex, fixedIndex];
+            double q2 = isRowFixed ? Powers[fixedIndex, variableIndex + 1] : Powers[variableIndex + 1, fixedIndex];
 
             return (int)(((v2 - variableValue) / (v2 - v1)) * q1 + ((variableValue - v1) / (v2 - v1)) * q2);
         }
 
-        private int Interpolate2D(int[,] powers, double[] speeds, double[] tractionPercentages, double speed, double traction, int row, int col)
+        private int Interpolate2D(double speed, double traction, int row, int col)
         {
-            if (row == tractionPercentages.Length - 1 || col == speeds.Length - 1)
+            if (row == TractionPercentages.Length - 1 || col == Speeds.Length - 1)
             {
-                return powers[row, col];
+                return Powers[row, col];
             }
 
-            double t1 = tractionPercentages[row];
-            double t2 = tractionPercentages[row + 1];
-            double s1 = speeds[col];
-            double s2 = speeds[col + 1];
+            double t1 = TractionPercentages[row];
+            double t2 = TractionPercentages[row + 1];
+            double s1 = Speeds[col];
+            double s2 = Speeds[col + 1];
 
-            double q11 = powers[row, col];
-            double q12 = powers[row, col + 1];
-            double q21 = powers[row + 1, col];
-            double q22 = powers[row + 1, col + 1];
+            double q11 = Powers[row, col];
+            double q12 = Powers[row, col + 1];
+            double q21 = Powers[row + 1, col];
+            double q22 = Powers[row + 1, col + 1];
 
             double r1 = ((s2 - speed) / (s2 - s1)) * q11 + ((speed - s1) / (s2 - s1)) * q12;
             double r2 = ((s2 - speed) / (s2 - s1)) * q21 + ((speed - s1) / (s2 - s1)) * q22;
 
             return (int)(((t2 - traction) / (t2 - t1)) * r1 + ((traction - t1) / (t2 - t1)) * r2);
+        }
+
+        public void Combine(PowerMap powerMap)
+        {
+            if (Powers.GetLength(0) != powerMap.Powers.GetLength(0) || Powers.GetLength(1) != powerMap.Powers.GetLength(1))
+            {
+                
+            }
+
+            for (int i = 0; i < Powers.GetLength(0); i++)
+            {
+                for (int j = 0; j < Powers.GetLength(1); j++)
+                {
+                    Powers[i, j] += powerMap.Powers[i, j];
+                }
+            }
         }
     }
 }

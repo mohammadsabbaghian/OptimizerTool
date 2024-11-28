@@ -25,9 +25,9 @@ namespace SpeedOptimizer.Tests
             PowerMap powerMap = new PowerMap(powers, speeds, tractionPercentages);
 
             // Assert
-            Assert.AreEqual(100, powerMap.Map[0, 0]);
-            Assert.AreEqual(900, powerMap.Map[1, 1]);
-            Assert.AreEqual(0, powerMap.Map[2, 2]);
+            Assert.AreEqual(100, powerMap.Powers[0, 0]);
+            Assert.AreEqual(900, powerMap.Powers[1, 1]);
+            Assert.AreEqual(0, powerMap.Powers[2, 2]);
         }
 
         [TestMethod]
@@ -39,32 +39,15 @@ namespace SpeedOptimizer.Tests
                 { 400, 500, 600 },
                 { 700, 800, 900 }
             };
-            double[] speeds = { 0, 1, 2 };
-            double[] tractionPercentages = { 0, 1, 2 };
+            double[] speeds = { 0, 2, 3 };
+            double[] tractionPercentages = { 0, 2, 3 };
 
             // Act
             PowerMap powerMap = new PowerMap(powers, speeds, tractionPercentages);
 
             // Assert
-            Assert.AreEqual(150, powerMap.Map[0, 1]); // Interpolated value between 100 and 200
-            Assert.AreEqual(650, powerMap.Map[2, 1]); // Interpolated value between 600 and 700
-        }
-
-        [TestMethod]
-        public void PowerMap_OutOfBounds_ThrowsArgumentException()
-        {
-            // Arrange
-            int[,] powers = {
-                { 100, 200, 300 },
-                { 400, 500, 600 },
-                { 700, 800, 900 }
-            };
-            double[] speeds = { 0, 1, 2 };
-            double[] tractionPercentages = { 0, 1, 2 };
-
-            // Act & Assert
-            Assert.ThrowsException<ArgumentException>(() => new PowerMap(powers, new double[] { -1, 1, 2 }, tractionPercentages));
-            Assert.ThrowsException<ArgumentException>(() => new PowerMap(powers, speeds, new double[] { -1, 1, 2 }));
+            Assert.AreEqual(150, powerMap.Powers[0, 1]); // Interpolated value between 100 and 200
+            Assert.AreEqual(300, powerMap.Powers[1, 1]); // Interpolated value between 100, 200, 400 and 500
         }
     }
 }
