@@ -11,13 +11,13 @@ namespace TrainCharacteristicsManager
 
         public Dictionary<string, TrainUnitParameters> TrainParameters { get; private set; }
 
-        public TrainCharacteristics Build(List<TrainUnit> trainParameters)
+        public TrainCharacteristicsSimple Build(List<TrainUnit> trainUnits)
         {
-            var tc = new TrainCharacteristics();
+            var tc = new TrainCharacteristicsSimple();
 
-            foreach (var parameter in trainParameters)
+            foreach (var parameter in trainUnits)
             {
-                // Build the TrainCharacteristics object
+                // Build the TrainCharacteristicsSimple object
             }
             return tc;
         }

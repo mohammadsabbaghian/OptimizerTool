@@ -1,7 +1,7 @@
 ﻿
 namespace SpeedOptimizer.Models.Inputs
 {
-    public class InfrastructureConstraints
+    public class RouteConstraints
     {
         public List<SpeedRestrictionSegment> SpeedRestrictionSegments { get; set; }
         public List<GradientSegment> GradientSegments { get; set; }

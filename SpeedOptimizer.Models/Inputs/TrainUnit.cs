@@ -1,4 +1,4 @@
-﻿namespace TrainCharacteristicsManager
+﻿namespace SpeedOptimizer.Models.Inputs
 {
     public class TrainUnit
     {

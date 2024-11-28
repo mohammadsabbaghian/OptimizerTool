@@ -71,6 +71,7 @@ public partial class ConsistBuilderPage : ContentPage
     private void ConfirmBtn_Clicked(object sender, EventArgs e)
     {
         // Handle confirm button click
+        _trainCharacteristicsBuilder.Build(_trainUnits);
     }
 
     private void TrainTypePicker_SelectedIndexChanged(object sender, EventArgs e)

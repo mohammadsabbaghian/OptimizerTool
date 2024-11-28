@@ -2,9 +2,9 @@
 
 namespace TrainCharacteristicsManager
 {
-    public class TrainCharacteristics
+    public class TrainCharacteristicsSimple
     {
-        public TrainCharacteristics()
+        public TrainCharacteristicsSimple()
         {
             // Initialize the object
         }
@@ -13,9 +13,10 @@ namespace TrainCharacteristicsManager
         public Propulsion Propulsion { get; set; }
         public string Class { get; set; }
         public int CurveRes { get; set; }
-        public PowerMap PowerMap { get; set; }
-        public ForceCurve BrakingCurve { get; set; }
-        public ForceCurve TractionCurve { get; set; }
+        public int MaxPower { get; set; }
+        public int MaxForce { get; set; }
+        public float TractionEfficiency { get; set; }
+        public float BrakingEfficiency { get; set; }
         public float MechanicalBraking { get; set; }
         public int Mass { get; set; }
         public int Length { get; set; }

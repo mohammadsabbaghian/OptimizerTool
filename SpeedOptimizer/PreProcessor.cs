@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SpeedOptimizer.Models.Inputs;
+using TrainCharacteristicsManager;
 
 namespace SpeedOptimizer
 {
     internal class PreProcessor
     {
+        public void Process(TimeConstraints timeConstraints, RouteConstraints routeConstraints, TrainCharacteristicsSimple trainCharacteristics)
+        {
+            // Pre-process the data
+        }
     }
 }
