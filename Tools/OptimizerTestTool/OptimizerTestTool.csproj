@@ -56,10 +56,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SferaHandlers\SferaHandlers.csproj" />
-    <ProjectReference Include="..\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
-    <ProjectReference Include="..\SpeedOptimizer\SpeedOptimizer.csproj" />
-    <ProjectReference Include="..\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
+    <ProjectReference Include="..\..\Shared\SferaHandlers\SferaHandlers.csproj" />
+    <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
+    <ProjectReference Include="..\..\SPO\SpeedOptimizer\SpeedOptimizer.csproj" />
+    <ProjectReference Include="..\..\TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Pages\ConsistBuilderPage.xaml.cs">

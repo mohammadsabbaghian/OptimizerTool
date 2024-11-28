@@ -3,30 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizerTestTool", "OptimizerTestTool\OptimizerTestTool.csproj", "{2783E27D-3EA8-4E1B-B2A3-0F6007842435}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizerTestTool", "Tools\OptimizerTestTool\OptimizerTestTool.csproj", "{2783E27D-3EA8-4E1B-B2A3-0F6007842435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer", "SpeedOptimizer\SpeedOptimizer.csproj", "{C271359A-3C4C-4FAA-9410-BAACA3FE0BCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer", "SPO\SpeedOptimizer\SpeedOptimizer.csproj", "{C271359A-3C4C-4FAA-9410-BAACA3FE0BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer.Models", "SpeedOptimizer.Models\SpeedOptimizer.Models.csproj", "{9C2014F7-5DB2-477A-8151-F05CCF804DA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer.Models", "SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj", "{9C2014F7-5DB2-477A-8151-F05CCF804DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SferaHandlers", "SferaHandlers\SferaHandlers.csproj", "{9CCDB425-37DD-4C9C-A186-14EC07436604}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SferaHandlers", "Shared\SferaHandlers\SferaHandlers.csproj", "{9CCDB425-37DD-4C9C-A186-14EC07436604}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA797E57-592A-4CCF-8177-E32888F9A9FD}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsManager", "TrainCharacteristicsManager\TrainCharacteristicsManager.csproj", "{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsManager", "TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj", "{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0A347AA3-5579-46C0-B9F4-083B286FFFE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0A347AA3-5579-46C0-B9F4-083B286FFFE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer.Tests", "SpeedOptimizer.Tests\SpeedOptimizer.Tests.csproj", "{D9847B17-26C4-4D69-9EC7-F0660495FCE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer.Tests", "Testing\SpeedOptimizer.Tests\SpeedOptimizer.Tests.csproj", "{D9847B17-26C4-4D69-9EC7-F0660495FCE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsService", "TrainCharacteristicsService\TrainCharacteristicsService.csproj", "{2E8F3238-C149-4371-809F-B708BC46D70D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsService", "TCM\TrainCharacteristicsService\TrainCharacteristicsService.csproj", "{2E8F3238-C149-4371-809F-B708BC46D70D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TrainCharacteristics", "TrainCharacteristics", "{C96D7BE7-F692-46A0-BD19-C2A6F42A9C13}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TCM", "TCM", "{C96D7BE7-F692-46A0-BD19-C2A6F42A9C13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristics.Models", "TrainCharacteristics.Models\TrainCharacteristics.Models.csproj", "{8314AB47-EA87-400B-BBF6-C5C845CE7C65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristics.Models", "TCM\TrainCharacteristics.Models\TrainCharacteristics.Models.csproj", "{8314AB47-EA87-400B-BBF6-C5C845CE7C65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SPO", "SPO", "{88F218D9-A6B5-477F-8DF4-E266DBB139A1}"
 EndProject

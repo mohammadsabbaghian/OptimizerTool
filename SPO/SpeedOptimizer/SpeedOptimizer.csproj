@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
     <ProjectReference Include="..\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
-    <ProjectReference Include="..\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
   </ItemGroup>
 
 </Project>
