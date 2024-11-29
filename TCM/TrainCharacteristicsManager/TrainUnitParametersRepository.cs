@@ -15,8 +15,8 @@ namespace TrainCharacteristicsManager
                     Type = TrafficType.HighSpeed,
                     BaseClassType = "TGV",
                     CurveRes = 6,
-                    MaxPower = 8800,
-                    MaxForce = 220,
+                    TractionPower = 8800,
+                    TractionForce= 220,
                     Mass = 380000,
                     Length = 200,
                     DragAmass = 2000,
@@ -25,7 +25,7 @@ namespace TrainCharacteristicsManager
                     DragB = 2000,
                     DragC = 2000,
                     DeltaDragC = 2000,
-                    RotatingMassCoefficient = 1.05,
+                    RotatingMassCoefficient = 1.05f,
                     NumberOfCars = 6
                 },
                 ["CoradiaStreamHC3"] = new TrainUnitParametersSimple
