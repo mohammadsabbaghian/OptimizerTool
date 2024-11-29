@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SFERA_B2G_EventMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Appendix_D-SFERA_XML_Schema_Definition/SFERA.xsd">
+	<MessageHeader SFERA_version="1.91" message_ID="5052df4a-0f6a-4e57-aca7-7c5ef06de2b7" timestamp="2022-04-01T20:07:30Z" sourceDevice="TMS" destinationDevice="RU DAS-TS">
+		<MessageReference>
+			<MessageType>SF00</MessageType>
+			<MessageTypeVersion>1.91</MessageTypeVersion>
+			<MessageIdentifier>594da3ec-e3b8-11eb-bdba-0050560c8ce3</MessageIdentifier>
+			<MessageDateTime>2022-04-01T10:57:27.680+02:00</MessageDateTime>
+		</MessageReference>
+		<Sender>0087</Sender>
+		<Recipient>1187</Recipient>
+	</MessageHeader>
+	<B2G_StatusReport DAS_drivingMode="GoA1"/>
+</SFERA_B2G_EventMessage>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PoweredUnitModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BaseTrainType>7010</BaseTrainType>
+	<TrainClassId>7010</TrainClassId>
+	<Caption>701 Ten-Car</Caption>
+	<NumCars>10</NumCars>
+	<Length>201</Length>
+	<Mass>350000</Mass>
+	<NumAxles>40</NumAxles>
+	<MaxSpeed>44.4444444444</MaxSpeed>
+	<MaxPower>3974520</MaxPower>
+	<MaxForce>318300</MaxForce>
+	<DragAmass>0.022351</DragAmass>
+	<DragAaxle>0</DragAaxle>
+	<DragC>2.3715</DragC>
+	<DeltaDragC>14.6285</DeltaDragC>
+  	<IsAffectedByPowerRestriction>true</IsAffectedByPowerRestriction>
+  	<MaximumElectricBrakeForce>254640</MaximumElectricBrakeForce>
+  	<LowSpeedMaximumElectricBrakeForce>254640</LowSpeedMaximumElectricBrakeForce>
+  	<ElectricBrakeTransitionSpeed>0</ElectricBrakeTransitionSpeed>
+	<InverseLinearElectricalBrakeFactor>3179616</InverseLinearElectricalBrakeFactor>
+	<LinearElectricalBrakeFactor>0</LinearElectricalBrakeFactor>	
+  	<RotatingMassesCoefficient>1.05</RotatingMassesCoefficient>
+	<SupportsCoasting>true</SupportsCoasting>
+  	<MinimumCoastingSpeed>8.333</MinimumCoastingSpeed>
+  	<MinimumCoastingDistance>500</MinimumCoastingDistance>
+	<RequiredTractionPercentage>0</RequiredTractionPercentage>
+  <StepwisePreferredDecelerationRate>
+    <DecelerationRate>
+      <Value>0.6</Value>
+      <ChangeV>0</ChangeV>
+    </DecelerationRate>
+  </StepwisePreferredDecelerationRate>
+  <BrakedWeightPercentageG>120</BrakedWeightPercentageG> 
+	<BrakedWeightPercentageP>120</BrakedWeightPercentageP>
+  	<BrakedWeightToDecelerationRateLinear>0.00647</BrakedWeightToDecelerationRateLinear>
+  	<BrakedWeightToDecelerationRateOffset>0.103</BrakedWeightToDecelerationRateOffset>
+	<RegenerationEfficiency>0.82</RegenerationEfficiency>
+	<IsLoco>false</IsLoco>
+  	<SupportedTypes>
+  	</SupportedTypes>
+</PoweredUnitModel>

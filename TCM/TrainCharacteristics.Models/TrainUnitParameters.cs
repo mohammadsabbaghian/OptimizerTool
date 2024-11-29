@@ -2,7 +2,7 @@
 
 namespace TrainCharacteristicsManager
 {
-    public class TrainUnitParameters : TrainUnitBase
+    public class TrainUnitParameters : TrainUnitParametersBase
     {
         public PowerMap PowerMap { get; set; }
         public ForceCurve BrakingCurve { get; set; }

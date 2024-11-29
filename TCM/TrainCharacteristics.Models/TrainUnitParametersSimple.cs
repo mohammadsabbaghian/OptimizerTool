@@ -2,10 +2,12 @@
 
 namespace TrainCharacteristicsManager
 {
-    public class TrainUnitParametersSimple : TrainUnitBase
+    public class TrainUnitParametersSimple : TrainUnitParametersBase
     {
-        public int MaxPower { get; set; }
-        public int MaxForce { get; set; }
+        public float BrakingForce { get; set; }
+        public float BrakingPower { get; set; }
+        public int TractionForce { get; internal set; }
+        public int TractionPower { get; internal set; }
         public float TractionEfficiency { get; set; }
         public float BrakingEfficiency { get; set; }
     }

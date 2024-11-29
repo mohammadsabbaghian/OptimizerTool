@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WagonUnit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BaseTrainType>IronOre</BaseTrainType>
+	<IsFreight>true</IsFreight>
+	<DragAmass>0.00713619</DragAmass>
+	<DragAaxle>39.2455</DragAaxle>
+	<DeltaDragCLoaded>1.0994</DeltaDragCLoaded>
+	<DeltaDragCEmpty>1.1988</DeltaDragCEmpty>
+	<StepwisePreferredDecelerationRate>
+		<DecelerationRate>
+			<Value>0.15</Value>
+			<ChangeV>0</ChangeV>
+		</DecelerationRate>
+	</StepwisePreferredDecelerationRate>
+	<TractionBuildUpDeltaTime>0.1</TractionBuildUpDeltaTime>
+	<IsFlat>false</IsFlat>
+
+	<Types>
+		<Type>
+			<TrainClassId>VNTL</TrainClassId>
+			<Caption>VNTL</Caption>
+			<EmptyMass>27000</EmptyMass>
+			<Length>11.22</Length>
+			<NumAxles>4</NumAxles>
+			<NumCars>1</NumCars>
+			<BrakedWeightPercentageEmpty>16</BrakedWeightPercentageEmpty>
+			<BrakedWeightPercentageLoaded>24</BrakedWeightPercentageLoaded>
+			<RotatingMassesCoefficient>1.0</RotatingMassesCoefficient>
+			<MaxSpeed>22.2222</MaxSpeed>
+		</Type>
+		<Type>
+			<TrainClassId>VOK</TrainClassId>
+			<Caption>VOK</Caption>
+			<EmptyMass>23900</EmptyMass>
+			<Length>13.92</Length>
+			<NumAxles>4</NumAxles>
+			<NumCars>1</NumCars>
+			<BrakedWeightPercentageEmpty>16</BrakedWeightPercentageEmpty>
+			<BrakedWeightPercentageLoaded>24</BrakedWeightPercentageLoaded>
+			<RotatingMassesCoefficient>1.0</RotatingMassesCoefficient>
+			<MaxSpeed>22.2222</MaxSpeed>
+		</Type>
+	</Types>
+</WagonUnit>

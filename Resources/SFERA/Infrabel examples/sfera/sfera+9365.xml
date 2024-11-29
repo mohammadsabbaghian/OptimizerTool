@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SFERA_G2B_ReplyMessage>
+    <MessageHeader SFERA_version="2.00" message_ID="1d969fdf-0311-448d-864f-deb29fb5f88d" timestamp="2024-03-13T12:29:02Z" sourceDevice="INFRABEL">
+        <Sender>0088</Sender>
+        <Recipient>1088</Recipient>
+    </MessageHeader>
+    <G2B_ReplyPayload>
+        <JourneyProfile>
+            <TrainIdentification>
+                <OTN_ID>
+                    <Company>1088</Company>
+                    <OperationalTrainNumber>9365</OperationalTrainNumber>
+                    <AdditionalTrainNumber></AdditionalTrainNumber>
+                    <StartDate>2024-03-01</StartDate>
+                </OTN_ID>
+            </TrainIdentification>
+            <SegmentProfileList SP_ID="842-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T16:51:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="373"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T16:54:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1649"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="872-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T16:54:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1649"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T16:57:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1701"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="871-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T16:57:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1701"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:01:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1699"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="870-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:01:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1699"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:02:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1698"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="868-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:02:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1698"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:07:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1803"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:08:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="503"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="867-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:08:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="503"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:09:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="504"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:10:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="505"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="865-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:10:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="505"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:13:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1611"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+            <SegmentProfileList SP_ID="864-2" SP_VersionMajor="1" SP_VersionMinor="0">
+                <SP_Zone>
+                    <IM_ID>0088</IM_ID>
+                </SP_Zone>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:13:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1611"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:13:00Z" TP_StopSkipPass="Passing_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="1802"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+                <TimingPointConstraints TP_PlannedLatestArrivalTime="2024-03-01T17:17:00Z" TP_StopSkipPass="Stopping_Point">
+                    <TimingPointReference>
+                        <TP_ID_Reference TP_ID="220"/>
+                    </TimingPointReference>
+                </TimingPointConstraints>
+            </SegmentProfileList>
+        </JourneyProfile>
+        <SegmentProfile SP_ID="842-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="13383">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="373" location="0">
+                    <TP_Name name="ESPLECHIN-FRONTIERE"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1649" location="13383">
+                    <TP_Name name="Y.ANTOING"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100062" location="3030"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100064" location="4891"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="101214" location="6662"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100068" location="8441"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100066" location="10222"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.57198" longitude="3.279416"/>
+                </VirtualBalise>
+                <VirtualBalise location="13383">
+                    <VirtualBalisePosition latitude="50.558572" longitude="3.463596"/>
+                </VirtualBalise>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.57205644" longitude="3.27851719"/>
+                </VirtualBalise>
+                <VirtualBalise location="100">
+                    <VirtualBalisePosition latitude="50.57186116" longitude="3.27989441"/>
+                </VirtualBalise>
+                <VirtualBalise location="200">
+                    <VirtualBalisePosition latitude="50.57166646" longitude="3.28126837"/>
+                </VirtualBalise>
+                <VirtualBalise location="300">
+                    <VirtualBalisePosition latitude="50.57147211" longitude="3.28264258"/>
+                </VirtualBalise>
+                <VirtualBalise location="400">
+                    <VirtualBalisePosition latitude="50.57127756" longitude="3.28401665"/>
+                </VirtualBalise>
+                <VirtualBalise location="500">
+                    <VirtualBalisePosition latitude="50.5710829" longitude="3.28539056"/>
+                </VirtualBalise>
+                <VirtualBalise location="600">
+                    <VirtualBalisePosition latitude="50.57088814" longitude="3.28676461"/>
+                </VirtualBalise>
+                <VirtualBalise location="700">
+                    <VirtualBalisePosition latitude="50.57069372" longitude="3.28813864"/>
+                </VirtualBalise>
+                <VirtualBalise location="800">
+                    <VirtualBalisePosition latitude="50.57049774" longitude="3.28952003"/>
+                </VirtualBalise>
+                <VirtualBalise location="900">
+                    <VirtualBalisePosition latitude="50.57029808" longitude="3.29090432"/>
+                </VirtualBalise>
+                <VirtualBalise location="1000">
+                    <VirtualBalisePosition latitude="50.57009272" longitude="3.29228647"/>
+                </VirtualBalise>
+                <VirtualBalise location="1100">
+                    <VirtualBalisePosition latitude="50.56987786" longitude="3.2936636"/>
+                </VirtualBalise>
+                <VirtualBalise location="1200">
+                    <VirtualBalisePosition latitude="50.56965191" longitude="3.29502981"/>
+                </VirtualBalise>
+                <VirtualBalise location="1300">
+                    <VirtualBalisePosition latitude="50.5694134" longitude="3.29639093"/>
+                </VirtualBalise>
+                <VirtualBalise location="1400">
+                    <VirtualBalisePosition latitude="50.56916268" longitude="3.29774653"/>
+                </VirtualBalise>
+                <VirtualBalise location="1500">
+                    <VirtualBalisePosition latitude="50.56889958" longitude="3.29909632"/>
+                </VirtualBalise>
+                <VirtualBalise location="1600">
+                    <VirtualBalisePosition latitude="50.56862409" longitude="3.30043988"/>
+                </VirtualBalise>
+                <VirtualBalise location="1700">
+                    <VirtualBalisePosition latitude="50.56833612" longitude="3.30177706"/>
+                </VirtualBalise>
+                <VirtualBalise location="1800">
+                    <VirtualBalisePosition latitude="50.5680363" longitude="3.30310787"/>
+                </VirtualBalise>
+                <VirtualBalise location="1900">
+                    <VirtualBalisePosition latitude="50.56772444" longitude="3.30443173"/>
+                </VirtualBalise>
+                <VirtualBalise location="2000">
+                    <VirtualBalisePosition latitude="50.56740036" longitude="3.30574836"/>
+                </VirtualBalise>
+                <VirtualBalise location="2100">
+                    <VirtualBalisePosition latitude="50.56706415" longitude="3.30705763"/>
+                </VirtualBalise>
+                <VirtualBalise location="2200">
+                    <VirtualBalisePosition latitude="50.56671798" longitude="3.30836046"/>
+                </VirtualBalise>
+                <VirtualBalise location="2300">
+                    <VirtualBalisePosition latitude="50.56636437" longitude="3.30965836"/>
+                </VirtualBalise>
+                <VirtualBalise location="2400">
+                    <VirtualBalisePosition latitude="50.56600732" longitude="3.31095392"/>
+                </VirtualBalise>
+                <VirtualBalise location="2500">
+                    <VirtualBalisePosition latitude="50.56564889" longitude="3.3122485"/>
+                </VirtualBalise>
+                <VirtualBalise location="2600">
+                    <VirtualBalisePosition latitude="50.56529027" longitude="3.31354306"/>
+                </VirtualBalise>
+                <VirtualBalise location="2700">
+                    <VirtualBalisePosition latitude="50.56493172" longitude="3.3148376"/>
+                </VirtualBalise>
+                <VirtualBalise location="5300">
+                    <VirtualBalisePosition latitude="50.55804042" longitude="3.34980901"/>
+                </VirtualBalise>
+                <VirtualBalise location="10700">
+                    <VirtualBalisePosition latitude="50.55948022" longitude="3.42552841"/>
+                </VirtualBalise>
+                <VirtualBalise location="12000">
+                    <VirtualBalisePosition latitude="50.55897375" longitude="3.44386068"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="99"/>
+                    <StaticSpeedProfileChange location="0" SSP_Speed="300"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="0" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="1469" gradientValue="1.9" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="3016" gradientValue="4.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="6155" gradientValue="21" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="7008" gradientValue="2" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="9271" gradientValue="18.2" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="10713" gradientValue="15.2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="11537" gradientValue="9.1" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="25000" frequency="50"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="842-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="872-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="12284">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="1649" location="0">
+                    <TP_Name name="Y.ANTOING"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1701" location="12284">
+                    <TP_Name name="TOURPES"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100081" location="487"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100083" location="2048"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100084" location="3571"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100086" location="5219"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100088" location="6842"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100090" location="8462"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100092" location="9934"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.558572" longitude="3.463596"/>
+                </VirtualBalise>
+                <VirtualBalise location="12284">
+                    <VirtualBalisePosition latitude="50.56444" longitude="3.65217"/>
+                </VirtualBalise>
+                <VirtualBalise location="2300">
+                    <VirtualBalisePosition latitude="50.55752609" longitude="3.49576886"/>
+                </VirtualBalise>
+                <VirtualBalise location="5100">
+                    <VirtualBalisePosition latitude="50.55640879" longitude="3.53524495"/>
+                </VirtualBalise>
+                <VirtualBalise location="5700">
+                    <VirtualBalisePosition latitude="50.55616743" longitude="3.54371093"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="300"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="9.1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1363" gradientValue="15.9" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="2740" gradientValue="1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="4265" gradientValue="4.8" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="4689" gradientValue="0.9" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="7285" gradientValue="2.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="8935" gradientValue="10.7" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="9867" gradientValue="13.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="10626" gradientValue="2.9" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="25000" frequency="50"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="872-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="871-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="17973">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="1701" location="0">
+                    <TP_Name name="TOURPES"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1699" location="17973">
+                    <TP_Name name="Y.PATARD"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="102453" location="1082"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100105" location="2748"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100107" location="4353"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100109" location="5962"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100111" location="7512"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100113" location="9302"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100115" location="10865"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100117" location="12633"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100119" location="14269"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100121" location="15838"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.56444" longitude="3.65217"/>
+                </VirtualBalise>
+                <VirtualBalise location="17973">
+                    <VirtualBalisePosition latitude="50.63101" longitude="3.858721"/>
+                </VirtualBalise>
+                <VirtualBalise location="13300">
+                    <VirtualBalisePosition latitude="50.60475506" longitude="3.80800142"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="300"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="2.9" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1293" gradientValue="4.2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="2054" gradientValue="9.8" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="2868" gradientValue="1.7" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="5315" gradientValue="8.4" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="6791" gradientValue="6.5" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="9501" gradientValue="3.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="11411" gradientValue="10.1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="13351" gradientValue="8.3" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="14456" gradientValue="2.1" gradientDirection="Uphill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="25000" frequency="50"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="871-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="870-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="3586">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="1699" location="0">
+                    <TP_Name name="Y.PATARD"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1698" location="3586">
+                    <TP_Name name="Y.BEAUREGARD"/>
+                </TimingPoint>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.63101" longitude="3.858721"/>
+                </VirtualBalise>
+                <VirtualBalise location="3586">
+                    <VirtualBalisePosition latitude="50.648921" longitude="3.902018"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="300"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="2.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="161" gradientValue="3.5" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="775" gradientValue="5.2" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1756" gradientValue="8" gradientDirection="Uphill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="25000" frequency="50"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="870-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="868-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="26210">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="1698" location="0">
+                    <TP_Name name="Y.BEAUREGARD"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1803" location="23775">
+                    <TP_Name name="GRENS VLAANDEREN-WALLONIE L1"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="503" location="26210">
+                    <TP_Name name="HALLE-RING"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100142" location="503"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100145" location="2319"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100147" location="4059"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100149" location="5508"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100150" location="7115"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100152" location="8775"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100154" location="10279"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100155" location="11830"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100157" location="13379"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100158" location="14962"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100160" location="16587"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100162" location="18188"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100164" location="20060"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100166" location="21991"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.648921" longitude="3.902018"/>
+                </VirtualBalise>
+                <VirtualBalise location="23775">
+                    <VirtualBalisePosition latitude="50.706739" longitude="4.21213"/>
+                </VirtualBalise>
+                <VirtualBalise location="26210">
+                    <VirtualBalisePosition latitude="50.729307" longitude="4.235449"/>
+                </VirtualBalise>
+                <VirtualBalise location="19200">
+                    <VirtualBalisePosition latitude="50.6880375" longitude="4.1556652"/>
+                </VirtualBalise>
+                <VirtualBalise location="19300">
+                    <VirtualBalisePosition latitude="50.68858639" longitude="4.15678553"/>
+                </VirtualBalise>
+                <VirtualBalise location="19400">
+                    <VirtualBalisePosition latitude="50.6891462" longitude="4.15789226"/>
+                </VirtualBalise>
+                <VirtualBalise location="20900">
+                    <VirtualBalisePosition latitude="50.69799677" longitude="4.17385673"/>
+                </VirtualBalise>
+                <VirtualBalise location="21000">
+                    <VirtualBalisePosition latitude="50.69845089" longitude="4.17507811"/>
+                </VirtualBalise>
+                <VirtualBalise location="21100">
+                    <VirtualBalisePosition latitude="50.69887278" longitude="4.17632796"/>
+                </VirtualBalise>
+                <VirtualBalise location="21200">
+                    <VirtualBalisePosition latitude="50.69926116" longitude="4.17760443"/>
+                </VirtualBalise>
+                <VirtualBalise location="21300">
+                    <VirtualBalisePosition latitude="50.69961523" longitude="4.17890541"/>
+                </VirtualBalise>
+                <VirtualBalise location="21400">
+                    <VirtualBalisePosition latitude="50.69993479" longitude="4.18022835"/>
+                </VirtualBalise>
+                <VirtualBalise location="21500">
+                    <VirtualBalisePosition latitude="50.70021913" longitude="4.18157112"/>
+                </VirtualBalise>
+                <VirtualBalise location="21600">
+                    <VirtualBalisePosition latitude="50.70046744" longitude="4.18293145"/>
+                </VirtualBalise>
+                <VirtualBalise location="21700">
+                    <VirtualBalisePosition latitude="50.70067961" longitude="4.18430681"/>
+                </VirtualBalise>
+                <VirtualBalise location="21800">
+                    <VirtualBalisePosition latitude="50.70085619" longitude="4.18569477"/>
+                </VirtualBalise>
+                <VirtualBalise location="21900">
+                    <VirtualBalisePosition latitude="50.70100436" longitude="4.18709404"/>
+                </VirtualBalise>
+                <VirtualBalise location="22000">
+                    <VirtualBalisePosition latitude="50.7011358" longitude="4.18849974"/>
+                </VirtualBalise>
+                <VirtualBalise location="22100">
+                    <VirtualBalisePosition latitude="50.70126236" longitude="4.18990137"/>
+                </VirtualBalise>
+                <VirtualBalise location="22200">
+                    <VirtualBalisePosition latitude="50.70138837" longitude="4.19130244"/>
+                </VirtualBalise>
+                <VirtualBalise location="22300">
+                    <VirtualBalisePosition latitude="50.70151436" longitude="4.19270352"/>
+                </VirtualBalise>
+                <VirtualBalise location="22400">
+                    <VirtualBalisePosition latitude="50.70164024" longitude="4.19410475"/>
+                </VirtualBalise>
+                <VirtualBalise location="22500">
+                    <VirtualBalisePosition latitude="50.7017733" longitude="4.19550412"/>
+                </VirtualBalise>
+                <VirtualBalise location="22600">
+                    <VirtualBalisePosition latitude="50.70192602" longitude="4.19689861"/>
+                </VirtualBalise>
+                <VirtualBalise location="22700">
+                    <VirtualBalisePosition latitude="50.70212787" longitude="4.19827652"/>
+                </VirtualBalise>
+                <VirtualBalise location="22800">
+                    <VirtualBalisePosition latitude="50.70237077" longitude="4.19963886"/>
+                </VirtualBalise>
+                <VirtualBalise location="22900">
+                    <VirtualBalisePosition latitude="50.70261357" longitude="4.20100135"/>
+                </VirtualBalise>
+                <VirtualBalise location="23000">
+                    <VirtualBalisePosition latitude="50.7029027" longitude="4.2023402"/>
+                </VirtualBalise>
+                <VirtualBalise location="23100">
+                    <VirtualBalisePosition latitude="50.70324418" longitude="4.20364901"/>
+                </VirtualBalise>
+                <VirtualBalise location="23200">
+                    <VirtualBalisePosition latitude="50.70362293" longitude="4.20493209"/>
+                </VirtualBalise>
+                <VirtualBalise location="23300">
+                    <VirtualBalisePosition latitude="50.70403901" longitude="4.20618633"/>
+                </VirtualBalise>
+                <VirtualBalise location="23400">
+                    <VirtualBalisePosition latitude="50.70449046" longitude="4.20740974"/>
+                </VirtualBalise>
+                <VirtualBalise location="23500">
+                    <VirtualBalisePosition latitude="50.70497763" longitude="4.2085988"/>
+                </VirtualBalise>
+                <VirtualBalise location="23600">
+                    <VirtualBalisePosition latitude="50.705498" longitude="4.20975238"/>
+                </VirtualBalise>
+                <VirtualBalise location="23700">
+                    <VirtualBalisePosition latitude="50.70605202" longitude="4.21086638"/>
+                </VirtualBalise>
+                <VirtualBalise location="23800">
+                    <VirtualBalisePosition latitude="50.70663807" longitude="4.21193924"/>
+                </VirtualBalise>
+                <VirtualBalise location="23900">
+                    <VirtualBalisePosition latitude="50.70727074" longitude="4.21299555"/>
+                </VirtualBalise>
+                <VirtualBalise location="24000">
+                    <VirtualBalisePosition latitude="50.70792869" longitude="4.2139973"/>
+                </VirtualBalise>
+                <VirtualBalise location="24100">
+                    <VirtualBalisePosition latitude="50.70859965" longitude="4.2149281"/>
+                </VirtualBalise>
+                <VirtualBalise location="24200">
+                    <VirtualBalisePosition latitude="50.70929734" longitude="4.21580915"/>
+                </VirtualBalise>
+                <VirtualBalise location="24300">
+                    <VirtualBalisePosition latitude="50.71001904" longitude="4.21664074"/>
+                </VirtualBalise>
+                <VirtualBalise location="24400">
+                    <VirtualBalisePosition latitude="50.71076118" longitude="4.2174267"/>
+                </VirtualBalise>
+                <VirtualBalise location="24500">
+                    <VirtualBalisePosition latitude="50.71151514" longitude="4.21818404"/>
+                </VirtualBalise>
+                <VirtualBalise location="24600">
+                    <VirtualBalisePosition latitude="50.71227349" longitude="4.21893063"/>
+                </VirtualBalise>
+                <VirtualBalise location="24700">
+                    <VirtualBalisePosition latitude="50.71303237" longitude="4.21967598"/>
+                </VirtualBalise>
+                <VirtualBalise location="24800">
+                    <VirtualBalisePosition latitude="50.71379116" longitude="4.22042148"/>
+                </VirtualBalise>
+                <VirtualBalise location="24900">
+                    <VirtualBalisePosition latitude="50.71455201" longitude="4.22116899"/>
+                </VirtualBalise>
+                <VirtualBalise location="25000">
+                    <VirtualBalisePosition latitude="50.71531475" longitude="4.22191836"/>
+                </VirtualBalise>
+                <VirtualBalise location="25100">
+                    <VirtualBalisePosition latitude="50.71607748" longitude="4.22266775"/>
+                </VirtualBalise>
+                <VirtualBalise location="25200">
+                    <VirtualBalisePosition latitude="50.71684021" longitude="4.2234173"/>
+                </VirtualBalise>
+                <VirtualBalise location="25300">
+                    <VirtualBalisePosition latitude="50.71760293" longitude="4.22416674"/>
+                </VirtualBalise>
+                <VirtualBalise location="25400">
+                    <VirtualBalisePosition latitude="50.71836565" longitude="4.22491635"/>
+                </VirtualBalise>
+                <VirtualBalise location="25500">
+                    <VirtualBalisePosition latitude="50.71912836" longitude="4.22566584"/>
+                </VirtualBalise>
+                <VirtualBalise location="25600">
+                    <VirtualBalisePosition latitude="50.71989107" longitude="4.22641549"/>
+                </VirtualBalise>
+                <VirtualBalise location="25700">
+                    <VirtualBalisePosition latitude="50.72065377" longitude="4.22716517"/>
+                </VirtualBalise>
+                <VirtualBalise location="25800">
+                    <VirtualBalisePosition latitude="50.72141647" longitude="4.22791473"/>
+                </VirtualBalise>
+                <VirtualBalise location="25900">
+                    <VirtualBalisePosition latitude="50.72218123" longitude="4.22865907"/>
+                </VirtualBalise>
+                <VirtualBalise location="26000">
+                    <VirtualBalisePosition latitude="50.72294965" longitude="4.22939407"/>
+                </VirtualBalise>
+                <VirtualBalise location="26100">
+                    <VirtualBalisePosition latitude="50.72372264" longitude="4.23011719"/>
+                </VirtualBalise>
+                <VirtualBalise location="26200">
+                    <VirtualBalisePosition latitude="50.7244967" longitude="4.23083736"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="300"/>
+                    <StaticSpeedProfileChange location="20065" SSP_Speed="230"/>
+                    <StaticSpeedProfileChange location="22366" SSP_Speed="220"/>
+                    <StaticSpeedProfileChange location="23585" SSP_Speed="160"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="8" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="362" gradientValue="6.2" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1647" gradientValue="1.1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="4471" gradientValue="11.7" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="5456" gradientValue="3.2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="6309" gradientValue="9.2" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="8414" gradientValue="10.2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="9734" gradientValue="3.9" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="11110" gradientValue="14.7" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="12784" gradientValue="10.3" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="13933" gradientValue="10.1" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="14985" gradientValue="2.9" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="16200" gradientValue="2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="17266" gradientValue="6.8" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="18009" gradientValue="18.3" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="19623" gradientValue="16.5" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="21178" gradientValue="14" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="22878" gradientValue="3.2" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="23918" gradientValue="11.5" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="24637" gradientValue="25" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="24981" gradientValue="4.53" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="25295" gradientValue="0" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="25704" gradientValue="3.32" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="25000" frequency="50"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="868-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="867-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="2624">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="503" location="0">
+                    <TP_Name name="HALLE-RING"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="504" location="1365">
+                    <TP_Name name="HALLE"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="505" location="2624">
+                    <TP_Name name="Y.NOORD HALLE"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="100195" location="1095"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.729307" longitude="4.235449"/>
+                </VirtualBalise>
+                <VirtualBalise location="1365">
+                    <VirtualBalisePosition latitude="50.7332" longitude="4.2395"/>
+                </VirtualBalise>
+                <VirtualBalise location="2624">
+                    <VirtualBalisePosition latitude="50.746711" longitude="4.253509"/>
+                </VirtualBalise>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.72460452" longitude="4.23093774"/>
+                </VirtualBalise>
+                <VirtualBalise location="100">
+                    <VirtualBalisePosition latitude="50.72537857" longitude="4.23165807"/>
+                </VirtualBalise>
+                <VirtualBalise location="200">
+                    <VirtualBalisePosition latitude="50.72615253" longitude="4.23237857"/>
+                </VirtualBalise>
+                <VirtualBalise location="300">
+                    <VirtualBalisePosition latitude="50.7269264" longitude="4.2330991"/>
+                </VirtualBalise>
+                <VirtualBalise location="400">
+                    <VirtualBalisePosition latitude="50.72770018" longitude="4.23382035"/>
+                </VirtualBalise>
+                <VirtualBalise location="500">
+                    <VirtualBalisePosition latitude="50.72846624" longitude="4.23456148"/>
+                </VirtualBalise>
+                <VirtualBalise location="600">
+                    <VirtualBalisePosition latitude="50.72921687" longitude="4.23534064"/>
+                </VirtualBalise>
+                <VirtualBalise location="700">
+                    <VirtualBalisePosition latitude="50.72995056" longitude="4.23615896"/>
+                </VirtualBalise>
+                <VirtualBalise location="800">
+                    <VirtualBalisePosition latitude="50.73066675" longitude="4.23701504"/>
+                </VirtualBalise>
+                <VirtualBalise location="900">
+                    <VirtualBalisePosition latitude="50.73137468" longitude="4.23788788"/>
+                </VirtualBalise>
+                <VirtualBalise location="1000">
+                    <VirtualBalisePosition latitude="50.73208269" longitude="4.23876088"/>
+                </VirtualBalise>
+                <VirtualBalise location="1100">
+                    <VirtualBalisePosition latitude="50.73279061" longitude="4.23963377"/>
+                </VirtualBalise>
+                <VirtualBalise location="1200">
+                    <VirtualBalisePosition latitude="50.73349861" longitude="4.24050669"/>
+                </VirtualBalise>
+                <VirtualBalise location="1300">
+                    <VirtualBalisePosition latitude="50.73420661" longitude="4.24137977"/>
+                </VirtualBalise>
+                <VirtualBalise location="1400">
+                    <VirtualBalisePosition latitude="50.73493164" longitude="4.24221643"/>
+                </VirtualBalise>
+                <VirtualBalise location="1500">
+                    <VirtualBalisePosition latitude="50.73568151" longitude="4.24299738"/>
+                </VirtualBalise>
+                <VirtualBalise location="1600">
+                    <VirtualBalisePosition latitude="50.73644867" longitude="4.24373566"/>
+                </VirtualBalise>
+                <VirtualBalise location="1700">
+                    <VirtualBalisePosition latitude="50.73722596" longitude="4.24444745"/>
+                </VirtualBalise>
+                <VirtualBalise location="1800">
+                    <VirtualBalisePosition latitude="50.73800576" longitude="4.24515232"/>
+                </VirtualBalise>
+                <VirtualBalise location="1900">
+                    <VirtualBalisePosition latitude="50.73878573" longitude="4.24585679"/>
+                </VirtualBalise>
+                <VirtualBalise location="2000">
+                    <VirtualBalisePosition latitude="50.73956229" longitude="4.24657049"/>
+                </VirtualBalise>
+                <VirtualBalise location="2100">
+                    <VirtualBalisePosition latitude="50.74032863" longitude="4.24731117"/>
+                </VirtualBalise>
+                <VirtualBalise location="2200">
+                    <VirtualBalisePosition latitude="50.74108528" longitude="4.24807611"/>
+                </VirtualBalise>
+                <VirtualBalise location="2300">
+                    <VirtualBalisePosition latitude="50.74183914" longitude="4.2488479"/>
+                </VirtualBalise>
+                <VirtualBalise location="2400">
+                    <VirtualBalisePosition latitude="50.74259291" longitude="4.24961984"/>
+                </VirtualBalise>
+                <VirtualBalise location="2500">
+                    <VirtualBalisePosition latitude="50.74334676" longitude="4.25039181"/>
+                </VirtualBalise>
+                <VirtualBalise location="2600">
+                    <VirtualBalisePosition latitude="50.74410051" longitude="4.25116381"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="160"/>
+                    <StaticSpeedProfileChange location="2185" SSP_Speed="160"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="3.32" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="94" gradientValue="3.55" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="272" gradientValue="12.74" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1142" gradientValue="9.17" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="1798" gradientValue="3.1" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="3000" frequency="0"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="9010" lineName="1" trackIdentifier="867-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="865-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="6693">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="505" location="0">
+                    <TP_Name name="Y.NOORD HALLE"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1611" location="6693">
+                    <TP_Name name="Y.RUISBROEK"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="7670" location="976"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="7673" location="2693"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="7672" location="4439"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.746711" longitude="4.253509"/>
+                </VirtualBalise>
+                <VirtualBalise location="6693">
+                    <VirtualBalisePosition latitude="50.799385" longitude="4.301491"/>
+                </VirtualBalise>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.74415829" longitude="4.25122303"/>
+                </VirtualBalise>
+                <VirtualBalise location="100">
+                    <VirtualBalisePosition latitude="50.74491222" longitude="4.25199477"/>
+                </VirtualBalise>
+                <VirtualBalise location="200">
+                    <VirtualBalisePosition latitude="50.74566614" longitude="4.25276654"/>
+                </VirtualBalise>
+                <VirtualBalise location="300">
+                    <VirtualBalisePosition latitude="50.74641997" longitude="4.25353847"/>
+                </VirtualBalise>
+                <VirtualBalise location="400">
+                    <VirtualBalisePosition latitude="50.7471738" longitude="4.25431043"/>
+                </VirtualBalise>
+                <VirtualBalise location="500">
+                    <VirtualBalisePosition latitude="50.74792762" longitude="4.25508255"/>
+                </VirtualBalise>
+                <VirtualBalise location="600">
+                    <VirtualBalisePosition latitude="50.74868143" longitude="4.25585455"/>
+                </VirtualBalise>
+                <VirtualBalise location="700">
+                    <VirtualBalisePosition latitude="50.74943515" longitude="4.25662687"/>
+                </VirtualBalise>
+                <VirtualBalise location="800">
+                    <VirtualBalisePosition latitude="50.75018887" longitude="4.25739906"/>
+                </VirtualBalise>
+                <VirtualBalise location="900">
+                    <VirtualBalisePosition latitude="50.75094284" longitude="4.25817086"/>
+                </VirtualBalise>
+                <VirtualBalise location="1000">
+                    <VirtualBalisePosition latitude="50.75169646" longitude="4.25894325"/>
+                </VirtualBalise>
+                <VirtualBalise location="1100">
+                    <VirtualBalisePosition latitude="50.75245016" longitude="4.25971566"/>
+                </VirtualBalise>
+                <VirtualBalise location="1200">
+                    <VirtualBalisePosition latitude="50.75320412" longitude="4.26048753"/>
+                </VirtualBalise>
+                <VirtualBalise location="1300">
+                    <VirtualBalisePosition latitude="50.7539579" longitude="4.26125956"/>
+                </VirtualBalise>
+                <VirtualBalise location="1400">
+                    <VirtualBalisePosition latitude="50.75471167" longitude="4.26203191"/>
+                </VirtualBalise>
+                <VirtualBalise location="1500">
+                    <VirtualBalisePosition latitude="50.75546553" longitude="4.26280414"/>
+                </VirtualBalise>
+                <VirtualBalise location="1600">
+                    <VirtualBalisePosition latitude="50.7562192" longitude="4.26357653"/>
+                </VirtualBalise>
+                <VirtualBalise location="1700">
+                    <VirtualBalisePosition latitude="50.75697296" longitude="4.26434881"/>
+                </VirtualBalise>
+                <VirtualBalise location="1800">
+                    <VirtualBalisePosition latitude="50.75772689" longitude="4.26512083"/>
+                </VirtualBalise>
+                <VirtualBalise location="1900">
+                    <VirtualBalisePosition latitude="50.75848036" longitude="4.26589386"/>
+                </VirtualBalise>
+                <VirtualBalise location="2000">
+                    <VirtualBalisePosition latitude="50.75923429" longitude="4.26666579"/>
+                </VirtualBalise>
+                <VirtualBalise location="2100">
+                    <VirtualBalisePosition latitude="50.75998802" longitude="4.2674383"/>
+                </VirtualBalise>
+                <VirtualBalise location="2200">
+                    <VirtualBalisePosition latitude="50.76074166" longitude="4.26821085"/>
+                </VirtualBalise>
+                <VirtualBalise location="2300">
+                    <VirtualBalisePosition latitude="50.7614953" longitude="4.26898356"/>
+                </VirtualBalise>
+                <VirtualBalise location="2400">
+                    <VirtualBalisePosition latitude="50.76224902" longitude="4.26975601"/>
+                </VirtualBalise>
+                <VirtualBalise location="2500">
+                    <VirtualBalisePosition latitude="50.76300282" longitude="4.27052834"/>
+                </VirtualBalise>
+                <VirtualBalise location="2600">
+                    <VirtualBalisePosition latitude="50.76375644" longitude="4.27130126"/>
+                </VirtualBalise>
+                <VirtualBalise location="2700">
+                    <VirtualBalisePosition latitude="50.76450997" longitude="4.27207407"/>
+                </VirtualBalise>
+                <VirtualBalise location="2800">
+                    <VirtualBalisePosition latitude="50.76526367" longitude="4.27284662"/>
+                </VirtualBalise>
+                <VirtualBalise location="2900">
+                    <VirtualBalisePosition latitude="50.76601745" longitude="4.27361905"/>
+                </VirtualBalise>
+                <VirtualBalise location="3000">
+                    <VirtualBalisePosition latitude="50.76677096" longitude="4.27439208"/>
+                </VirtualBalise>
+                <VirtualBalise location="3100">
+                    <VirtualBalisePosition latitude="50.76752455" longitude="4.27516484"/>
+                </VirtualBalise>
+                <VirtualBalise location="3200">
+                    <VirtualBalisePosition latitude="50.76827895" longitude="4.27593579"/>
+                </VirtualBalise>
+                <VirtualBalise location="3300">
+                    <VirtualBalisePosition latitude="50.76904016" longitude="4.27668987"/>
+                </VirtualBalise>
+                <VirtualBalise location="3400">
+                    <VirtualBalisePosition latitude="50.76981105" longitude="4.27741916"/>
+                </VirtualBalise>
+                <VirtualBalise location="3500">
+                    <VirtualBalisePosition latitude="50.77059092" longitude="4.27812407"/>
+                </VirtualBalise>
+                <VirtualBalise location="3600">
+                    <VirtualBalisePosition latitude="50.77138001" longitude="4.27880318"/>
+                </VirtualBalise>
+                <VirtualBalise location="3700">
+                    <VirtualBalisePosition latitude="50.77217682" longitude="4.27945948"/>
+                </VirtualBalise>
+                <VirtualBalise location="3800">
+                    <VirtualBalisePosition latitude="50.77297631" longitude="4.28010785"/>
+                </VirtualBalise>
+                <VirtualBalise location="3900">
+                    <VirtualBalisePosition latitude="50.7737758" longitude="4.28075611"/>
+                </VirtualBalise>
+                <VirtualBalise location="4000">
+                    <VirtualBalisePosition latitude="50.77457537" longitude="4.2814041"/>
+                </VirtualBalise>
+                <VirtualBalise location="4100">
+                    <VirtualBalisePosition latitude="50.77537486" longitude="4.28205254"/>
+                </VirtualBalise>
+                <VirtualBalise location="4200">
+                    <VirtualBalisePosition latitude="50.77617433" longitude="4.28270086"/>
+                </VirtualBalise>
+                <VirtualBalise location="4300">
+                    <VirtualBalisePosition latitude="50.77697381" longitude="4.2833492"/>
+                </VirtualBalise>
+                <VirtualBalise location="4400">
+                    <VirtualBalisePosition latitude="50.77777319" longitude="4.28399785"/>
+                </VirtualBalise>
+                <VirtualBalise location="4500">
+                    <VirtualBalisePosition latitude="50.77857257" longitude="4.28464638"/>
+                </VirtualBalise>
+                <VirtualBalise location="4600">
+                    <VirtualBalisePosition latitude="50.77937212" longitude="4.28529479"/>
+                </VirtualBalise>
+                <VirtualBalise location="4700">
+                    <VirtualBalisePosition latitude="50.78017167" longitude="4.28594265"/>
+                </VirtualBalise>
+                <VirtualBalise location="4800">
+                    <VirtualBalisePosition latitude="50.78097112" longitude="4.28659124"/>
+                </VirtualBalise>
+                <VirtualBalise location="4900">
+                    <VirtualBalisePosition latitude="50.78177066" longitude="4.28723944"/>
+                </VirtualBalise>
+                <VirtualBalise location="5000">
+                    <VirtualBalisePosition latitude="50.78257011" longitude="4.28788779"/>
+                </VirtualBalise>
+                <VirtualBalise location="5100">
+                    <VirtualBalisePosition latitude="50.78336956" longitude="4.28853645"/>
+                </VirtualBalise>
+                <VirtualBalise location="5200">
+                    <VirtualBalisePosition latitude="50.784169" longitude="4.28918513"/>
+                </VirtualBalise>
+                <VirtualBalise location="5300">
+                    <VirtualBalisePosition latitude="50.78496852" longitude="4.28983327"/>
+                </VirtualBalise>
+                <VirtualBalise location="5400">
+                    <VirtualBalisePosition latitude="50.78576804" longitude="4.29048157"/>
+                </VirtualBalise>
+                <VirtualBalise location="5500">
+                    <VirtualBalisePosition latitude="50.78656738" longitude="4.29113018"/>
+                </VirtualBalise>
+                <VirtualBalise location="5600">
+                    <VirtualBalisePosition latitude="50.78736681" longitude="4.29177895"/>
+                </VirtualBalise>
+                <VirtualBalise location="5700">
+                    <VirtualBalisePosition latitude="50.78816659" longitude="4.29242661"/>
+                </VirtualBalise>
+                <VirtualBalise location="5800">
+                    <VirtualBalisePosition latitude="50.78896619" longitude="4.29307457"/>
+                </VirtualBalise>
+                <VirtualBalise location="5900">
+                    <VirtualBalisePosition latitude="50.78976596" longitude="4.29372199"/>
+                </VirtualBalise>
+                <VirtualBalise location="6000">
+                    <VirtualBalisePosition latitude="50.79056564" longitude="4.29437"/>
+                </VirtualBalise>
+                <VirtualBalise location="6100">
+                    <VirtualBalisePosition latitude="50.79136505" longitude="4.29501873"/>
+                </VirtualBalise>
+                <VirtualBalise location="6200">
+                    <VirtualBalisePosition latitude="50.7921649" longitude="4.29566622"/>
+                </VirtualBalise>
+                <VirtualBalise location="6300">
+                    <VirtualBalisePosition latitude="50.79296457" longitude="4.29631401"/>
+                </VirtualBalise>
+                <VirtualBalise location="6400">
+                    <VirtualBalisePosition latitude="50.79376432" longitude="4.29696168"/>
+                </VirtualBalise>
+                <VirtualBalise location="6500">
+                    <VirtualBalisePosition latitude="50.79456407" longitude="4.29760951"/>
+                </VirtualBalise>
+                <VirtualBalise location="6600">
+                    <VirtualBalisePosition latitude="50.79536382" longitude="4.29825723"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="160"/>
+                    <StaticSpeedProfileChange location="0" SSP_Speed="160"/>
+                    <StaticSpeedProfileChange location="276" SSP_Speed="160"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="3.1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="273" gradientValue="2.76" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1013" gradientValue="2.08" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1849" gradientValue="1.29" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="2145" gradientValue="2.1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="2550" gradientValue="1.42" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="2910" gradientValue="21.86" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="3324" gradientValue="2.19" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="3814" gradientValue="24.99" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="4166" gradientValue="0.47" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="5157" gradientValue="1" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="5408" gradientValue="1.49" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="3157" curveRadius="4915" curveDirection="Unknown"/>
+                    <CurveChange location="3660" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="5602" curveRadius="32298" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="3000" frequency="0"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="969" lineName="96N" trackIdentifier="865-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+        <SegmentProfile SP_ID="864-2" SP_VersionMajor="1" SP_VersionMinor="0" SP_Length="5086">
+            <SP_Zone>
+                <IM_ID>0088</IM_ID>
+            </SP_Zone>
+            <SP_Points>
+                <TimingPoint TP_ID="1611" location="0">
+                    <TP_Name name="Y.RUISBROEK"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="1802" location="716">
+                    <TP_Name name="GRENS BRUSSEL-VLAANDEREN L96N"/>
+                </TimingPoint>
+                <TimingPoint TP_ID="220" location="5086">
+                    <TP_Name name="BRUSSEL-ZUID"/>
+                </TimingPoint>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="101048" location="1528"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="101046" location="2722"/>
+                </Signal>
+                <Signal>
+                    <Signal_ID signal_ID_Physical="101042" location="3611"/>
+                </Signal>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.799385" longitude="4.301491"/>
+                </VirtualBalise>
+                <VirtualBalise location="716">
+                    <VirtualBalisePosition latitude="50.801843" longitude="4.303513"/>
+                </VirtualBalise>
+                <VirtualBalise location="5086">
+                    <VirtualBalisePosition latitude="50.836782" longitude="4.336922"/>
+                </VirtualBalise>
+                <VirtualBalise location="0">
+                    <VirtualBalisePosition latitude="50.79645964" longitude="4.29914467"/>
+                </VirtualBalise>
+                <VirtualBalise location="100">
+                    <VirtualBalisePosition latitude="50.79725929" longitude="4.29979272"/>
+                </VirtualBalise>
+                <VirtualBalise location="200">
+                    <VirtualBalisePosition latitude="50.79805893" longitude="4.30044065"/>
+                </VirtualBalise>
+                <VirtualBalise location="300">
+                    <VirtualBalisePosition latitude="50.79885866" longitude="4.30108846"/>
+                </VirtualBalise>
+                <VirtualBalise location="500">
+                    <VirtualBalisePosition latitude="50.80045793" longitude="4.30238471"/>
+                </VirtualBalise>
+                <VirtualBalise location="600">
+                    <VirtualBalisePosition latitude="50.80125765" longitude="4.30303287"/>
+                </VirtualBalise>
+                <VirtualBalise location="700">
+                    <VirtualBalisePosition latitude="50.80205719" longitude="4.30368119"/>
+                </VirtualBalise>
+                <VirtualBalise location="800">
+                    <VirtualBalisePosition latitude="50.8028569" longitude="4.30432926"/>
+                </VirtualBalise>
+                <VirtualBalise location="900">
+                    <VirtualBalisePosition latitude="50.80365661" longitude="4.30497734"/>
+                </VirtualBalise>
+                <VirtualBalise location="1000">
+                    <VirtualBalisePosition latitude="50.80445604" longitude="4.30562616"/>
+                </VirtualBalise>
+                <VirtualBalise location="1100">
+                    <VirtualBalisePosition latitude="50.80525592" longitude="4.30627372"/>
+                </VirtualBalise>
+                <VirtualBalise location="1200">
+                    <VirtualBalisePosition latitude="50.80605571" longitude="4.30692144"/>
+                </VirtualBalise>
+                <VirtualBalise location="1300">
+                    <VirtualBalisePosition latitude="50.80685549" longitude="4.30756905"/>
+                </VirtualBalise>
+                <VirtualBalise location="1400">
+                    <VirtualBalisePosition latitude="50.80765536" longitude="4.30821653"/>
+                </VirtualBalise>
+                <VirtualBalise location="1500">
+                    <VirtualBalisePosition latitude="50.80845513" longitude="4.30886446"/>
+                </VirtualBalise>
+                <VirtualBalise location="1600">
+                    <VirtualBalisePosition latitude="50.8092549" longitude="4.30951242"/>
+                </VirtualBalise>
+                <VirtualBalise location="1700">
+                    <VirtualBalisePosition latitude="50.81005476" longitude="4.31015997"/>
+                </VirtualBalise>
+                <VirtualBalise location="1800">
+                    <VirtualBalisePosition latitude="50.81085462" longitude="4.31080754"/>
+                </VirtualBalise>
+                <VirtualBalise location="1900">
+                    <VirtualBalisePosition latitude="50.81165716" longitude="4.31144676"/>
+                </VirtualBalise>
+                <VirtualBalise location="2000">
+                    <VirtualBalisePosition latitude="50.81246374" longitude="4.31207323"/>
+                </VirtualBalise>
+                <VirtualBalise location="2100">
+                    <VirtualBalisePosition latitude="50.81327426" longitude="4.31268708"/>
+                </VirtualBalise>
+                <VirtualBalise location="2200">
+                    <VirtualBalisePosition latitude="50.81408747" longitude="4.31329188"/>
+                </VirtualBalise>
+                <VirtualBalise location="2300">
+                    <VirtualBalisePosition latitude="50.81490077" longitude="4.3138964"/>
+                </VirtualBalise>
+                <VirtualBalise location="2400">
+                    <VirtualBalisePosition latitude="50.81571407" longitude="4.31450081"/>
+                </VirtualBalise>
+                <VirtualBalise location="2500">
+                    <VirtualBalisePosition latitude="50.81652727" longitude="4.31510553"/>
+                </VirtualBalise>
+                <VirtualBalise location="2600">
+                    <VirtualBalisePosition latitude="50.81734065" longitude="4.31570998"/>
+                </VirtualBalise>
+                <VirtualBalise location="2700">
+                    <VirtualBalisePosition latitude="50.81815062" longitude="4.31632552"/>
+                </VirtualBalise>
+                <VirtualBalise location="2800">
+                    <VirtualBalisePosition latitude="50.81894873" longitude="4.31697828"/>
+                </VirtualBalise>
+                <VirtualBalise location="2900">
+                    <VirtualBalisePosition latitude="50.81973391" longitude="4.31766924"/>
+                </VirtualBalise>
+                <VirtualBalise location="3000">
+                    <VirtualBalisePosition latitude="50.82050517" longitude="4.31839814"/>
+                </VirtualBalise>
+                <VirtualBalise location="3100">
+                    <VirtualBalisePosition latitude="50.82126169" longitude="4.31916454"/>
+                </VirtualBalise>
+                <VirtualBalise location="3200">
+                    <VirtualBalisePosition latitude="50.82200312" longitude="4.31996703"/>
+                </VirtualBalise>
+                <VirtualBalise location="3300">
+                    <VirtualBalisePosition latitude="50.82273189" longitude="4.32079795"/>
+                </VirtualBalise>
+                <VirtualBalise location="3400">
+                    <VirtualBalisePosition latitude="50.82345957" longitude="4.32163116"/>
+                </VirtualBalise>
+                <VirtualBalise location="3500">
+                    <VirtualBalisePosition latitude="50.82418724" longitude="4.32246453"/>
+                </VirtualBalise>
+                <VirtualBalise location="3600">
+                    <VirtualBalisePosition latitude="50.82491491" longitude="4.32329794"/>
+                </VirtualBalise>
+                <VirtualBalise location="3700">
+                    <VirtualBalisePosition latitude="50.82564239" longitude="4.32413179"/>
+                </VirtualBalise>
+                <VirtualBalise location="3800">
+                    <VirtualBalisePosition latitude="50.82637427" longitude="4.32495559"/>
+                </VirtualBalise>
+                <VirtualBalise location="3900">
+                    <VirtualBalisePosition latitude="50.8271708" longitude="4.32560733"/>
+                </VirtualBalise>
+                <VirtualBalise location="4000">
+                    <VirtualBalisePosition latitude="50.82803806" longitude="4.32597317"/>
+                </VirtualBalise>
+                <VirtualBalise location="4100">
+                    <VirtualBalisePosition latitude="50.82891179" longitude="4.32629942"/>
+                </VirtualBalise>
+                <VirtualBalise location="4200">
+                    <VirtualBalisePosition latitude="50.82971038" longitude="4.32694228"/>
+                </VirtualBalise>
+                <VirtualBalise location="4300">
+                    <VirtualBalisePosition latitude="50.83037521" longitude="4.3278913"/>
+                </VirtualBalise>
+                <VirtualBalise location="4400">
+                    <VirtualBalisePosition latitude="50.83089214" longitude="4.32905141"/>
+                </VirtualBalise>
+                <VirtualBalise location="4500">
+                    <VirtualBalisePosition latitude="50.83142102" longitude="4.33019747"/>
+                </VirtualBalise>
+                <VirtualBalise location="4600">
+                    <VirtualBalisePosition latitude="50.83203677" longitude="4.33122583"/>
+                </VirtualBalise>
+                <VirtualBalise location="4700">
+                    <VirtualBalisePosition latitude="50.8327729" longitude="4.33203423"/>
+                </VirtualBalise>
+                <VirtualBalise location="4800">
+                    <VirtualBalisePosition latitude="50.83357874" longitude="4.33265764"/>
+                </VirtualBalise>
+                <VirtualBalise location="4900">
+                    <VirtualBalisePosition latitude="50.83442542" longitude="4.33312475"/>
+                </VirtualBalise>
+                <VirtualBalise location="5000">
+                    <VirtualBalisePosition latitude="50.83522029" longitude="4.33378767"/>
+                </VirtualBalise>
+            </SP_Points>
+            <SP_Characteristics>
+                <StaticSpeedProfile>
+                    <StaticSpeedProfileStart SSP_Speed="160"/>
+                    <StaticSpeedProfileChange location="1478" SSP_Speed="140"/>
+                    <StaticSpeedProfileChange location="2672" SSP_Speed="110"/>
+                    <StaticSpeedProfileChange location="3506" SSP_Speed="70"/>
+                    <StaticSpeedProfileChange location="4252" SSP_Speed="40"/>
+                </StaticSpeedProfile>
+                <GradientAverage>
+                    <GradientAverageStart gradientValue="1.49" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="605" gradientValue="2.9" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="915" gradientValue="0.8" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1266" gradientValue="1.75" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="1652" gradientValue="0.33" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="1787" gradientValue="3.46" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="2109" gradientValue="5.76" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="2548" gradientValue="4.89" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="2898" gradientValue="4.21" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="3190" gradientValue="2.37" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="3373" gradientValue="7.15" gradientDirection="Downhill"/>
+                    <GradientAverageChange location="3729" gradientValue="0" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="3838" gradientValue="24.43" gradientDirection="Uphill"/>
+                    <GradientAverageChange location="4245" gradientValue="25.37" gradientDirection="Downhill"/>
+                </GradientAverage>
+                <Curves>
+                    <CurveStart curveRadius="32298" curveDirection="Unknown"/>
+                    <CurveChange location="1045" curveRadius="50000" curveDirection="Unknown"/>
+                    <CurveChange location="1072" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="1814" curveRadius="10000" curveDirection="Unknown"/>
+                    <CurveChange location="2155" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="2637" curveRadius="3250" curveDirection="Unknown"/>
+                    <CurveChange location="3246" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="3794" curveRadius="439" curveDirection="Unknown"/>
+                    <CurveChange location="4050" curveRadius="380" curveDirection="Unknown"/>
+                    <CurveChange location="4396" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="4489" curveRadius="400" curveDirection="Unknown"/>
+                    <CurveChange location="4532" curveRadius="0" curveDirection="Unknown"/>
+                    <CurveChange location="4563" curveRadius="258" curveDirection="Unknown"/>
+                </Curves>
+                <RatedVoltage>
+                    <RatedVoltageStart voltageValue="3000" frequency="0"/>
+                </RatedVoltage>
+            </SP_Characteristics>
+            <SP_ContextInformation>
+                <LineAndTrackIdentifier>
+                    <LineAndTrackIdentifierStart lineIdentifier="969" lineName="96N" trackIdentifier="864-2"/>
+                </LineAndTrackIdentifier>
+            </SP_ContextInformation>
+        </SegmentProfile>
+    </G2B_ReplyPayload>
+</SFERA_G2B_ReplyMessage>
