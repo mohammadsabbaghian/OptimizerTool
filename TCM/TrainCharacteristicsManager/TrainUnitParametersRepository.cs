@@ -34,8 +34,8 @@ namespace TrainCharacteristicsManager
                     Type = TrafficType.Regional,
                     BaseClassType = "CoradiaStream",
                     CurveRes = 6,
-                    MaxPower = 8800,
-                    MaxForce = 220,
+                    TractionPower = 8800,
+                    TractionForce = 220,
                     Mass = 380000,
                     Length = 200,
                     DragAmass = 2000,
@@ -44,7 +44,7 @@ namespace TrainCharacteristicsManager
                     DragB = 2000,
                     DragC = 2000,
                     DeltaDragC = 2000,
-                    RotatingMassCoefficient = 1.043,
+                    RotatingMassCoefficient = 1.043f,
                     NumberOfCars = 3
 
                 },
@@ -54,8 +54,8 @@ namespace TrainCharacteristicsManager
                     Type = TrafficType.Freight,
                     BaseClassType = "Euro4000",
                     CurveRes = 6,
-                    MaxPower = 8800000,
-                    MaxForce = 420000,
+                    TractionPower = 8800000,
+                    TractionForce = 420000,
                     Mass = 38000000,
                     Length = 2000,
                     DragAmass = 2000,
@@ -64,7 +64,7 @@ namespace TrainCharacteristicsManager
                     DragB = 2000,
                     DragC = 2000,
                     DeltaDragC = 2000,
-                    RotatingMassCoefficient = 1.05,
+                    RotatingMassCoefficient = 1.05f,
                     NumberOfCars = 20
                 }
             };
