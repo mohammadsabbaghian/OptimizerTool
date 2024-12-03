@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SpeedOptimizer.Models.Inputs;
 using System;
+using TrainCharacteristicsManager.Models;
 
 namespace SpeedOptimizer.Tests
 {

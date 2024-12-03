@@ -1,5 +1,5 @@
-﻿using SpeedOptimizer.Models.Inputs;
-using TrainCharacteristicsManager;
+﻿using TrainCharacteristicsManager;
+using Shared.Models;
 
 namespace SpeedOptimizer
 {

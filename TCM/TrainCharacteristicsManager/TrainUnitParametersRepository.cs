@@ -1,15 +1,16 @@
-﻿using SpeedOptimizer.Models.Inputs;
+﻿using TrainCharacteristicsManager.Models;
+using Shared.Models;
 
 namespace TrainCharacteristicsManager
 {
     public static class TrainUnitParametersRepository
     {
         //Load the parameters from a DB instead
-        public static async Task<Dictionary<string, TrainUnitParametersSimple>> GetTrainUnitParametersAsync()
+        public static async Task<Dictionary<string, TrainUnitParameters>> GetTrainUnitParametersAsync()
         {
-            return new Dictionary<string, TrainUnitParametersSimple>
+            return new Dictionary<string, TrainUnitParameters>
             {
-                ["TGV"] = new TrainUnitParametersSimple
+                ["TGV"] = new TrainUnitParameters
                 {
                     Class = "TGV",
                     Type = TrafficType.HighSpeed,
@@ -28,7 +29,7 @@ namespace TrainCharacteristicsManager
                     RotatingMassCoefficient = 1.05f,
                     NumberOfCars = 6
                 },
-                ["CoradiaStreamHC3"] = new TrainUnitParametersSimple
+                ["CoradiaStreamHC3"] = new TrainUnitParameters
                 {
                     Class = "CoradiaStreamHC3",
                     Type = TrafficType.Regional,
@@ -48,7 +49,7 @@ namespace TrainCharacteristicsManager
                     NumberOfCars = 3
 
                 },
-                ["Freight"] = new TrainUnitParametersSimple
+                ["Freight"] = new TrainUnitParameters
                 {
                     Class = "Euro4000",
                     Type = TrafficType.Freight,

@@ -1,9 +1,7 @@
 ﻿using Microsoft.Azure.Cosmos;
-using System.ComponentModel;
 using System.Configuration;
-using System.Drawing;
 using System.Net;
-using TrainCharacteristics.Models;
+using TrainCharacteristicsManager.Models;
 using TrainCharacteristicsManager;
 
 namespace TrainCharacteristicsService
@@ -33,19 +31,12 @@ namespace TrainCharacteristicsService
 
         }
 
-        public async Task GetStartedDemoAsync()
+        public async Task GetStartedAsync()
         {
             // Create a new instance of the Cosmos Client
             this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions() { ApplicationName = "TrainCharactersiticsService" });
             await this.CreateDatabaseAsync();
             await this.CreateContainerAndPopulateAsync();
-
-
-            //await this.ScaleContainerAsync();
-            //await this.QueryItemsAsync();
-            //await this.ReplaceFamilyItemAsync();
-            //await this.DeleteFamilyItemAsync();
-            //await this.DeleteDatabaseAndCleanupAsync();
         }
         private async Task CreateDatabaseAsync()
         {
@@ -76,7 +67,7 @@ namespace TrainCharacteristicsService
 
             foreach (var trainParameters in parameters.Values)
             {
-                ItemResponse<TrainUnitParametersSimple> andersenFamilyResponse = await this.container.CreateItemAsync<TrainUnitParametersSimple>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
+                ItemResponse<TrainUnitParameters> andersenFamilyResponse = await this.container.CreateItemAsync<TrainUnitParameters>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
             }
 
             Console.WriteLine("Created Container: {0}\n", this.container.Id);
@@ -105,18 +96,6 @@ namespace TrainCharacteristicsService
         }
 
 
-        private async Task AddItemToContainerAsync(TrainUnitParametersSimple trainParameters)
-        {
-            try
-            {
-                ItemResponse<TrainUnitParametersSimple> trainParametersResponse = await this.container.ReadItemAsync<TrainUnitParametersSimple>(trainParameters.Class, new PartitionKey(trainParameters.PartitionKey));
-            }
-            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-            {
-                ItemResponse<TrainUnitParametersSimple> trainParametersResponse = await this.container.CreateItemAsync<TrainUnitParametersSimple>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
-            }
-        }
-
         private async Task AddItemToContainerAsync(TrainUnitParameters trainParameters)
         {
             try
@@ -128,28 +107,5 @@ namespace TrainCharacteristicsService
                 ItemResponse<TrainUnitParameters> trainParametersResponse = await this.container.CreateItemAsync<TrainUnitParameters>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
             }
         }
-
-        private async Task QueryItemsAsync(string partitionKey = "TrainUnitParametersSimple")
-        {
-            var sqlQueryText = $@"SELECT * FROM c WHERE c.PartitionKey = '{partitionKey}'";
-
-            Console.WriteLine("Running query: {0}\n", sqlQueryText);
-
-            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
-            FeedIterator<TrainUnitParametersSimple> queryResultSetIterator = this.container.GetItemQueryIterator<TrainUnitParametersSimple>(queryDefinition);
-
-            List<TrainUnitParametersSimple> trainParametersList = new List<TrainUnitParametersSimple>();
-
-            while (queryResultSetIterator.HasMoreResults)
-            {
-                FeedResponse<TrainUnitParametersSimple> currentResultSet = await queryResultSetIterator.ReadNextAsync();
-                foreach (TrainUnitParametersSimple trainParameters in currentResultSet)
-                {
-                    trainParametersList.Add(trainParameters);
-                }
-            }
-        }
-
-
     }
 }

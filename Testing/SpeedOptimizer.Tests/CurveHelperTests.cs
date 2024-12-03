@@ -1,4 +1,4 @@
-using SpeedOptimizer.Models.Inputs;
+using Shared.Models;
 
 namespace SpeedOptimizer.Tests
 {

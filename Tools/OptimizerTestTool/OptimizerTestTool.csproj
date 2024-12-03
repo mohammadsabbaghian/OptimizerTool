@@ -56,9 +56,11 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared.Models\Shared.Models.csproj" />
     <ProjectReference Include="..\..\Shared\SferaHandlers\SferaHandlers.csproj" />
     <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
     <ProjectReference Include="..\..\SPO\SpeedOptimizer\SpeedOptimizer.csproj" />
+    <ProjectReference Include="..\..\TCM\TrainCharacteristics.Models\TrainCharacteristicsManager.Models.csproj" />
     <ProjectReference Include="..\..\TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
   </ItemGroup>
   <ItemGroup>

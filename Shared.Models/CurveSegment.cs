@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models.Inputs
+﻿namespace Shared.Models
 {
     public class CurveSegment : Segment
     {

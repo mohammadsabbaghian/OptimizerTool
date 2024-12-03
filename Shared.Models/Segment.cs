@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace SpeedOptimizer.Models.Inputs
+namespace Shared.Models
 {
     public class Segment
     {
@@ -9,7 +9,7 @@ namespace SpeedOptimizer.Models.Inputs
         public float Length => End - Start;
         public override string ToString()
         {
-            var properties = this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var properties = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
             var propertyValues = properties.Select(p => $"{p.Name}: {p.GetValue(this)}");
             return string.Join(", ", propertyValues);
         }

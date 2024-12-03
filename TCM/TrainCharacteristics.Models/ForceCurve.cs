@@ -1,4 +1,6 @@
-﻿namespace SpeedOptimizer.Models.Inputs
+﻿using Shared.Models;
+
+namespace TrainCharacteristicsManager.Models
 {
     public class ForceCurve
     {
