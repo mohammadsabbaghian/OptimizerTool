@@ -1,5 +1,4 @@
-﻿using SpeedOptimizer.Models.Inputs;
-
+﻿
 namespace TrainCharacteristicsManager
 {
     public class TrainCharacteristicsSimple : TrainCharacteristicsBase, ITrainCharacteristics

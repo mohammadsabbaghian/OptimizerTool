@@ -1,4 +1,4 @@
-﻿namespace TrainCharacteristicsManager
+﻿namespace Shared.Models
 {
     public enum Propulsion
     {

@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared.Models\Shared.Models.csproj" />
     <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
-    <ProjectReference Include="..\TrainCharacteristics.Models\TrainCharacteristics.Models.csproj" />
+    <ProjectReference Include="..\TrainCharacteristics.Models\TrainCharacteristicsManager.Models.csproj" />
   </ItemGroup>
 
 </Project>

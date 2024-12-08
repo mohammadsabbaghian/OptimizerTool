@@ -10,6 +10,6 @@
         Coast,
         RegenBrake,
         Brake,
-        BrakeAggrestive
+        BrakeAggresive
     }
 }

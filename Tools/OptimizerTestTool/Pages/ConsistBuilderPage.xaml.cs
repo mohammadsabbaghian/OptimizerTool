@@ -1,6 +1,8 @@
-using SpeedOptimizer.Models.Inputs;
+using Shared.Models;
 using System.Collections.ObjectModel;
 using TrainCharacteristicsManager;
+using TrainCharacteristicsManager.Models;
+
 
 namespace OptimizerTestTool.Pages;
 
@@ -8,7 +10,7 @@ public partial class ConsistBuilderPage : ContentPage
 {
     private TrainCharacteristicsBuilder _trainCharacteristicsBuilder;
 
-    private Dictionary<string, TrainUnitParametersSimple> _trainParameters;
+    private Dictionary<string, TrainUnitParameters> _trainParameters;
     private List<TrainUnit> _trainUnits;
     private int _emptyCount;
 

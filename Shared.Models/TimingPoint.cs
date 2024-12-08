@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models.Inputs
+﻿namespace Shared.Models
 {
     public class TimingPoint
     {
@@ -8,6 +8,6 @@
         public DateTime ArrivalTime { get; set; }
         public DateTime DepartureTime { get; set; }
         public TimeSpan ArrivalTolerance { get; set; }
-        public TimeSpan DepartureTolerance{ get; set; }
+        public TimeSpan DepartureTolerance { get; set; }
     }
 }

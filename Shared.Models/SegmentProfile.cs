@@ -1,5 +1,4 @@
-﻿
-namespace SpeedOptimizer.Models.Inputs
+﻿namespace Shared.Models
 {
     public class RouteConstraints : Segment
     {
@@ -9,6 +8,6 @@ namespace SpeedOptimizer.Models.Inputs
         public PowerLimitSegment[] PowerSegments { get; set; }
         public SegmentPosition[] Points { get; set; }
         public TunnelSegment[] Tunnels { get; set; }
-        public CurveSegment[] Curves{ get; set; }
+        public CurveSegment[] Curves { get; set; }
     }
 }

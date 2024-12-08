@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models.Inputs
+﻿namespace TrainCharacteristicsManager.Models
 {
     public class PowerMap
     {
@@ -6,7 +6,7 @@
         public float[] Speeds;
         public float[] TractionPercentages;
 
-        
+
         public PowerMap(int[,] powers, float[] speeds, float[] tractionPercentages)
         {
             Powers = powers;
@@ -76,7 +76,7 @@
             double q1 = isRowFixed ? Powers[fixedIndex, variableIndex] : Powers[variableIndex, fixedIndex];
             double q2 = isRowFixed ? Powers[fixedIndex, variableIndex + 1] : Powers[variableIndex + 1, fixedIndex];
 
-            return (int)(((v2 - variableValue) / (v2 - v1)) * q1 + ((variableValue - v1) / (v2 - v1)) * q2);
+            return (int)((v2 - variableValue) / (v2 - v1) * q1 + (variableValue - v1) / (v2 - v1) * q2);
         }
 
         private int Interpolate2D(double speed, double traction, int row, int col)
@@ -96,17 +96,17 @@
             double q21 = Powers[row + 1, col];
             double q22 = Powers[row + 1, col + 1];
 
-            double r1 = ((s2 - speed) / (s2 - s1)) * q11 + ((speed - s1) / (s2 - s1)) * q12;
-            double r2 = ((s2 - speed) / (s2 - s1)) * q21 + ((speed - s1) / (s2 - s1)) * q22;
+            double r1 = (s2 - speed) / (s2 - s1) * q11 + (speed - s1) / (s2 - s1) * q12;
+            double r2 = (s2 - speed) / (s2 - s1) * q21 + (speed - s1) / (s2 - s1) * q22;
 
-            return (int)(((t2 - traction) / (t2 - t1)) * r1 + ((traction - t1) / (t2 - t1)) * r2);
+            return (int)((t2 - traction) / (t2 - t1) * r1 + (traction - t1) / (t2 - t1) * r2);
         }
 
         public void Combine(PowerMap powerMap)
         {
             if (Powers.GetLength(0) != powerMap.Powers.GetLength(0) || Powers.GetLength(1) != powerMap.Powers.GetLength(1))
             {
-                
+
             }
 
             for (int i = 0; i < Powers.GetLength(0); i++)

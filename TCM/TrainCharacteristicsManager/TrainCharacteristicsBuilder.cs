@@ -1,15 +1,16 @@
-﻿using SpeedOptimizer.Models.Inputs;
+﻿using Shared.Models;
+using TrainCharacteristicsManager.Models;
 
 namespace TrainCharacteristicsManager
 {
     public class TrainCharacteristicsBuilder
     {
-        public TrainCharacteristicsBuilder(Dictionary<string, TrainUnitParametersSimple> trainParameters)
+        public TrainCharacteristicsBuilder(Dictionary<string, TrainUnitParameters> trainParameters)
         {
             this.TrainParameters = trainParameters;
         }
 
-        public Dictionary<string, TrainUnitParametersSimple> TrainParameters { get; private set; }
+        public Dictionary<string, TrainUnitParameters> TrainParameters { get; private set; }
 
         public TrainCharacteristicsSimple Build(List<TrainUnit> trainUnits)
         {
