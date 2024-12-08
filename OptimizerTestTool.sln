@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSMRouting", "OSMRouting\OS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFS.TestProject", "GTFS.TestProject\GTFS.TestProject.csproj", "{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedOptimizer.Preprocessing", "SpeedOptimizer.Preprocessing\SpeedOptimizer.Preprocessing.csproj", "{63115737-B046-4C7D-ACA0-72930D8C2F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63115737-B046-4C7D-ACA0-72930D8C2F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63115737-B046-4C7D-ACA0-72930D8C2F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63115737-B046-4C7D-ACA0-72930D8C2F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63115737-B046-4C7D-ACA0-72930D8C2F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +111,7 @@ Global
 		{5CE59D70-76B1-4B10-9F4A-D43A64F26BF5} = {EE6CFD22-19C6-4243-B47F-84995C4D75AA}
 		{872D037B-0F1D-4EB6-9188-695306184B43} = {4EF4B30F-A516-42FD-BA5D-824734E01927}
 		{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F} = {4EF4B30F-A516-42FD-BA5D-824734E01927}
+		{63115737-B046-4C7D-ACA0-72930D8C2F3C} = {88F218D9-A6B5-477F-8DF4-E266DBB139A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E39B596F-B26D-4C17-9080-E961512C9FA6}

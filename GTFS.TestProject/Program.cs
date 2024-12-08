@@ -1,11 +1,6 @@
 ﻿using GTFS;
 using GTFS.Entities;
-using GTFS.Entities.Collections;
 using GTFS.IO;
-using Itinero.LocalGeo;
-using Itinero.Profiles.Lua;
-using System;
-using System.Globalization;
 
 class Program
 {

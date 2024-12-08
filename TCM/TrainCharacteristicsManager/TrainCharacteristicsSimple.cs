@@ -15,6 +15,7 @@ namespace TrainCharacteristicsManager
         public float BrakingPower { get; set; }
         public int TractionForce { get; internal set; }
         public int TractionPower { get; internal set; }
+        public object FrontalArea { get; set; }
 
         public float GetTractionForce(float speed)
         {
