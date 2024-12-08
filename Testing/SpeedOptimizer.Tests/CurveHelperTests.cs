@@ -1,4 +1,5 @@
 using Shared.Models;
+using SpeedOptimizer.Preprocessing;
 
 namespace SpeedOptimizer.Tests
 {

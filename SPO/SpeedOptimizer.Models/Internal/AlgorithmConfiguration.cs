@@ -1,21 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpeedOptimizer.Models.Internal
+﻿namespace SpeedOptimizer.Models.Internal
 {
     internal class AlgorithmConfiguration
     {
+        public AlgorithmConfiguration(bool withDefaultValues = true)
+        {
+            if (withDefaultValues)
+            {
+                //Speed related
+                SpeedDiscretization = 5f / 3.6f;
+                MinimumSpeedAdvice = 30f / 0.5f;
+                JerkLimitation = 0.7f;
+
+                //Distance related
+                MinCoastingDistance = 500;
+                CoastingStepDistance = 20;
+                FinalAdviceThreshold = 400;
+
+                //Time related
+                MinTimeTillFirstTimingPoint = 30;
+                BrakingTimeTolerance = 5;
+                MinimumPeakTime = 15;
+                ReactionTime = 5;
+                CalculationTimeTolerance = 2;
+                MaxCalculationTime = 1;
+                
+                FinalArrivalMandatory = true;
+                AllowBrakingAdvice = false;
+            }
+        }
+
         //Stop threshold for punctuality
-        public int TimeTolerance { get; set; }
+        public int CalculationTimeTolerance { get; set; }
+        
+        //Total calculation time allowed
+        public int MaxCalculationTime { get;  set; }
 
         //Speed in m/s
         public float SpeedDiscretization { get; set; }
         
         //Seconds before lower speed restriction to arrive at that speed
-        public int BrakingTolerance { get; set; }
+        public int BrakingTimeTolerance { get; set; }
 
         //Time current acceleration is assumed
         public int ReactionTime { get; set; }
@@ -30,9 +54,9 @@ namespace SpeedOptimizer.Models.Internal
         public bool FinalArrivalMandatory { get; set; }
         
         //intermediate times ignored if too close
-        public double MinimumTimeTillFirstPP { get; set; }
+        public double MinTimeTillFirstTimingPoint { get; set; }
         
-        //Deceleration advice allowed if arriving too early
+         //Deceleration advice allowed if arriving too early
         public bool AllowBrakingAdvice{ get; set; }
         
         //Small coasting areas to be avoided
@@ -40,6 +64,9 @@ namespace SpeedOptimizer.Models.Internal
 
         //step size for coasting expasion
         public double CoastingStepDistance { get; set; }
+        
+        //Before the arrival, advice is hidden and should preferably not change.
+        public int FinalAdviceThreshold { get; set; }
 
         //Maximum Jerk allowed for comfort
         public float JerkLimitation { get; set; }

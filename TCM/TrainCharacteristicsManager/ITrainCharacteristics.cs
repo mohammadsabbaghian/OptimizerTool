@@ -17,8 +17,7 @@ namespace TrainCharacteristicsManager
         public float MaxSpeed { get; set; }
         public int NumberOfCars { get; set; }
         public TrafficType Type { get; set; }
-        double FrontalArea { get; }
-
+        public float FrontalArea { get; set; }
         public float GetTractionPower(float speed);
         public float GetTractionForce(float speed);
     }

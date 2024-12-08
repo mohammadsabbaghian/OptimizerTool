@@ -1,4 +1,5 @@
-﻿using SpeedOptimizer.Models.Inputs;
+﻿using Shared.Models;
+using SpeedOptimizer.Preprocessing;
 using TrainCharacteristicsManager;
 
 namespace SpeedOptimizer
@@ -39,9 +40,11 @@ namespace SpeedOptimizer
             }
 
             //Handle power and limitations and set traction and braking Curves
+            //NEED TO BE THOUGHT OUT
+            var forceLimitationHandler = new ForceLimitationsHandler();
+            
 
-
-            var constraints = new Constraints(numberOfDiscInterval);
+            var constraints = new DynamicsConstraints(numberOfDiscInterval);
             for (int i = 0; i < numberOfDiscInterval; i++)
             {
 
