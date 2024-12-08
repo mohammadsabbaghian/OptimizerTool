@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models.Internal
+﻿namespace Shared.Models
 {
     public enum DrivingMode
     {

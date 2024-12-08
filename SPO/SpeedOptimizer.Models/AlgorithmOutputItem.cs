@@ -1,8 +1,8 @@
-﻿using SpeedOptimizer.Models.Internal;
+﻿using Shared.Models;
 
-namespace SpeedOptimizer.Models.Outputs
+namespace SpeedOptimizer.Models
 {
-    internal class AlgorithmOutputItem
+    public class AlgorithmOutputItem
     {
         public double Position { get; set; }
         public DateTime Time { get; set; }
@@ -13,5 +13,6 @@ namespace SpeedOptimizer.Models.Outputs
         public double DisipatedEnergy { get; set; }
         public double TractionPercentage { get; set; }
         public DrivingMode DrivingMode { get; set; }
+        public float Energy { get; set; }
     }
 }

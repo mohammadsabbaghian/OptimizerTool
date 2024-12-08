@@ -1,6 +1,6 @@
-﻿namespace SpeedOptimizer
+﻿namespace SpeedOptimizer.Models
 {
-    internal class DynamicsConstraints
+    public class DynamicsConstraints
     {
         public DynamicsConstraints(int numberOfDiscInterval)
         {
@@ -9,7 +9,7 @@
             BrakingCurveIndex = new int[numberOfDiscInterval];
             TunnelFactor = new float[numberOfDiscInterval];
 
-         
+
             SpeedLimit = new float[numberOfDiscInterval];
             PassagePointIndex = new int[numberOfDiscInterval];
         }

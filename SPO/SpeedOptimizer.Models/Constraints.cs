@@ -1,6 +1,6 @@
-﻿namespace SpeedOptimizer
+﻿namespace SpeedOptimizer.Models
 {
-    internal class Constraints
+    public class Constraints
     {
         public Constraints(int numberOfDiscInterval)
         {

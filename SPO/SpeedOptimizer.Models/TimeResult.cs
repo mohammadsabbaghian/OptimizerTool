@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models.Outputs
+﻿namespace SpeedOptimizer.Models
 {
     public class TimeResult
     {

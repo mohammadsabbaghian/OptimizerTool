@@ -1,4 +1,6 @@
-﻿namespace SpeedOptimizer.Models.Internal
+﻿using Shared.Models;
+
+namespace SpeedOptimizer.Models
 {
     public class SpeedProfile
     {
