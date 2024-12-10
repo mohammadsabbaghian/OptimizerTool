@@ -5,7 +5,6 @@ namespace SpeedOptimizer
     public class CurveHelper
     {
         private float _effortInCurveCoefficient;
-        private int _discretizationInterval;
         private float _gravitationalAcceleration = 9.8f;
 
         public CurveHelper(float effortInCurve)
@@ -15,6 +14,7 @@ namespace SpeedOptimizer
 
         public GradientSegment[] MergeSegments(CurveSegment[] curveSegments, GradientSegment[] gradientSegments)
         {
+
             var mergedList = new List<GradientSegment>();
             var curveGradientSegments = curveSegments.Select(curve => new GradientSegment(curve.Start, curve.End, GetCurveGradient(curve))).ToList();
 
