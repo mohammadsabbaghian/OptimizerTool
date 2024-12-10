@@ -1,11 +1,6 @@
 ﻿using GTFS;
 using GTFS.Entities;
-using GTFS.Entities.Collections;
 using GTFS.IO;
-using Itinero.LocalGeo;
-using Itinero.Profiles.Lua;
-using System;
-using System.Globalization;
 
 class Program
 {
@@ -117,6 +112,7 @@ class Program
             Console.WriteLine("Origin or destination stop not found.");
             return;
         }
+
         var originId = originStop.Id.Substring(1);
         var destinationId = destinationStop.Id.Substring(1);
 
