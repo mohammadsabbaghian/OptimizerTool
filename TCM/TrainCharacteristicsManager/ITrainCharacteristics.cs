@@ -22,7 +22,7 @@ namespace TrainCharacteristicsManager
         public double AccelerationBuildup { get; set; }
         public double MinimumCoastingSpeed { get; set; }
         public double SpeedometerDeviation { get; set; }
-        public float GetTractionPower(float speed, int curveIndex);
+        public float GetTractionPower(float speed, float tractionPercent);
         public float GetTractionForce(float speed, int curveIndex);
 
     }

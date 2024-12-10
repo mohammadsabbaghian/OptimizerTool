@@ -19,5 +19,10 @@ namespace TrainCharacteristicsManager
         {
             throw new NotImplementedException();
         }
+
+        public float GetTractionPower(float speed, float tractionPercent)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
