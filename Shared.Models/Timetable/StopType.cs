@@ -1,6 +1,9 @@
 ﻿namespace Shared.Models.Timetable
 {
-    public class StopType
+    public enum StopType
     {
+        Stop,
+        DriveThrough,
+        Push2Stop
     }
 }
