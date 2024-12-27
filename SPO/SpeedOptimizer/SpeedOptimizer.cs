@@ -16,7 +16,16 @@ namespace SpeedOptimizer
         {
             var sp = new SpeedProfile(_calcBase.NumberOfIntervals);
 
+            GetMaxSpeedProfile(sp);
+
+
             return CreateOutput(sp);
+        }
+
+        private void GetMaxSpeedProfile(SpeedProfile sp)
+        {
+            throw new NotImplementedException();
+
         }
 
         private AlgorithmOutput CreateOutput(SpeedProfile sp)

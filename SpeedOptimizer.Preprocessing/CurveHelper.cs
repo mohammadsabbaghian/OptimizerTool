@@ -1,4 +1,4 @@
-﻿using Shared.Models;
+﻿using Shared.Models.Route;
 
 namespace SpeedOptimizer
 {

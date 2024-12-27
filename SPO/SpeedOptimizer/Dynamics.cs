@@ -1,5 +1,6 @@
 ﻿using Shared.Models;
 using SpeedOptimizer.Models;
+using TrainCharacteristicsManager;
 
 namespace SpeedOptimizer
 {
@@ -8,7 +9,7 @@ namespace SpeedOptimizer
         private DynamicsConstraints _constraints;
         private int _discInt;
 
-        public Dynamics(DynamicsConstraints constraints, CalcBase calcBase)
+        public Dynamics(DynamicsConstraints constraints, CalcBase calcBase, ITrainCharacteristics trainCharacteristics)
         {
             _constraints = constraints;
             _discInt = calcBase.discInt;

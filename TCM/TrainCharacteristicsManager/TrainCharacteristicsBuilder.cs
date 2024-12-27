@@ -1,4 +1,4 @@
-﻿using Shared.Models;
+﻿using Shared.Models.Train;
 using TrainCharacteristicsManager.Models;
 
 namespace TrainCharacteristicsManager

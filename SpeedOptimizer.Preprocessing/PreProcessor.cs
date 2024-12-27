@@ -1,4 +1,5 @@
-﻿using Shared.Models;
+﻿using Shared.Models.Route;
+using Shared.Models.Timetable;
 using SpeedOptimizer.Models;
 using SpeedOptimizer.Preprocessing;
 using TrainCharacteristicsManager;

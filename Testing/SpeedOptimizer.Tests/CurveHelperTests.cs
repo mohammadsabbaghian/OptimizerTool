@@ -1,4 +1,4 @@
-using Shared.Models;
+using Shared.Models.Route;
 using SpeedOptimizer.Preprocessing;
 
 namespace SpeedOptimizer.Tests

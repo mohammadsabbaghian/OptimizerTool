@@ -1,5 +1,5 @@
 ﻿using TrainCharacteristicsManager.Models;
-using Shared.Models;
+using Shared.Models.Timetable;
 
 namespace TrainCharacteristicsManager
 {

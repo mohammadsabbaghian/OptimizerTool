@@ -1,4 +1,4 @@
-using Shared.Models;
+using Shared.Models.Train;
 using System.Collections.ObjectModel;
 using TrainCharacteristicsManager;
 using TrainCharacteristicsManager.Models;

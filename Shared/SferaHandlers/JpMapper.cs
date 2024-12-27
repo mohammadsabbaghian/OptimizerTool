@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shared.Models.Timetable;
 
 namespace SferaHandlers
 {
     internal class JpMapper
     {
+        public TimeConstraints Map(ISferaMessage message)
+        {
+            var timeConstraints = new TimeConstraints();
+
+            return timeConstraints;
+        }
     }
 }
