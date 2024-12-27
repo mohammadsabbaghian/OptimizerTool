@@ -5,15 +5,22 @@ namespace TrainCharacteristicsManager
     public class TrainCharacteristics : TrainCharacteristicsBase, ITrainCharacteristics
     {
         public PowerMap PowerMap { get; set; }
-        public ForceCurve BrakingCurve { get; set; }
-        public ForceCurve TractionCurve { get; set; }
+        public List<float[]> BrakingCurves { get; set; }
+        public List<float[]> TractionCurves { get; set; }
 
-        public float GetTractionForce(float speed)
+        public float GetTractionForce(float speed, int curveIndex)
+        {
+            var index = Math.Min(TractionCurves[curveIndex].Length, (int)Math.Round(speed * 3.6,0));
+            
+            return TractionCurves[curveIndex][index];
+        }
+
+        public float GetTractionPower(float speed)
         {
             throw new NotImplementedException();
         }
 
-        public float GetTractionPower(float speed)
+        public float GetTractionPower(float speed, float tractionPercent)
         {
             throw new NotImplementedException();
         }

@@ -112,6 +112,7 @@ class Program
             Console.WriteLine("Origin or destination stop not found.");
             return;
         }
+
         var originId = originStop.Id.Substring(1);
         var destinationId = destinationStop.Id.Substring(1);
 

@@ -19,7 +19,12 @@ namespace TrainCharacteristicsManager
         public int NumberOfCars { get; set; }
         public TrafficType Type { get; set; }
         public float FrontalArea { get; set; }
-        public float GetTractionPower(float speed);
-        public float GetTractionForce(float speed);
+        public float[] PreferredBrakingForce { get; set; }
+        public double AccelerationBuildup { get; set; }
+        public double MinimumCoastingSpeed { get; set; }
+        public double SpeedometerDeviation { get; set; }
+        public float GetTractionPower(float speed, float tractionPercent);
+        public float GetTractionForce(float speed, int curveIndex);
+
     }
 }

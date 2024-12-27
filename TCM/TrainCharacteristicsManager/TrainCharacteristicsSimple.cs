@@ -15,12 +15,12 @@ namespace TrainCharacteristicsManager
         public int TractionForce { get; set; }
         public int TractionPower { get; set; }
 
-        public float GetTractionForce(float speed)
+        public float GetTractionForce(float speed, int curveIndex)
         {
             throw new NotImplementedException();
         }
 
-        public float GetTractionPower(float speed)
+        public float GetTractionPower(float speed, float tractionPercent)
         {
             throw new NotImplementedException();
         }
