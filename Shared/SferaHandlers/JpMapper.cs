@@ -21,15 +21,24 @@ namespace SferaHandlers
                     var tp = spItem.SP_Points.TimingPoint.FirstOrDefault(x => x.TP_ID == timingPoint.TimingPointReference.Item);
                     if (tp == null) continue;
 
+                    int.TryParse(timingPoint.arrivalWindow, out var arrivalTolerance);
+                    var departureTolerance = 0;
+
+                    if (timingPoint.StoppingPointInformation != null)
+                    {
+                        var earliestDeparture = timingPoint.StoppingPointInformation.earliestDepartureTime;
+                        departureTolerance = (int)(timingPoint.StoppingPointInformation.departureTime - earliestDeparture).TotalSeconds;
+                    }
+                    
                     var timingPointMapped = new Shared.Models.Timetable.TimingPoint
                     {
                         Name = tp.TP_Name[0].name,
-                        Position = ,
-                        StopType = MapStopType(tp.StopType),
-                        ArrivalTime = timingPoint.ArrivalTime,
-                        DepartureTime = timingPoint.DepartureTime,
-                        ArrivalTolerance = timingPoint.ArrivalTolerance,
-                        DepartureTolerance = timingPoint.DepartureTolerance
+                        Position = tp.location, //LOCATION MUST BE CORRECTED TO BE A LINEAR POSITION
+                        StopType = MapStopType(timingPoint.TP_StopSkipPass),
+                        ArrivalTime = timingPoint.TP_PlannedLatestArrivalTime,
+                        DepartureTime = timingPoint.StoppingPointInformation.departureTime,
+                        ArrivalTolerance = arrivalTolerance,
+                        DepartureTolerance = departureTolerance
                     };
 
                     timeConstraints.TimingPoints.Add(timingPointMapped);
@@ -39,14 +48,13 @@ namespace SferaHandlers
             return timeConstraints;
         }
 
-        private StopType MapStopType(string stopType)
+        private Shared.Models.Timetable.StopType MapStopType(NextTimingPointTrainInformationTP_StopSkipPass stopType)
         {
             return stopType switch
             {
-                "Stop" => StopType.Stop,
-                "DriveThrough" => StopType.DriveThrough,
-                "Push2Stop" => StopType.Push2Stop,
-                _ => StopType.Stop
+                NextTimingPointTrainInformationTP_StopSkipPass.Stopping_Point => Shared.Models.Timetable.StopType.Stop,
+                NextTimingPointTrainInformationTP_StopSkipPass.Passing_Point => Shared.Models.Timetable.StopType.DriveThrough,
+                NextTimingPointTrainInformationTP_StopSkipPass.Skipped_Stopping_Point => Shared.Models.Timetable.StopType.Push2Stop
             };
         }
     }
