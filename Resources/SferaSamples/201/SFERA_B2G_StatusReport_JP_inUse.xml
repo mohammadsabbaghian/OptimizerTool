@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SFERA_B2G_EventMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Appendix_D-SFERA_XML_Schema_Definition/SFERA.xsd">
+	<MessageHeader SFERA_version="1.91" message_ID="15e738fa-5682-42e6-b355-6939ddc0a3eb" timestamp="2022-04-01T21:23:12Z" sourceDevice="DAS" destinationDevice="TMS">
+		<TrainIdentification>
+			<OTN_ID>
+				<Company>1084</Company>
+				<OperationalTrainNumber>9358</OperationalTrainNumber>
+				<StartDate>2022-04-01</StartDate>
+			</OTN_ID>
+		</TrainIdentification>
+		<Sender>1084</Sender>
+		<Recipient>0084</Recipient>
+	</MessageHeader>
+	<B2G_StatusReport>
+		<JP_InUse JP_Version="1"/>
+	</B2G_StatusReport>
+</SFERA_B2G_EventMessage>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<SFERA_G2B_EventMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Appendix_D-SFERA_XML_Schema_Definition/SFERA.xsd">
+	<MessageHeader SFERA_version="1.91"  message_ID="ccfdb2ca-40ca-4361-9bd8-0de3376ccaee" timestamp="2022-01-22T12:53:10Z" sourceDevice="HBZN" destinationDevice="DAS">
+		<Sender>0080</Sender>
+		<Recipient>0815</Recipient>
+	</MessageHeader>
+	<G2B_EventPayload>
+		<C_DAS_C_Advice identifier="advice-2/0" adviceType="ConstantspeedAdvice" optimalSpeed="60" deltaSpeed="40" locationText="83,6(1732)" reasonText="Zugfolge" reasonCode="followTrain" startValidity="2022-01-22T12:53:21Z" endValidity="2022-01-22T12:57:04Z" referenceIDAbs="234925fa-e43d-4af5-96d5-677631c84bb4" startKm="83.6" startLine="1732" endStationShort="Edesheim (L) Süd" endStationLong="Edesheim (Leine) Süd" endKm="86.8" endLine="1732" endSignal="Vorsignal" endStationShortAbs="Edesheim (L) Süd" endStationLongAbs="Edesheim (Leine) Süd" endKmAbs="86.8" endLineAbs="1732" endValidityAbs="2022-01-22T12:57:04Z">
+			<TrainIdentification>
+				<OTN_ID>
+					<Company>0815</Company>
+					<OperationalTrainNumber>47011</OperationalTrainNumber>
+					<StartDate>2022-01-22</StartDate>
+				</OTN_ID>
+			</TrainIdentification>
+		</C_DAS_C_Advice>
+	</G2B_EventPayload>
+</SFERA_G2B_EventMessage>

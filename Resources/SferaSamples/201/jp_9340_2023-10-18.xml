@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SFERA_G2B_ReplyMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MessageHeader SFERA_version="2.0" message_ID="331b4f7b-9f12-4332-b650-e9e572ff5bbc" timestamp="2023-10-18T08:09:33Z" sourceDevice="ATOTS" destinationDevice="JPTester" correlation_ID="7e99089f-1f4a-4b1f-b5cc-fbe1f99176ad">
+    <Sender>1084</Sender>
+    <Recipient>1084</Recipient>
+  </MessageHeader>
+  <G2B_ReplyPayload>
+    <JourneyProfile JP_Status="Valid" JP_Version="1697616573">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+      <SegmentProfileList SP_ID="1260266" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:11:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Stopping_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Asd_2B_Sein" />
+          </TimingPointReference>
+          <StoppingPointInformation departureTime="2023-10-18T09:11:00Z" trainHold="false" minimumDwellTime="PT0H0M0S" openingDoorSide="None" centralisedOpening="false" automaticClosing="false" daylightSaving="true" />
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27504200" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259654" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1266419" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1267914" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257792" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1256978" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1260760" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="269618" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1269809" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="263900" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1268456" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="263036" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1266439" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257142" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:12:54Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Sgbr_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27254955" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="95614652-2138-4195-b201-287987f6885f" signal_ID_Object="492" location="731.333" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="1264178" location="803.759" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="40" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257147" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:13:12Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Sgra_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257830" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257149" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1263966" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1264178" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="5b4f2374-ca23-451c-a8a9-9ab0d11f1584" signal_ID_Object="434" location="803.759" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="1264178" location="803.759" />
+            <EndSignalApplication SP_ID="260910" location="969.559" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="40" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257425" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="267555" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1267594" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:14:24Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Asdta_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253747" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1260844" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1260878" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1257533" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="260910" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:17:12Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Ass_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257929" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:18:42Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Aeg_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257930" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="268054" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="268234" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="264822" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:21:18Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Asdl_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257675" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="267980" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="257845" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:23:30Z" arrivalWindow="PT0H0M30S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Asra_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257265" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="269268" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="260946" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="02558fec-b198-43a2-998a-b5636a1a5094" signal_ID_Object="1046" location="4662.944" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="259109" location="716.857" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="40" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="265874" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259109" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:27:30Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Stopping_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Shl_6_Sein" />
+          </TimingPointReference>
+          <StoppingPointInformation departureTime="2023-10-18T09:30:00Z" trainHold="false" minimumDwellTime="PT0H0M0S" openingDoorSide="None" centralisedOpening="false" automaticClosing="false" daylightSaving="true" />
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27509351" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="269162" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259026" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259064" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="265808" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:33:18Z" arrivalWindow="PT0H0M30S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hfd_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255006" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:33:36Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hfdm_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255007" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="258936" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="269141" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1261884" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1261885" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:35:18Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hshfdo_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27254794" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1261834" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1258462" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:39:06Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hshmdo_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27254346" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1260634" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:42:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsghtn_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253892" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:44:36Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsghtz_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253893" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:46:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsrtdv_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253894" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:46:36Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsvbw_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253895" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:48:42Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsrtdt_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27253896" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="9c6d42ee-f9cb-4ad2-a342-9eff0a057ab7" signal_ID_Object="396" location="33021.246" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="1260634" location="33021.246" />
+            <EndSignalApplication SP_ID="1265943" location="599.692" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="60" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1267390" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1265943" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:51:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rhsla_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255918" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="f1fb5c61-0564-4507-873e-a95c20a725ed" signal_ID_Object="136" location="599.692" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="1265943" location="1289.067" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="40" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TemporarySignalConstraints temporarySignalConstraintType="TemporarySignal">
+          <Signal_ID signal_ID_Physical="8b0c23d6-22aa-4ace-89a3-e6f9b3e74fcc" signal_ID_Object="186" location="1289.067" />
+          <SignalApplication>
+            <StartSignalApplication SP_ID="259314" location="432.263" />
+          </SignalApplication>
+          <SignalInformation>
+            <MaxSpeed speed="40" />
+          </SignalInformation>
+        </TemporarySignalConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="266152" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="266125" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259314" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:54:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Stopping_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rtd_2_Overig" />
+          </TimingPointReference>
+          <StoppingPointInformation departureTime="2023-10-18T09:58:00Z" trainHold="false" minimumDwellTime="PT0H0M0S" openingDoorSide="None" centralisedOpening="false" automaticClosing="false" daylightSaving="true" />
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27508971" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="262720" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="269386" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259282" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="259185" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:59:06Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Wiltn_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257771" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T09:59:48Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rtb_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257772" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:00:48Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Wiltz_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257773" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:01:18Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rtz_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257774" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1261510" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1267711" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1261143" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1267932" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1264828" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:01:48Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rtst_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255496" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TemporaryConstraints startLocation="981.663" endLocation="1110.645" startEndQualifier="Starts" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.4,&quot;kmNaar&quot;:43.0,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06A MH&quot;,&quot;regelnummer&quot;:&quot;4779&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="1081.663" endLocation="1110.645" startEndQualifier="Starts" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.3,&quot;kmNaar&quot;:42.9,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06B MH&quot;,&quot;regelnummer&quot;:&quot;4783&quot;}" />
+        </TemporaryConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="262953" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TemporaryConstraints startLocation="0" endLocation="174.616" startEndQualifier="WholeSP" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.4,&quot;kmNaar&quot;:43.0,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06A MH&quot;,&quot;regelnummer&quot;:&quot;4779&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="174.616" startEndQualifier="WholeSP" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.3,&quot;kmNaar&quot;:42.9,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06B MH&quot;,&quot;regelnummer&quot;:&quot;4783&quot;}" />
+        </TemporaryConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="1262982" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TemporaryConstraints startLocation="0" endLocation="58.319" startEndQualifier="WholeSP" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.4,&quot;kmNaar&quot;:43.0,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06A MH&quot;,&quot;regelnummer&quot;:&quot;4779&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="58.319" startEndQualifier="WholeSP" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.3,&quot;kmNaar&quot;:42.9,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06B MH&quot;,&quot;regelnummer&quot;:&quot;4783&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="58.319" startEndQualifier="Starts" startTime="2023-03-15T04:00:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="40" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:39.9,&quot;kmNaar&quot;:38.1,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-07A MH&quot;,&quot;regelnummer&quot;:&quot;4787&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="58.319" startEndQualifier="Starts" startTime="2023-04-05T02:00:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="100" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:39.9,&quot;kmNaar&quot;:37.8,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2023-04MH&quot;,&quot;regelnummer&quot;:&quot;4833&quot;}" />
+        </TemporaryConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="264358" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:02:36Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Rlb_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257490" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="0" startEndQualifier="Ends" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.4,&quot;kmNaar&quot;:43.0,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06A MH&quot;,&quot;regelnummer&quot;:&quot;4779&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="200" startEndQualifier="Ends" startTime="2023-03-07T05:20:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="80" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:43.3,&quot;kmNaar&quot;:42.9,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-06B MH&quot;,&quot;regelnummer&quot;:&quot;4783&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="1749.407" startEndQualifier="Ends" startTime="2023-03-15T04:00:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="40" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:39.9,&quot;kmNaar&quot;:38.1,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2022-07A MH&quot;,&quot;regelnummer&quot;:&quot;4787&quot;}" />
+        </TemporaryConstraints>
+        <TemporaryConstraints startLocation="0" endLocation="1749.407" startEndQualifier="Ends" startTime="2023-04-05T02:00:00Z" temporaryConstraintType="ASR">
+          <AdditionalSpeedRestriction ASR_Front="false" ASR_Speed="100" />
+          <TemporaryConstraintReason messageString="{&quot;kmVan&quot;:39.9,&quot;kmNaar&quot;:37.8,&quot;maxGoederen&quot;:null,&quot;aanvraagnummer&quot;:&quot;2023-04MH&quot;,&quot;regelnummer&quot;:&quot;4833&quot;}" />
+        </TemporaryConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="265139" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:03:48Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsbrdo_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255368" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="268514" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:06:30Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hstom_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27258004" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:09:06Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hstdk_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27258005" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:09:42Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsvhd_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27258006" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="261768" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:10:42Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hszha_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27257639" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="261807" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="258429" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="265164" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:13:00Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsbda_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27254500" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="258339" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:15:06Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="None" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsbdgo_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27255512" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <SegmentProfileList SP_ID="263477" SP_VersionMajor="1" SP_VersionMinor="1" SP_Direction="Nominal">
+        <SP_Zone>
+          <IM_ID>0084</IM_ID>
+          <NID_C>429</NID_C>
+        </SP_Zone>
+        <TimingPointConstraints TP_latestArrivalTime="2023-10-18T10:16:12Z" arrivalWindow="PT0H0M0S" TP_alignment="Front" TP_StopSkipPass="Passing_Point" TP_Information="End_of_Journey" daylightSaving="true">
+          <TimingPointReference>
+            <TP_ID_Reference TP_ID="Hsbdg_Onbekend" />
+          </TimingPointReference>
+          <TimingPointConstraints_NSPs>
+            <NetworkSpecificParameter name="ATO_ID" value="27254363" />
+          </TimingPointConstraints_NSPs>
+        </TimingPointConstraints>
+        <TrainCharacteristicsRef TC_ID="9340" TC_VersionMajor="0" TC_VersionMinor="0" location="0">
+          <TC_RU_ID>1084</TC_RU_ID>
+        </TrainCharacteristicsRef>
+      </SegmentProfileList>
+      <General_JP_Information>
+        <General_JP_Information_NSP>
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="TSB" />
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="GladdeSporen" />
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="TrainCharacteristics" />
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="Seinbeeldrelaties" />
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="TijdkritischePunten" />
+          <NetworkSpecificParameter name="JourneyProfileFeature" value="Halteerlocaties" />
+        </General_JP_Information_NSP>
+      </General_JP_Information>
+    </JourneyProfile>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="80" startStationShort="Asd">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="60" startStationShort="Ass">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="140" startStationShort="Asdl">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="160" startStationShort="Hfdm">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="300" startStationShort="Hsghtn">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="140" startStationShort="Rtd">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+    <C_DAS_C_Advice adviceType="ConstantspeedAdvice" optimalSpeed="300" startStationShort="Rlb">
+      <TrainIdentification>
+        <OTN_ID>
+          <Company>1084</Company>
+          <OperationalTrainNumber>9340</OperationalTrainNumber>
+          <StartDate>2023-10-18</StartDate>
+        </OTN_ID>
+      </TrainIdentification>
+    </C_DAS_C_Advice>
+  </G2B_ReplyPayload>
+</SFERA_G2B_ReplyMessage>
