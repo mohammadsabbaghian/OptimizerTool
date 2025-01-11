@@ -1,14 +1,14 @@
-﻿using Shared.Models.Timetable;
+﻿using tt = Shared.Models.Timetable;
 
 namespace SferaHandlers
 {
     internal class JpMapper
     {
-        public TimeConstraints Map(JourneyProfile journeyProfile, List<SegmentProfile> segmentProfiles)
+        public tt.TimeConstraints Map(JourneyProfile journeyProfile, List<SegmentProfile> segmentProfiles)
         {
-            var timeConstraints = new TimeConstraints
+            var timeConstraints = new tt.TimeConstraints
             {
-                TimingPoints = new List<Shared.Models.Timetable.TimingPoint>()
+                TimingPoints = new List<tt.TimingPoint>()
             };
 
             foreach (var sp in journeyProfile.SegmentProfileList)
@@ -30,7 +30,7 @@ namespace SferaHandlers
                         departureTolerance = (int)(timingPoint.StoppingPointInformation.departureTime - earliestDeparture).TotalSeconds;
                     }
                     
-                    var timingPointMapped = new Shared.Models.Timetable.TimingPoint
+                    var timingPointMapped = new tt.TimingPoint
                     {
                         Name = tp.TP_Name[0].name,
                         Position = tp.location, //LOCATION MUST BE CORRECTED TO BE A LINEAR POSITION
