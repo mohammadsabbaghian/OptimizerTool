@@ -24,6 +24,7 @@ namespace TrainCharacteristicsManager.Models
         public float MechanicalBraking { get; set; }
         public TrafficType Type { get; set; }
         public Propulsion Propulsion { get; set; }
+        public ProtectionSystem[] ProtectionSystem { get; set; }
 
         //For train where we have the model
         public PowerMap PowerMap { get; set; }

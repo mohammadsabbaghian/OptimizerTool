@@ -2,7 +2,7 @@
 {
     public class SpeedRestrictionSegment : Segment
     {
-        public double Speed { get; set; }
+        public float Speed { get; set; }
         public SpeedRestrictionType Type { get; set; }
     }
 }
