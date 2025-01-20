@@ -16,14 +16,16 @@ namespace SferaHandlers
             foreach (var item in spList)
             {
                 var sp = segmentProfiles.First(x => x.SP_ID == item.SP_ID);
-                var srgs = GetSpeedLimits(sp.SP_Characteristics.StaticSpeedProfile, absPos, (float)sp.SP_Length);
+                var srgs = GetSpeedLimits(sp.SP_Characteristics.StaticSpeedProfile, sp.SP_Points.Signal, absPos, (float)sp.SP_Length);
+                routeConstraints.SpeedRestrictionSegments.AddRange(srgs);
             }
+
 
             return routeConstraints;
         }
 
         //Known limitation: train category not considered, nor the ATP system
-        private List<SpeedRestrictionSegment> GetSpeedLimits(StaticSpeedProfile[] ssps, float absPos, float spLength, string atpId = "")
+        private List<SpeedRestrictionSegment> GetSpeedLimits(StaticSpeedProfile[] ssps, Signal_ComplexType[] signals, float absPos, float spLength, string atpId = "")
         {
             var srgs = new List<SpeedRestrictionSegment>();
             var ssp = string.IsNullOrEmpty(atpId) || ssps.Length == 1
