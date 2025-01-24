@@ -27,9 +27,10 @@ namespace TrainCharacteristicsManager.Models
         public ProtectionSystem[] ProtectionSystem { get; set; }
 
         //For train where we have the model
-        public PowerMap PowerMap { get; set; }
-        public ForceCurve BrakingCurve { get; set; }
-        public ForceCurve TractionCurve { get; set; }
+        public PowerMap TractionPowerMap { get; set; }
+        public PowerMap BrakingPowerMap { get; set; }
+        public List<ForceCurve> BrakingCurves { get; set; }
+        public List<ForceCurve> TractionCurves { get; set; }
 
         //For train where we don't have the full curve or map.
         public float BrakingForce { get; set; }
