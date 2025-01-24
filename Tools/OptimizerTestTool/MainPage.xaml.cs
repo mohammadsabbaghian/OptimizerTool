@@ -17,16 +17,48 @@ namespace OptimizerTestTool
         {
             try
             {
-                var result = await FilePicker.PickAsync(new PickOptions
+                var jpResult = await FilePicker.PickAsync(new PickOptions
                 {
-                    PickerTitle = "Please select an XML file",
+                    PickerTitle = "Please select an JP file",
                 });
+                SFERA_G2B_ReplyMessage jpMessage;
+                SFERA_G2B_ReplyMessage spMessage;
 
-                if (result != null && result.FileName.Contains(".xml"))
+                if (jpResult != null && jpResult.FileName.Contains(".xml"))
                 {
-                    string filePath = result.FullPath;
-                    // Assuming SferaHandlers.XmlParser.DeserializeXmlFile() accepts a file path
-                    SferaHandlers.XmlParser.DeserializeXmlFile(filePath);
+                    string filePath = jpResult.FullPath;
+                    jpMessage = SferaHandlers.XmlParser.DeserializeXmlFile(filePath) as SFERA_G2B_ReplyMessage;
+
+
+                    var spResult = await FilePicker.PickAsync(new PickOptions
+                    {
+                        PickerTitle = "Please select the corresponding SP file",
+                    });
+
+                    if (jpResult != null && jpResult.FileName.Contains(".xml"))
+                    {
+                        filePath = jpResult.FullPath;
+                        spMessage = SferaHandlers.XmlParser.DeserializeXmlFile(filePath) as SFERA_G2B_ReplyMessage;
+
+                        if (jpMessage != null)
+                        {
+                            var jp = jpMessage.Item as JourneyProfile;
+
+                            if (spMessage != null)
+                            {
+                                var sps = spMessage.Item as SegmentProfile[];
+
+                                foreach (var sp in jp.SegmentProfileList)
+                                {
+                                    if (sps.FirstOrDefault(x => x.SP_ID == sp.SP_ID) == null)
+                                    {
+                                        throw new Exception("not all sps delivered");
+                                    }
+                                }
+
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
