@@ -29,13 +29,13 @@ namespace SpeedOptimizer
                 }
             }
 
-            if (routeConstraints.Curves.Length > 0)
+            if (routeConstraints.Curves.Count > 0)
             {
                 var curveHelper = new CurveHelper(trainCharacteristics.CurveRes);
                 routeConstraints.GradientSegments = curveHelper.MergeSegments(routeConstraints.Curves, routeConstraints.GradientSegments);
             }
 
-            if(routeConstraints.Tunnels.Length > 0)
+            if(routeConstraints.Tunnels.Count > 0)
             {
                 var tunnelHelper = new TunnelHelper(trainCharacteristics.FrontalArea);
                 routeConstraints.Tunnels = tunnelHelper.CalculateTunnelFactor(routeConstraints.Tunnels);

@@ -5,7 +5,7 @@ namespace SpeedOptimizer
 {
     public static class GradientHelper
     {
-        public static double[] GetWeightedAverageGradientArray(GradientSegment[] gradientSegments, double interval, List<TrainUnit> trainUnits)
+        public static double[] GetWeightedAverageGradientArray(List<GradientSegment> gradientSegments, double interval, List<TrainUnit> trainUnits)
         {
             if (gradientSegments == null || !gradientSegments.Any())
                 throw new ArgumentException("Gradient segments list cannot be null or empty.");
@@ -76,14 +76,14 @@ namespace SpeedOptimizer
             return gradientArray;
         }
 
-        internal static GradientSegment[] GetGradientSegments(SegmentPosition[] points)
+        internal static List<GradientSegment> GetGradientSegments(List<SegmentPosition> points)
         {
-            if (points == null || points.Length < 2)
+            if (points == null || points.Count < 2)
                 throw new ArgumentException("At least two points are required to calculate gradients.");
 
-            GradientSegment[] gradientSegments = new GradientSegment[points.Length - 1];
+            var gradientSegments = new List<GradientSegment>();
 
-            for (int i = 0; i < points.Length - 1; i++)
+            for (int i = 0; i < points.Count - 1; i++)
             {
                 var start = points[i];
                 var end = points[i + 1];
@@ -92,7 +92,7 @@ namespace SpeedOptimizer
                     throw new ArgumentException("Both start and end points must have altitude values.");
 
                 float gradient = (float)((end.Altitude.Value - start.Altitude.Value) / (end.Position - start.Position));
-                gradientSegments[i] = new GradientSegment((float)start.Position, (float)end.Position, gradient);
+                gradientSegments.Add(new GradientSegment((float)start.Position, (float)end.Position, gradient));
             }
 
             return gradientSegments;

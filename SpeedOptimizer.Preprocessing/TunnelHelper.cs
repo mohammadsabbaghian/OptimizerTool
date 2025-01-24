@@ -11,7 +11,7 @@ namespace SpeedOptimizer
             this._trainArea = trainArea;
         }
 
-        internal TunnelSegment[] CalculateTunnelFactor(TunnelSegment[] tunnels)
+        internal List<TunnelSegment> CalculateTunnelFactor(List<TunnelSegment> tunnels)
         {
             throw new NotImplementedException();
         }
