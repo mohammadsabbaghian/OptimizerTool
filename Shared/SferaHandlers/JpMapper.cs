@@ -2,9 +2,9 @@
 
 namespace SferaHandlers
 {
-    internal class JpMapper
+    public class JpMapper
     {
-        public tt.TimeConstraints Map(JourneyProfile journeyProfile, List<SegmentProfile> segmentProfiles)
+        public tt.TimeConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles)
         {
             var timeConstraints = new tt.TimeConstraints
             {
@@ -14,7 +14,7 @@ namespace SferaHandlers
             foreach (var sp in journeyProfile.SegmentProfileList)
             {
                 var spItem = segmentProfiles.FirstOrDefault(x => x.SP_ID == sp.SP_ID);
-                if (spItem == null) continue;
+                if (spItem == null || sp.TimingPointConstraints == null) continue;
 
                 foreach (var timingPoint in sp.TimingPointConstraints)
                 {

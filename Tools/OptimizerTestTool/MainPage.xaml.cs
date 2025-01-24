@@ -29,24 +29,26 @@ namespace OptimizerTestTool
                     string filePath = jpResult.FullPath;
                     jpMessage = SferaHandlers.XmlParser.DeserializeXmlFile(filePath) as SFERA_G2B_ReplyMessage;
 
-
-                    var spResult = await FilePicker.PickAsync(new PickOptions
+                    if (jpMessage != null)
                     {
-                        PickerTitle = "Please select the corresponding SP file",
-                    });
 
-                    if (jpResult != null && jpResult.FileName.Contains(".xml"))
-                    {
-                        filePath = jpResult.FullPath;
-                        spMessage = SferaHandlers.XmlParser.DeserializeXmlFile(filePath) as SFERA_G2B_ReplyMessage;
-
-                        if (jpMessage != null)
+                        var spResult = await FilePicker.PickAsync(new PickOptions
                         {
-                            var jp = jpMessage.Item as JourneyProfile;
+                            PickerTitle = "Please select the corresponding SP file",
+                        });
+
+                        if (spResult != null && spResult.FileName.Contains(".xml"))
+                        {
+                            filePath = spResult.FullPath;
+                            spMessage = SferaHandlers.XmlParser.DeserializeXmlFile(filePath) as SFERA_G2B_ReplyMessage;
+
+                            var payload = jpMessage.Item as G2B_ReplyPayload;
+                            var jp = payload.JourneyProfile[0];
 
                             if (spMessage != null)
                             {
-                                var sps = spMessage.Item as SegmentProfile[];
+                                var spsPayload= spMessage.Item as G2B_ReplyPayload;
+                                var sps = spsPayload.SegmentProfile;
 
                                 foreach (var sp in jp.SegmentProfileList)
                                 {
@@ -55,6 +57,13 @@ namespace OptimizerTestTool
                                         throw new Exception("not all sps delivered");
                                     }
                                 }
+
+                                // Map the JP and SP
+                                var jpMapper = new SferaHandlers.JpMapper();
+                                var jpConstraints = jpMapper.Map(jp, sps);
+                                var spMapper = new SferaHandlers.SpMapper();
+                                var spConstraints = spMapper.Map(jp, sps);
+
 
                             }
                         }

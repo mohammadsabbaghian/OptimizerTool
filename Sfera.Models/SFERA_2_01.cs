@@ -15294,12 +15294,12 @@ public partial class TrainCharacteristics : TC_Identifier_ComplexType {
         }
     }
 
-    public string Name { get; internal set; }
-    public int Power { get; internal set; }
-    public int Force { get; internal set; }
-    public int Mass { get; internal set; }
-    public int Length { get; internal set; }
-    public int Resistance { get; internal set; }
+    public string Name { get; set; }
+    public int Power { get; set; }
+    public int Force { get; set; }
+    public int Mass { get; set; }
+    public int Length { get; set; }
+    public int Resistance { get; set; }
 }
 
 /// <remarks/>
