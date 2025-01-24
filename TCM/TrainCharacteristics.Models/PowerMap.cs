@@ -5,6 +5,8 @@
         public int[,] Powers;
         public float[] Speeds;
         public float[] TractionPercentages;
+        public int Voltage;
+        public float Frequency;
 
 
         public PowerMap(int[,] powers, float[] speeds, float[] tractionPercentages)

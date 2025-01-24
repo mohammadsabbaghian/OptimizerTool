@@ -1,6 +1,7 @@
 ﻿using TrainCharacteristicsManager.Models;
 using System.Xml.Serialization;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace TrainCharacteristicsManager
 {
@@ -30,7 +31,6 @@ namespace TrainCharacteristicsManager
 
             TrainUnitParameters parameters = new TrainUnitParameters();
 
-            // Map each element manually
             parameters.BaseClassType = doc.SelectSingleNode("//BaseTrainType")?.InnerText;
             parameters.Class = doc.SelectSingleNode("//TrainClassId")?.InnerText;
             parameters.DeltaDragC = float.Parse(doc.SelectSingleNode("//DeltaDragC")?.InnerText ?? "0");
@@ -45,16 +45,59 @@ namespace TrainCharacteristicsManager
             parameters.TractionEfficiency = float.Parse(doc.SelectSingleNode("//TractionEfficiency")?.InnerText ?? "0");
             parameters.BrakingEfficiency = float.Parse(doc.SelectSingleNode("//BrakingEfficiency")?.InnerText ?? "0");
             parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//TractionCurves/TractionCurves"));
-            parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//TractionCurves/BrakingCurves"));
+            parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//ElectricalBrakingCurves/ElectricalBrakingCurve"));
+            parameters.BrakingPowerMap = LoadPowerMap(doc.SelectNodes("//TractionPowerMap"));
+            parameters.TractionPowerMap = LoadPowerMap(doc.SelectNodes("//brakingPowerMap"));
 
-            // Add more mappings as needed
 
             return parameters;
         }
 
+        private static PowerMap LoadPowerMap(XmlNodeList? nodes)
+        {
+            foreach (XmlNode node in nodes)
+            {
+                var powermapModel = LoadPowerMapArray(node.SelectNodes("Values"));
+
+                var curve = new PowerMap
+                {
+                    Voltage = int.Parse(node.SelectSingleNode("TractionSystemVoltage")?.InnerText ?? "0"),
+                    Frequency = float.Parse(node.SelectSingleNode("TractionSystemFrequency")?.InnerText ?? "0"),
+                    Powers = LoadFloatArray(node.SelectNodes("Curve/float"))
+
+                };
+                curve.Add(curve);
+            }
+            return powerMaps;
+        }
+
+        private static float[] LoadPowerMap(XmlNodeList nodes)
+        {
+            var values = new List<float>();
+            foreach (XmlNode node in nodes)
+            {
+                LoadPowerMapArray(node.SelectNodes("Values/ArrayOfFloat"));
+                values.Add(float.Parse(node.InnerText));
+            }
+            return values.ToArray();
+        }
+
+
+        private static float[] LoadPowerMapArray(XmlNodeList nodes)
+        {
+                        var values = new List<float>();
+            foreach (XmlNode node in nodes)
+            {
+                
+
+                values.Add(float.Parse(node.InnerText));
+            }
+            return values.ToArray();
+        }
+
         private static List<ForceCurve> LoadForceCurves(XmlNodeList nodes)
         {
-            var tractionCurves = new List<ForceCurve>();
+            var forceCurves = new List<ForceCurve>();
             foreach (XmlNode node in nodes)
             {
                 var curve = new ForceCurve
@@ -64,9 +107,9 @@ namespace TrainCharacteristicsManager
                     Frequency= float.Parse(node.SelectSingleNode("TractionSystemFrequency")?.InnerText ?? "0"),
                     Forces = LoadFloatArray(node.SelectNodes("Curve/float"))
                 };
-                tractionCurves.Add(curve);
+                forceCurves.Add(curve);
             }
-            return tractionCurves;
+            return forceCurves;
         }
 
         private static float[] LoadFloatArray(XmlNodeList nodes)
