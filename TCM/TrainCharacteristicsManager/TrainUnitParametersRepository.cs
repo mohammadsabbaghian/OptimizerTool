@@ -46,49 +46,85 @@ namespace TrainCharacteristicsManager
             parameters.BrakingEfficiency = float.Parse(doc.SelectSingleNode("//BrakingEfficiency")?.InnerText ?? "0");
             parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//TractionCurves/TractionCurves"));
             parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//ElectricalBrakingCurves/ElectricalBrakingCurve"));
-            parameters.BrakingPowerMap = LoadPowerMap(doc.SelectNodes("//TractionPowerMap"));
-            parameters.TractionPowerMap = LoadPowerMap(doc.SelectNodes("//brakingPowerMap"));
+            parameters.TractionPowerMap= LoadPowerMap(doc.SelectSingleNode("//TractionPowerMap/Values"));
+            parameters.BrakingPowerMap = LoadPowerMap(doc.SelectSingleNode("//ElectricalBrakingPowerMap/Values"));
+            parameters.PreferedBraking = LoadPreferedBraking(doc.SelectSingleNode("//StepwisePreferredDecelerationRate"));
 
 
             return parameters;
         }
 
-        private static PowerMap LoadPowerMap(XmlNodeList? nodes)
+        private static float[,] LoadPreferedBraking(XmlNode? node)
         {
-            foreach (XmlNode node in nodes)
+            if (node == null)
             {
-                var powermapModel = LoadPowerMapArray(node.SelectNodes("Values"));
-
-                var curve = new PowerMap
-                {
-                    Voltage = int.Parse(node.SelectSingleNode("TractionSystemVoltage")?.InnerText ?? "0"),
-                    Frequency = float.Parse(node.SelectSingleNode("TractionSystemFrequency")?.InnerText ?? "0"),
-                    Powers = LoadFloatArray(node.SelectNodes("Curve/float"))
-
-                };
-                curve.Add(curve);
+                var values = new float[1, 2];
+                values[0, 0] = 0;
+                values[0, 1] = 0.6f;
+                return values;
             }
-            return powerMaps;
+            else
+            {
+                var nodes = node.SelectNodes("//DecelerationRate");
+                var values = new float[nodes.Count, 2];
+
+                for (int i = 0; i < nodes.Count; i++)
+                {
+                    values[i, 0] = float.Parse(nodes[i].SelectSingleNode("ChangeV")?.InnerText ?? "0");
+                    values[i, 1] = float.Parse(nodes[i].SelectSingleNode("Value")?.InnerText ?? "0");
+                }
+
+                return values;
+            }
+
         }
 
-        private static float[] LoadPowerMap(XmlNodeList nodes)
+        public static PowerMap LoadPowerMap(XmlNode node)
         {
-            var values = new List<float>();
-            foreach (XmlNode node in nodes)
+            if (node == null) return null;
+
+            var tractionPercentages = new float[0];
+            var speeds = new List<float>();
+            var values = new List<int[]>();
+
+            var nodes = node.SelectNodes("ArrayOfFloat");
+
+            for (int i = 0; i < nodes.Count; i++)
             {
-                LoadPowerMapArray(node.SelectNodes("Values/ArrayOfFloat"));
-                values.Add(float.Parse(node.InnerText));
+                var row = LoadFloatArray(nodes[i].SelectNodes("float"));
+                if (i == 0)
+                {
+                    // First row contains traction percentages
+                    tractionPercentages = row.Skip(1).ToArray();
+                }
+                else
+                {
+                    // First element of each row is the speed value
+                    speeds.Add(row[0]);
+                    // The rest are the values of the multidimensional array
+                    values.Add(row.Skip(1).Select(v => (int)v).ToArray());
+                }
             }
-            return values.ToArray();
+
+            // Convert the list of values to a multidimensional array
+            var valuesArray = new int[values.Count, tractionPercentages.Length];
+            for (int i = 0; i < values.Count; i++)
+            {
+                for (int j = 0; j < tractionPercentages.Length; j++)
+                {
+                    valuesArray[i, j] = values[i][j];
+                }
+            }
+
+            return new PowerMap(valuesArray, speeds.ToArray(), tractionPercentages);
         }
 
 
         private static float[] LoadPowerMapArray(XmlNodeList nodes)
         {
-                        var values = new List<float>();
+            var values = new List<float>();
             foreach (XmlNode node in nodes)
             {
-                
 
                 values.Add(float.Parse(node.InnerText));
             }
