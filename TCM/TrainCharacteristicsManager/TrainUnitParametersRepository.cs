@@ -50,7 +50,6 @@ namespace TrainCharacteristicsManager
             parameters.BrakingPowerMap = LoadPowerMap(doc.SelectSingleNode("//ElectricalBrakingPowerMap/Values"));
             parameters.PreferedBraking = LoadPreferedBraking(doc.SelectSingleNode("//StepwisePreferredDecelerationRate"));
 
-
             return parameters;
         }
 

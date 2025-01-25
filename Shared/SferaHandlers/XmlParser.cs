@@ -6,7 +6,7 @@ namespace SferaHandlers
 {
     public class XmlParser
     {
-        public static ISferaMessage DeserializeXmlFile(string filePath)
+        public static (ISferaMessage, string) DeserializeXmlFile(string filePath)
         {
             if (string.IsNullOrEmpty(filePath))
             {
@@ -38,12 +38,12 @@ namespace SferaHandlers
 
             return rootElement switch
             {
-                "SFERA_B2G_EventMessage" => DeserializeXml<SFERA_B2G_EventMessage>(filePath),
-                "SFERA_B2G_RequestMessage" => DeserializeXml<SFERA_B2G_RequestMessage>(filePath),
-                "SFERA_B2G_ReplyMessage" => DeserializeXml<SFERA_B2G_ReplyMessage>(filePath),
-                "SFERA_G2B_EventMessage" => DeserializeXml<SFERA_G2B_EventMessage>(filePath),
-                "SFERA_G2B_ReplyMessage" => DeserializeXml<SFERA_G2B_ReplyMessage>(filePath),
-                "SFERA_G2B_RequestMessage" => DeserializeXml<SFERA_G2B_RequestMessage>(filePath),
+                "SFERA_B2G_EventMessage" => (DeserializeXml<SFERA_B2G_EventMessage>(filePath), rootElement),
+                "SFERA_B2G_RequestMessage" => (DeserializeXml<SFERA_B2G_RequestMessage>(filePath), rootElement),
+                "SFERA_B2G_ReplyMessage" => (DeserializeXml<SFERA_B2G_ReplyMessage>(filePath), rootElement),
+                "SFERA_G2B_EventMessage" => (DeserializeXml<SFERA_G2B_EventMessage>(filePath), rootElement),
+                "SFERA_G2B_ReplyMessage" => (DeserializeXml<SFERA_G2B_ReplyMessage>(filePath), rootElement),
+                "SFERA_G2B_RequestMessage" => (DeserializeXml<SFERA_G2B_RequestMessage>(filePath), rootElement),
                 _ => throw new InvalidOperationException("Unknown XML type")
             };
         }

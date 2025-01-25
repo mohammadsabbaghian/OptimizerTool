@@ -1,8 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using TrainCharacteristicsManager;
-
-
-namespace OptimizerTestTool
+﻿namespace OptimizerTestTool
 {
     public partial class MainPage : ContentPage
     {
@@ -18,63 +14,43 @@ namespace OptimizerTestTool
         {
             try
             {
-                var jpResult = await FilePicker.PickAsync(new PickOptions
+                var jpResult = await PickFileAsync("Please select a JP file");
+
+                var jpMessage = DeserializeFile<SFERA_G2B_ReplyMessage>(jpResult.FullPath, "JP");
+                var jpPayload = GetPayload(jpMessage, "JP");
+
+                var jp = jpPayload.JourneyProfile[0];
+                var sps = jpPayload.SegmentProfile;
+
+                if (sps == null)
                 {
-                    PickerTitle = "Please select an JP file",
-                });
+                    var spResult = await PickFileAsync("Please select the corresponding SP file");
 
-                var spResult = await FilePicker.PickAsync(new PickOptions
-                {
-                    PickerTitle = "Please select the corresponding SP file",
-                });
+                    var spMessage = DeserializeFile<SFERA_G2B_ReplyMessage>(spResult.FullPath, "SP");
+                    var spsPayload = GetPayload(spMessage, "SP");
+                    sps = spsPayload.SegmentProfile;
+                }
 
-                if (jpResult == null || !jpResult.FileName.Contains(".xml"))
-                    throw new InvalidOperationException("Invalid JP file.");
-
-                if (spResult == null || !spResult.FileName.Contains(".xml"))
-                    throw new InvalidOperationException("Invalid SP file.");
-
-                // Deserialize the profiles
-                (jp, sp) = DeserializeProfiles(jpResult, spResult);
-                mapProfiles(jp, sp);
+                ValidateSegmentProfiles(jp, sps);
+                MapProfiles(jp, sps);
             }
             catch (Exception ex)
             {
-                // Handle exceptions, such as when the user cancels the file picker
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
         }
 
-        private static (JourneyProfile jp, SegmentProfile[] sp) DeserializeProfiles(FileResult jpResult, FileResult spResult)
+        private G2B_ReplyPayload GetPayload(SFERA_G2B_ReplyMessage message, string fileType)
         {
-            SFERA_G2B_ReplyMessage jpMessage;
-            SFERA_G2B_ReplyMessage spMessage;
-
-            jpMessage = SferaHandlers.XmlParser.DeserializeXmlFile(jpResult.FullPath) as SFERA_G2B_ReplyMessage ?? throw new InvalidOperationException("Failed to deserialize JP file.");
-            spMessage = SferaHandlers.XmlParser.DeserializeXmlFile(spResult.FullPath) as SFERA_G2B_ReplyMessage ?? throw new InvalidOperationException("Failed to deserialize SP file.");
-
-            if (jpMessage == null || spMessage == null)
-                throw new InvalidCastException("Failed to cast the message to the correct type.");
-
-            var jpPayload = jpMessage.Item as G2B_ReplyPayload;
-            var spsPayload = spMessage.Item as G2B_ReplyPayload;
-
-            if (jpPayload == null || spsPayload == null)
-                throw new InvalidCastException("Failed to cast the payload to the correct type.");
-
-            var jp = jpPayload.JourneyProfile[0];
-            var sps = spsPayload.SegmentProfile;
-
-            foreach (var sp in jp.SegmentProfileList)
+            var payload = message.Item as G2B_ReplyPayload;
+            if (payload == null)
             {
-                if (sps.FirstOrDefault(x => x.SP_ID == sp.SP_ID) == null)
-                {
-                    throw new Exception("Not all segment profiles delivered.");
-                }
+                throw new InvalidCastException($"Failed to cast the payload to the correct type for {fileType} file.");
             }
-            return (jp, sps);
+            return payload;
         }
-        private void mapProfiles(JourneyProfile jp, SegmentProfile[] sps)
+
+        private void MapProfiles(JourneyProfile jp, SegmentProfile[] sps)
         {
             // Map the JP and SP
             var jpMapper = new SferaHandlers.JpMapper();
@@ -82,6 +58,37 @@ namespace OptimizerTestTool
             var spMapper = new SferaHandlers.SpMapper();
             var spConstraints = spMapper.Map(jp, sps);
             return;
+        }
+        private void ValidateSegmentProfiles(JourneyProfile jp, SegmentProfile[] sps)
+        {
+            foreach (var sp in jp.SegmentProfileList)
+            {
+                if (sps.FirstOrDefault(x => x.SP_ID == sp.SP_ID) == null)
+                {
+                    throw new Exception("Not all segment profiles delivered.");
+                }
+            }
+        }
+
+        private async Task<FileResult> PickFileAsync(string pickerTitle)
+        {
+            var result = await FilePicker.PickAsync(new PickOptions
+            {
+                PickerTitle = pickerTitle,
+            });
+
+            if (result == null || !result.FileName.Contains(".xml"))
+                throw new InvalidOperationException($"Invalid file.");
+
+            return result;
+        }
+
+        private T DeserializeFile<T>(string filePath, string fileType) where T : class
+        {
+            var message = SferaHandlers.XmlParser.DeserializeXmlFile(filePath).Item1 as T;
+            if (message == null)
+                throw new InvalidOperationException($"Failed to deserialize {fileType} file.");
+            return message;
         }
     }
 }
