@@ -70,7 +70,7 @@ namespace SferaHandlers
 
         private List<GradientSegment> GetGradientProfile(GradientAverage gradientItem, float absPos, float spLength)
         {
-            if (gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
+            if (gradientItem == null || gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
             {
                 throw new Exception("Gradient data is missing");
             }
