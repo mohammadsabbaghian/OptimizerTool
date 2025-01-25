@@ -1,9 +1,14 @@
 ﻿namespace Shared.Models.Route
 {
-    public class TunnelSegment
+    public class TunnelSegment: Segment
     {
-        public double Start { get; set; }
-        public double End { get; set; }
         public double TunnelFactor { get; set; }
+
+        public TunnelSegment(float start, float end, double tunnelFactor)
+        {
+            Start = start;
+            End = end;
+            TunnelFactor = tunnelFactor;
+        }
     }
 }

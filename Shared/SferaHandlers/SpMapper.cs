@@ -22,8 +22,18 @@ namespace SferaHandlers
                 // var srgs = GetSpeedLimits(sp.SP_Characteristics.StaticSpeedProfile, sp.SP_Points.Signal, absPos, (float)sp.SP_Length);
                 // routeConstraints.SpeedRestrictionSegments.AddRange(srgs);
 
-                // map the gardient average
                 var gradientSegments = GetGradientProfile(sp.SP_Characteristics.GradientAverage, absPos, (float)sp.SP_Length);
+                //routeConstraints.GradientSegments.AddRange(gradientSegments);
+
+                var curveSegments = GetCurveProfile(sp.SP_Characteristics.Curves, absPos, (float)sp.SP_Length);
+                //routeConstraints.Curves.AddRange(curveSegments);
+
+                if (sp.SP_Areas != null)
+                {
+                    var tunnelSegments = GetTunnelSegments(sp.SP_Areas.Tunnel, absPos, (float)sp.SP_Length);
+                    //routeConstraints.Tunnels.AddRange(tunnelSegments);
+                }
+                var segmentPositions = GetSegmentPositions(sp.SP_ContextInformation.KilometreReferencePoint, absPos);
 
                 absPos += (float)sp.SP_Length;
 
@@ -68,9 +78,14 @@ namespace SferaHandlers
             return srgs;
         }
 
-        private List<GradientSegment> GetGradientProfile(GradientAverage gradientItem, float absPos, float spLength)
+        private static List<GradientSegment> GetGradientProfile(GradientAverage gradientItem, float absPos, float spLength)
         {
-            if (gradientItem == null || gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
+            if (gradientItem == null)
+            {
+                return new List<GradientSegment>();
+            }
+
+            if (gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
             {
                 throw new Exception("Gradient data is missing");
             }
@@ -96,6 +111,69 @@ namespace SferaHandlers
                 gradients.Add(gradient);
             }
             return gradients;
+        }
+
+        private static List<CurveSegment> GetCurveProfile(Curves curveItem, float absPos, float spLength)
+        {
+            if (curveItem == null)
+            {
+                return new List<CurveSegment>();
+            }
+
+            if (curveItem.CurveStart == null || curveItem.CurveChange == null)
+            {
+                throw new Exception("Curve data is missing");
+            }
+
+            var curves = new List<CurveSegment>();
+            var curveChanges = curveItem.CurveChange;
+
+            curves.Add(new CurveSegment(absPos, absPos + (float)curveChanges[0].location, (float)curveItem.CurveStart.curveRadius));
+
+            for (int i = 0; i < curveChanges.Length; i++)
+            {
+                var change = curveChanges[i];
+                CurveSegment curve;
+                if (i != curveChanges.Length - 1)
+                {
+                    curve = new CurveSegment(absPos + (float)change.location, absPos + (float)curveChanges[i + 1].location, (float)change.curveRadius);
+                }
+                else
+                {
+                    curve = new CurveSegment(absPos + (float)change.location, absPos + spLength, (float)change.curveRadius);
+                }
+                curves.Add(curve);
+            }
+            return curves;
+        }
+
+        private static List<TunnelSegment> GetTunnelSegments(Tunnel[] tunnels, float absPos, float spLength)
+        {
+            if (tunnels == null)
+            {
+                return new List<TunnelSegment>();
+            }
+            var tunnelSegments = new List<TunnelSegment>();
+            foreach (var tunnel in tunnels)
+            {
+                tunnelSegments.Add(new TunnelSegment(absPos + (float)tunnel.startLocation, absPos + (float)tunnel.endLocation, (float)tunnel.tunnelFactor));
+            }
+            return tunnelSegments;
+        }
+
+        private static List<SegmentPosition> GetSegmentPositions(KilometreReferencePoint[] kmPoints, float absPos)
+        {
+            if (kmPoints == null)
+            {
+                return new List<SegmentPosition>();
+            }
+            var segmentPositions = new List<SegmentPosition>();
+            foreach (var kmPoint in kmPoints)
+            {
+                var kmReference = kmPoint.KM_Reference?.ToString() ?? string.Empty;
+                segmentPositions.Add(new SegmentPosition(absPos + (float)kmPoint.location, kmReference));
+            }
+            return segmentPositions;
         }
     }
 }
