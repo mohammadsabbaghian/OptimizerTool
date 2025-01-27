@@ -1,0 +1,48 @@
+{
+  "PartitionKey": "TrainUnitParameters",
+  "Class": "7015",
+  "BaseClassType": "7015",
+  "CurveRes": 0.0,
+  "Mass": 175000.0,
+  "Length": 101.0,
+  "DragA": 0.0,
+  "DragAmass": 2388.0,
+  "DragB": 0.0,
+  "DragBmass": 0.0,
+  "DragC": 23715.0,
+  "DeltaDragC": 71613.0,
+  "MaxSpeed": 4.4444444E+11,
+  "RotatingMassCoefficient": 0.0,
+  "NumberOfCars": 5,
+  "MechanicalBraking": 0.0,
+  "Type": 0,
+  "Propulsion": 0,
+  "ProtectionSystem": null,
+  "PreferedBraking": [
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "BrakedWeightPercentageG": 120,
+  "BrakedWeightPercentageP": 120,
+  "DisplayName": "701 Five-Car",
+  "NumAxles": 20,
+  "SupportedTypes": [
+    "7015"
+  ],
+  "MinimumCoastingSpeed": 8333.0,
+  "MinimumCoastingDistance": 500,
+  "IsLoco": false,
+  "SpeedometerDeviation": 0.0,
+  "TractionPowerMap": null,
+  "BrakingPowerMap": null,
+  "BrakingCurves": [],
+  "TractionCurves": [],
+  "BrakingForce": 0.0,
+  "BrakingPower": 0.0,
+  "TractionForce": 165565,
+  "TractionPower": 2632472,
+  "TractionEfficiency": 0.0,
+  "BrakingEfficiency": 82.0
+}

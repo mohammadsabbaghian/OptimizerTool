@@ -1,0 +1,48 @@
+{
+  "PartitionKey": "TrainUnitParameters",
+  "Class": "648##",
+  "BaseClassType": "648###",
+  "CurveRes": 0.0,
+  "Mass": 63000.0,
+  "Length": 419.0,
+  "DragA": 0.0,
+  "DragAmass": 95238.0,
+  "DragB": 0.0,
+  "DragBmass": 0.0,
+  "DragC": 3.0,
+  "DeltaDragC": 9.0,
+  "MaxSpeed": 333333.0,
+  "RotatingMassCoefficient": 0.0,
+  "NumberOfCars": 1,
+  "MechanicalBraking": 0.0,
+  "Type": 0,
+  "Propulsion": 6,
+  "ProtectionSystem": null,
+  "PreferedBraking": [
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "BrakedWeightPercentageG": 115,
+  "BrakedWeightPercentageP": 115,
+  "DisplayName": "Lint41",
+  "NumAxles": 6,
+  "SupportedTypes": [
+    "648###"
+  ],
+  "MinimumCoastingSpeed": 111111.0,
+  "MinimumCoastingDistance": 100,
+  "IsLoco": false,
+  "SpeedometerDeviation": 97.0,
+  "TractionPowerMap": null,
+  "BrakingPowerMap": null,
+  "BrakingCurves": [],
+  "TractionCurves": [],
+  "BrakingForce": 0.0,
+  "BrakingPower": 0.0,
+  "TractionForce": 0,
+  "TractionPower": 0,
+  "TractionEfficiency": 0.0,
+  "BrakingEfficiency": 0.0
+}

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Shared.Models\Shared.Models.csproj" />
     <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
     <ProjectReference Include="..\TrainCharacteristics.Models\TrainCharacteristicsManager.Models.csproj" />

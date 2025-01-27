@@ -27,6 +27,18 @@ namespace TrainCharacteristicsManager.Models
         public ProtectionSystem[] ProtectionSystem { get; set; }
         public float[,] PreferedBraking { get; set; }
 
+
+        public int BrakedWeightPercentageG { get; set; }
+        public int BrakedWeightPercentageP { get; set; }
+        public string DisplayName { get; set; }
+        public int NumAxles { get; set; }
+        public List<string> SupportedTypes { get; set; }
+        public float MinimumCoastingSpeed { get; set; }
+        public int MinimumCoastingDistance { get; set; }
+        public bool IsLoco { get; set; }
+        public float SpeedometerDeviation { get; set; }
+
+
         //For train where we have the model
         public PowerMap TractionPowerMap { get; set; }
         public PowerMap BrakingPowerMap { get; set; }
