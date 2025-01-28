@@ -2,7 +2,10 @@
 {
     public class CurveSegment : Segment
     {
-
+        public CurveSegment()
+        {
+            
+        }
         public CurveSegment(float start, float end, float radius)
         {
             Start = start;

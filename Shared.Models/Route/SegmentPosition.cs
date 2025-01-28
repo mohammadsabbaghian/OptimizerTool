@@ -8,6 +8,7 @@
             KmReference = kmReference;
         }
         public double Position { get; set; }
+        public double? Altitude { get; set; }
         public string KmReference { get; set; }
     }
 }
