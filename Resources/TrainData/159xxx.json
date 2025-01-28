@@ -1,0 +1,49 @@
+{
+  "PartitionKey": "TrainUnitParameters",
+  "Class": "159###",
+  "BaseClassType": "159###",
+  "CurveRes": 0.0,
+  "Mass": 117500.0,
+  "Length": 6973.0,
+  "DragA": 0.0,
+  "DragAmass": 14723.0,
+  "DragB": 0.0,
+  "DragBmass": 0.0,
+  "DragC": 18161.0,
+  "DeltaDragC": 28662.0,
+  "MaxSpeed": 4023.0,
+  "RotatingMassCoefficient": 0.0,
+  "NumberOfCars": 3,
+  "MechanicalBraking": 0.0,
+  "Type": 0,
+  "Propulsion": 6,
+  "ProtectionSystem": null,
+  "PreferedBraking": [
+    [
+      0.0,
+      57021.0
+    ]
+  ],
+  "BrakedWeightPercentageG": 100,
+  "BrakedWeightPercentageP": 100,
+  "DisplayName": "159###",
+  "NumAxles": 12,
+  "SupportedTypes": [
+    "159###",
+    "158###"
+  ],
+  "MinimumCoastingSpeed": 833.0,
+  "MinimumCoastingDistance": 500,
+  "IsLoco": false,
+  "SpeedometerDeviation": 1.0,
+  "TractionPowerMap": null,
+  "BrakingPowerMap": null,
+  "BrakingCurves": [],
+  "TractionCurves": [],
+  "BrakingForce": 0.0,
+  "BrakingPower": 0.0,
+  "TractionForce": 0,
+  "TractionPower": 0,
+  "TractionEfficiency": 0.0,
+  "BrakingEfficiency": 0.0
+}

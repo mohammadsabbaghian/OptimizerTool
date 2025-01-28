@@ -1,0 +1,48 @@
+{
+  "PartitionKey": "TrainUnitParameters",
+  "Class": "643##",
+  "BaseClassType": "643###",
+  "CurveRes": 0.0,
+  "Mass": 75800.0,
+  "Length": 4936.0,
+  "DragA": 0.0,
+  "DragAmass": 6.0,
+  "DragB": 0.0,
+  "DragBmass": 0.0,
+  "DragC": 5907.0,
+  "DeltaDragC": 26118.0,
+  "MaxSpeed": 333333.0,
+  "RotatingMassCoefficient": 0.0,
+  "NumberOfCars": 3,
+  "MechanicalBraking": 0.0,
+  "Type": 0,
+  "Propulsion": 6,
+  "ProtectionSystem": null,
+  "PreferedBraking": [
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "BrakedWeightPercentageG": 115,
+  "BrakedWeightPercentageP": 115,
+  "DisplayName": "Talent Classic",
+  "NumAxles": 8,
+  "SupportedTypes": [
+    "643###"
+  ],
+  "MinimumCoastingSpeed": 111111.0,
+  "MinimumCoastingDistance": 100,
+  "IsLoco": false,
+  "SpeedometerDeviation": 97.0,
+  "TractionPowerMap": null,
+  "BrakingPowerMap": null,
+  "BrakingCurves": [],
+  "TractionCurves": [],
+  "BrakingForce": 0.0,
+  "BrakingPower": 0.0,
+  "TractionForce": 0,
+  "TractionPower": 0,
+  "TractionEfficiency": 0.0,
+  "BrakingEfficiency": 0.0
+}

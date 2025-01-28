@@ -1,0 +1,48 @@
+{
+  "PartitionKey": "TrainUnitParameters",
+  "Class": "CoradiaStreamClass77",
+  "BaseClassType": "CoradiaStreamClass77",
+  "CurveRes": 0.0,
+  "Mass": 221730.0,
+  "Length": 107.0,
+  "DragA": 0.0,
+  "DragAmass": 98.0,
+  "DragB": 5432385.0,
+  "DragBmass": 0.0,
+  "DragC": 15.0,
+  "DeltaDragC": 57576.0,
+  "MaxSpeed": 4.4444444E+11,
+  "RotatingMassCoefficient": 0.0,
+  "NumberOfCars": 5,
+  "MechanicalBraking": 0.0,
+  "Type": 0,
+  "Propulsion": 0,
+  "ProtectionSystem": null,
+  "PreferedBraking": [
+    [
+      0.0,
+      7.0
+    ]
+  ],
+  "BrakedWeightPercentageG": 115,
+  "BrakedWeightPercentageP": 115,
+  "DisplayName": "Coradia Stream Class 77",
+  "NumAxles": 10,
+  "SupportedTypes": [
+    "CoradiaStreamClass77"
+  ],
+  "MinimumCoastingSpeed": 111111.0,
+  "MinimumCoastingDistance": 100,
+  "IsLoco": false,
+  "SpeedometerDeviation": 1.0,
+  "TractionPowerMap": null,
+  "BrakingPowerMap": null,
+  "BrakingCurves": [],
+  "TractionCurves": [],
+  "BrakingForce": 0.0,
+  "BrakingPower": 0.0,
+  "TractionForce": 228802,
+  "TractionPower": 2651934,
+  "TractionEfficiency": 0.0,
+  "BrakingEfficiency": 1.0
+}

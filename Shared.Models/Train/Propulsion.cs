@@ -7,6 +7,7 @@
         Batttery,
         BatteryHybrid,
         Hydrogen,
-        None
+        None,
+        SelfPropelled
     }
 }
