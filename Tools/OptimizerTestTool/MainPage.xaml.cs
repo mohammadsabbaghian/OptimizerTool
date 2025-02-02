@@ -32,7 +32,7 @@
                 }
 
                 ValidateSegmentProfiles(jp, sps);
-                MapProfiles(jp, sps);
+                await MapProfiles(jp, sps);
             }
             catch (Exception ex)
             {
@@ -50,15 +50,16 @@
             return payload;
         }
 
-        private void MapProfiles(JourneyProfile jp, SegmentProfile[] sps)
+        private async Task MapProfiles(JourneyProfile jp, SegmentProfile[] sps)
         {
             // Map the JP and SP
             var jpMapper = new SferaHandlers.JpMapper();
             var jpConstraints = jpMapper.Map(jp, sps);
             var spMapper = new SferaHandlers.SpMapper();
             var spConstraints = spMapper.Map(jp, sps);
-            return;
+            await DisplayAlert("Success", "Mapping was successful.", "OK");
         }
+
         private void ValidateSegmentProfiles(JourneyProfile jp, SegmentProfile[] sps)
         {
             foreach (var sp in jp.SegmentProfileList)
@@ -89,6 +90,11 @@
             if (message == null)
                 throw new InvalidOperationException($"Failed to deserialize {fileType} file.");
             return message;
+        }
+
+        private void DisplayResults(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

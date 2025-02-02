@@ -18,28 +18,25 @@ namespace SferaHandlers
             {
                 var sp = segmentProfiles.First(x => x.SP_ID == item.SP_ID);
 
-                // map speed restrictions
-                // var srgs = GetSpeedLimits(sp.SP_Characteristics.StaticSpeedProfile, sp.SP_Points.Signal, absPos, (float)sp.SP_Length);
-                // routeConstraints.SpeedRestrictionSegments.AddRange(srgs);
+                var srgs = GetSpeedLimits(sp.SP_Characteristics.StaticSpeedProfile, sp.SP_Points.Signal, absPos, (float)sp.SP_Length);
+                routeConstraints.SpeedRestrictionSegments.AddRange(srgs);
 
                 var gradientSegments = GetGradientProfile(sp.SP_Characteristics.GradientAverage, absPos, (float)sp.SP_Length);
-                //routeConstraints.GradientSegments.AddRange(gradientSegments);
+                routeConstraints.GradientSegments.AddRange(gradientSegments);
 
                 var curveSegments = GetCurveProfile(sp.SP_Characteristics.Curves, absPos, (float)sp.SP_Length);
-                //routeConstraints.Curves.AddRange(curveSegments);
+                routeConstraints.Curves.AddRange(curveSegments);
 
                 if (sp.SP_Areas != null)
                 {
                     var tunnelSegments = GetTunnelSegments(sp.SP_Areas.Tunnel, absPos, (float)sp.SP_Length);
-                    //routeConstraints.Tunnels.AddRange(tunnelSegments);
+                    routeConstraints.Tunnels.AddRange(tunnelSegments);
                 }
-                var segmentPositions = GetSegmentPositions(sp.SP_ContextInformation.KilometreReferencePoint, absPos);
+                var segmentPositions = GetSegmentPositions(sp.SP_Points.VirtualBalise, absPos);
+                routeConstraints.Points.AddRange(segmentPositions);
 
                 absPos += (float)sp.SP_Length;
-
             }
-
-
             return routeConstraints;
         }
 
@@ -80,14 +77,9 @@ namespace SferaHandlers
 
         private static List<GradientSegment> GetGradientProfile(GradientAverage gradientItem, float absPos, float spLength)
         {
-            if (gradientItem == null)
+            if (gradientItem == null || gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
             {
                 return new List<GradientSegment>();
-            }
-
-            if (gradientItem.GradientAverageStart == null || gradientItem.GradientAverageChange == null)
-            {
-                throw new Exception("Gradient data is missing");
             }
 
             var gradients = new List<GradientSegment>();
@@ -161,17 +153,18 @@ namespace SferaHandlers
             return tunnelSegments;
         }
 
-        private static List<SegmentPosition> GetSegmentPositions(KilometreReferencePoint[] kmPoints, float absPos)
+        private static List<SegmentPosition> GetSegmentPositions(VirtualBalise[] vbs, float absPos)
         {
-            if (kmPoints == null)
+            if (vbs == null || vbs.Length == 0)
             {
                 return new List<SegmentPosition>();
             }
             var segmentPositions = new List<SegmentPosition>();
-            foreach (var kmPoint in kmPoints)
+            foreach (var vb in vbs)
             {
-                var kmReference = kmPoint.KM_Reference?.ToString() ?? string.Empty;
-                segmentPositions.Add(new SegmentPosition(absPos + (float)kmPoint.location, kmReference));
+                var kmReference = vb.identifier ?? string.Empty;
+                // also add latitude and longitude?
+                segmentPositions.Add(new SegmentPosition(position: absPos + vb.location, kmReference: kmReference, altitude: (float)vb.VirtualBalisePosition.altitude));
             }
             return segmentPositions;
         }
