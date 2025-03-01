@@ -4,22 +4,21 @@
     {
         public DynamicsConstraints(int numberOfDiscInterval)
         {
-            Trackresistance = new float[numberOfDiscInterval];
-            TractionCurveIndex = new int[numberOfDiscInterval];
-            BrakingCurveIndex = new int[numberOfDiscInterval];
-            TunnelFactor = new float[numberOfDiscInterval];
+            Trackresistances = new float[numberOfDiscInterval];
+            TractionCurveIndices = new int[numberOfDiscInterval];
+            BrakingCurveIndices = new int[numberOfDiscInterval];
+            TunnelFactors = new float[numberOfDiscInterval];
 
-
-            SpeedLimit = new float[numberOfDiscInterval];
-            PassagePointIndex = new int[numberOfDiscInterval];
+            SpeedLimits = new float[numberOfDiscInterval];
+            PassagePointIndices = new int[numberOfDiscInterval];
         }
 
-        public float[] Trackresistance { get; set; }
-        public int[] TractionCurveIndex { get; set; }
-        public int[] BrakingCurveIndex { get; set; }
-        public float[] TunnelFactor { get; set; }
+        public float[] Trackresistances { get; set; }
+        public int[] TractionCurveIndices { get; set; }
+        public int[] BrakingCurveIndices { get; set; }
+        public float[] TunnelFactors { get; set; }
 
-        public float[] SpeedLimit { get; set; }
-        public int[] PassagePointIndex { get; set; }
+        public float[] SpeedLimits { get; set; }
+        public int[] PassagePointIndices { get; set; }
     }
 }

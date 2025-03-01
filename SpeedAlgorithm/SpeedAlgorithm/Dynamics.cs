@@ -31,14 +31,14 @@ namespace SpeedAlgorithm
             var curIndex = i + offset;
             var setIndex = i + offset + 1;
             var prevV = sp.Speed[curIndex];
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndices[curIndex]);
 
             var speed = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
             
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndices[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -53,14 +53,14 @@ namespace SpeedAlgorithm
             var curIndex = i + offset - 1;
             var setIndex = i + offset - 1;
             var prevV = sp.Speed[curIndex + 1];
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndices[curIndex]);
 
             var speed = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
 
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndices[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -76,14 +76,14 @@ namespace SpeedAlgorithm
             var setIndex = i + offset + 1;
             var prevV = sp.Speed[curIndex];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndices[curIndex]);
 
             var speed = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
 
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetBrakingForce(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetBrakingForce(avgSpeed, _constraints.TractionCurveIndices[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -99,14 +99,60 @@ namespace SpeedAlgorithm
             var setIndex = i + offset - 1;
             var prevV = sp.Speed[curIndex + 1];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndex[curIndex]);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndices[curIndex]);
 
             var speed = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
 
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetBrakingForce(avgSpeed, _constraints.BrakingCurveIndex[curIndex]);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetBrakingForce(avgSpeed, _constraints.BrakingCurveIndices[curIndex]);
+
+            sp.Force[setIndex] = force;
+            sp.Speed[setIndex] = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
+            avgSpeed = (sp.Speed[curIndex] + sp.Speed[setIndex]) / 2;
+            sp.Time[setIndex] = _discInt / avgSpeed;
+            sp.DrivingMode[setIndex] = DrivingMode.Brake;
+            sp.Energy[setIndex] = force * _brakingEffDisc;
+        }
+
+        public void Regenerate(SpeedProfile sp, int i, int offset = 0)
+        {
+            var curIndex = i + offset;
+            var setIndex = i + offset + 1;
+            var prevV = sp.Speed[curIndex];
+
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetRegenForce(prevV, _constraints.TractionCurveIndices[curIndex]);
+
+            var speed = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
+            var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
+
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetRegenForce(avgSpeed, _constraints.TractionCurveIndices[curIndex]);
+
+            sp.Force[setIndex] = force;
+            sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
+            avgSpeed = (sp.Speed[curIndex] + sp.Speed[setIndex]) / 2;
+            sp.Time[setIndex] = _discInt / avgSpeed;
+            sp.DrivingMode[setIndex] = DrivingMode.Brake;
+            sp.Energy[setIndex] = force * _brakingEffDisc;
+        }
+
+        public void RegenerateBackwards(SpeedProfile sp, int i, int offset = 0)
+        {
+            var curIndex = i + offset - 1;
+            var setIndex = i + offset - 1;
+            var prevV = sp.Speed[curIndex + 1];
+
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetRegenForce(prevV, _constraints.BrakingCurveIndices[curIndex]);
+
+            var speed = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
+            var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
+
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
+            force = _tc.GetRegenForce(avgSpeed, _constraints.BrakingCurveIndices[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -122,12 +168,12 @@ namespace SpeedAlgorithm
             var setIndex = i + offset + 1;
             var prevV = sp.Speed[curIndex];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
 
             var speed = prevV + (float)Math.Sqrt(2 * (-resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
 
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
 
             sp.Force[setIndex] = 0;
             sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (-resistance) / _tc.Mass * _discInt);
@@ -143,11 +189,11 @@ namespace SpeedAlgorithm
             var setIndex = i + offset - 1;
             var prevV = sp.Speed[curIndex + 1];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
             var speed = prevV - (float)Math.Sqrt(2 * (-resistance) / _tc.Mass * _discInt);
             
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
+            resistance = _constraints.Trackresistances[curIndex] + GetRTM(avgSpeed);
 
             sp.Force[setIndex] = 0;
             sp.Speed[setIndex] = prevV - (float)Math.Sqrt(2 * (-resistance) / _tc.Mass * _discInt);
@@ -163,12 +209,12 @@ namespace SpeedAlgorithm
             var setIndex = i + offset + 1;
             var prevV = sp.Speed[curIndex];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
+            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndices[curIndex]);
 
             if (force >= 0)
             {
-                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
+                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndices[curIndex]);
                 if (availableForce < force)
                 {
                     AccelerateBackwards(sp, i, offset);
@@ -181,7 +227,7 @@ namespace SpeedAlgorithm
             }
             else
             {
-                var availableForce = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndex[curIndex]);
+                var availableForce = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndices[curIndex]);
                 if (availableForce < force)
                 {
                     BrakeBackwards(sp, i, offset);
@@ -200,12 +246,12 @@ namespace SpeedAlgorithm
             var setIndex = i + offset - 1;
             var prevV = sp.Speed[curIndex + 1];
 
-            var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
+            var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
             var force = resistance * _tc.Mass;
 
             if (force >= 0)
             {
-                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
+                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndices[curIndex]);
                 if (availableForce < force)
                 {
                     AccelerateBackwards(sp, i, offset);
@@ -218,7 +264,7 @@ namespace SpeedAlgorithm
             }
             else
             {
-                var availableForce = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndex[curIndex]);
+                var availableForce = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndices[curIndex]);
                 if (availableForce < force)
                 {
                     BrakeBackwards(sp, i, offset);

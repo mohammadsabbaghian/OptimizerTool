@@ -48,13 +48,13 @@ namespace SferaHandlers
             return timeConstraints;
         }
 
-        private Shared.Models.Timetable.StopType MapStopType(NextTimingPointTrainInformationTP_StopSkipPass stopType)
+        private tt.StopType MapStopType(NextTimingPointTrainInformationTP_StopSkipPass stopType)
         {
             return stopType switch
             {
-                NextTimingPointTrainInformationTP_StopSkipPass.Stopping_Point => Shared.Models.Timetable.StopType.Stop,
-                NextTimingPointTrainInformationTP_StopSkipPass.Passing_Point => Shared.Models.Timetable.StopType.DriveThrough,
-                NextTimingPointTrainInformationTP_StopSkipPass.Skipped_Stopping_Point => Shared.Models.Timetable.StopType.Push2Stop
+                NextTimingPointTrainInformationTP_StopSkipPass.Stopping_Point => tt.StopType.Stop,
+                NextTimingPointTrainInformationTP_StopSkipPass.Passing_Point => tt.StopType.DriveThrough,
+                NextTimingPointTrainInformationTP_StopSkipPass.Skipped_Stopping_Point => tt.StopType.DriveThrough
             };
         }
     }

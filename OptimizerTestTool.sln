@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimizerTestTool", "Tools\OptimizerTestTool\OptimizerTestTool.csproj", "{2783E27D-3EA8-4E1B-B2A3-0F6007842435}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0710985A-EA4C-4BC3-AE92-1BB38B2BB323} = {0710985A-EA4C-4BC3-AE92-1BB38B2BB323}
+		{2E8F3238-C149-4371-809F-B708BC46D70D} = {2E8F3238-C149-4371-809F-B708BC46D70D}
+		{F7AB8019-3AFD-4926-B454-92C8F10720D1} = {F7AB8019-3AFD-4926-B454-92C8F10720D1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SferaHandlers", "Shared\SferaHandlers\SferaHandlers.csproj", "{9CCDB425-37DD-4C9C-A186-14EC07436604}"
 EndProject
@@ -15,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsManager", "TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj", "{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0A347AA3-5579-46C0-B9F4-083B286FFFE0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedAlgorithm.Tests", "Testing\SpeedOptimizer.Tests\SpeedAlgorithm.Tests.csproj", "{D9847B17-26C4-4D69-9EC7-F0660495FCE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainCharacteristicsService", "TCM\TrainCharacteristicsService\TrainCharacteristicsService.csproj", "{2E8F3238-C149-4371-809F-B708BC46D70D}"
 EndProject
@@ -48,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedAlgorithm.Models", "Sp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedAlgorithm.Preprocessing", "SpeedAlgorithm\SpeedAlgorithm.Preprocessing\SpeedAlgorithm.Preprocessing.csproj", "{0710985A-EA4C-4BC3-AE92-1BB38B2BB323}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedAlgorithm.Tests", "Testing\SpeedAlgorithm.Tests\SpeedAlgorithm.Tests.csproj", "{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,10 +73,6 @@ Global
 		{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9847B17-26C4-4D69-9EC7-F0660495FCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9847B17-26C4-4D69-9EC7-F0660495FCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9847B17-26C4-4D69-9EC7-F0660495FCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9847B17-26C4-4D69-9EC7-F0660495FCE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E8F3238-C149-4371-809F-B708BC46D70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E8F3238-C149-4371-809F-B708BC46D70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E8F3238-C149-4371-809F-B708BC46D70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -112,6 +113,10 @@ Global
 		{0710985A-EA4C-4BC3-AE92-1BB38B2BB323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0710985A-EA4C-4BC3-AE92-1BB38B2BB323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0710985A-EA4C-4BC3-AE92-1BB38B2BB323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,7 +124,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9CCDB425-37DD-4C9C-A186-14EC07436604} = {13B9E0AC-B8DD-4CB1-8393-E046FA292488}
 		{3E6EEB29-F6FB-4344-AE8B-18E676DF9E93} = {C96D7BE7-F692-46A0-BD19-C2A6F42A9C13}
-		{D9847B17-26C4-4D69-9EC7-F0660495FCE8} = {0A347AA3-5579-46C0-B9F4-083B286FFFE0}
 		{2E8F3238-C149-4371-809F-B708BC46D70D} = {C96D7BE7-F692-46A0-BD19-C2A6F42A9C13}
 		{872D037B-0F1D-4EB6-9188-695306184B43} = {4EF4B30F-A516-42FD-BA5D-824734E01927}
 		{F5FFF98F-CE5B-44A4-9E87-7E3A43DC3D4F} = {4EF4B30F-A516-42FD-BA5D-824734E01927}
@@ -129,6 +133,7 @@ Global
 		{7BBB74A1-A256-4FA7-8109-7DD6B0CBF4E4} = {88F218D9-A6B5-477F-8DF4-E266DBB139A1}
 		{1B5B75A4-B9BE-409F-AD8B-4D1D0304BE21} = {88F218D9-A6B5-477F-8DF4-E266DBB139A1}
 		{0710985A-EA4C-4BC3-AE92-1BB38B2BB323} = {88F218D9-A6B5-477F-8DF4-E266DBB139A1}
+		{291EA4FD-7A16-45C1-BBD3-62A6E1A02AC4} = {0A347AA3-5579-46C0-B9F4-083B286FFFE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E39B596F-B26D-4C17-9080-E961512C9FA6}

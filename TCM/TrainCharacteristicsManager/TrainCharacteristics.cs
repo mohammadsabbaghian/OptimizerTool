@@ -7,14 +7,16 @@ namespace TrainCharacteristicsManager
         public PowerMap BrakingPowerMap { get; set; }
         public PowerMap TractionPowerMap { get; set; }
         public List<float[]> BrakingCurves { get; set; }
+        public List<float[]> RegenCurves { get; }
         public List<float[]> TractionCurves { get; set; }
 
-        public TrainCharacteristics(PowerMap tractionPowerMap, PowerMap brakingPowerMap, List<float[]> tractionCurves, List<float[]> brakingCurves)
+        public TrainCharacteristics(PowerMap tractionPowerMap, PowerMap brakingPowerMap, List<float[]> tractionCurves, List<float[]> brakingCurves, List<float[]> regenCurves)
         {
             BrakingPowerMap = brakingPowerMap;
             TractionPowerMap = tractionPowerMap;
             TractionCurves = tractionCurves;
             BrakingCurves = brakingCurves;
+            RegenCurves = regenCurves;
         }
 
         public float GetTractionFore(float speed, int curveIndex)
@@ -43,6 +45,12 @@ namespace TrainCharacteristicsManager
             var sI = Math.Min(TractionPowerMap.Speeds.Length - 1, (int)Math.Round(speed * 3.6, 0));
             var tpI = Math.Min(TractionPowerMap.Powers.Length - 1, (int)Math.Round(tractionPercent, 0));
             return TractionPowerMap.Powers[tpI, sI];
+        }
+
+        public float GetRegenForce(float speed, int curveIndex)
+        {
+            var index = Math.Min(RegenCurves[curveIndex].Length, (int)Math.Round(speed * 3.6, 0));
+            return RegenCurves[curveIndex][index];
         }
     }
 }

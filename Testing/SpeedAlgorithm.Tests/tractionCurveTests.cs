@@ -28,6 +28,12 @@ namespace SpeedAlgorithm.Tests
                 new float[200]
             };
 
+            var regenCurves = new List<float[]>
+            {
+                new float[200],
+                new float[200]
+            };
+
             var speeds = new float[200];
             var powers = new int[200, 200];
             var tractionPercentages = new float[200];
@@ -35,7 +41,7 @@ namespace SpeedAlgorithm.Tests
             var tractionPowerMap = new PowerMap(powers, speeds, tractionPercentages);
             var brakingPowerMap = new PowerMap(powers, speeds, tractionPercentages);
 
-            var trainCharacteristics = new TrainCharacteristics(tractionPowerMap, brakingPowerMap, tractionCurves, brakingCurves);
+            var trainCharacteristics = new TrainCharacteristics(tractionPowerMap, brakingPowerMap, tractionCurves, brakingCurves, regenCurves);
 
             // Fill dummy data with random values
             var random = new Random();

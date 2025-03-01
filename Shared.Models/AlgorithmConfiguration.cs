@@ -70,5 +70,6 @@
 
         //Maximum Jerk allowed for comfort
         public float JerkLimitation { get; set; }
+        public float MinimumCoastingSpeed { get; set; }
     }
 }

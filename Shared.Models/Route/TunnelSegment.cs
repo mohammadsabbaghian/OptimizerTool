@@ -2,9 +2,9 @@
 {
     public class TunnelSegment: Segment
     {
-        public double TunnelFactor { get; set; }
+        public float TunnelFactor { get; set; }
 
-        public TunnelSegment(float start, float end, double tunnelFactor)
+        public TunnelSegment(float start, float end, float tunnelFactor)
         {
             Start = start;
             End = end;

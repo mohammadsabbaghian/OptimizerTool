@@ -30,6 +30,6 @@ namespace TrainCharacteristicsManager
         public float GetTractionFore(float speed, int curveIndex);
         public float GetBrakingForce(float speed, int curveIndex);
         public float GetBrakingPower(float speed, float tractionPercent);
-
+        float GetRegenForce(float prevV, int v);
     }
 }

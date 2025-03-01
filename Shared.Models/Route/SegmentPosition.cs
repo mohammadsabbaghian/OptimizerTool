@@ -10,6 +10,6 @@
         }
         public double Position { get; set; }
         public string KmReference { get; set; }
-        public double Altitude { get; set; }
+        public double? Altitude { get; set; }
     }
 }
