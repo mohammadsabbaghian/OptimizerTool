@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SpeedOptimizer.Preprocessing\SpeedOptimizer.Preprocessing.csproj" />
-    <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
-    <ProjectReference Include="..\..\SPO\SpeedOptimizer\SpeedOptimizer.csproj" />
+    <ProjectReference Include="..\..\SpeedOptimizer.Preprocessing\SpeedAlgorithm.Preprocessing.csproj" />
+    <ProjectReference Include="..\..\SpeedAlgorithm\SpeedOptimizer.Models\SpeedAlgorithm.Models.csproj" />
+    <ProjectReference Include="..\..\SpeedAlgorithm\SpeedOptimizer\SpeedAlgorithm.csproj" />
   </ItemGroup>
 
   <ItemGroup>

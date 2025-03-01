@@ -1,8 +1,8 @@
 ﻿using Shared.Models;
-using SpeedOptimizer.Models;
+using SpeedAlgorithm.Models;
 using TrainCharacteristicsManager;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
     public class Dynamics
     {
@@ -32,13 +32,13 @@ namespace SpeedOptimizer
             var setIndex = i + offset + 1;
             var prevV = sp.Speed[curIndex];
             var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
 
             var speed = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
             
             resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetBrakingForce(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
+            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -54,13 +54,13 @@ namespace SpeedOptimizer
             var setIndex = i + offset - 1;
             var prevV = sp.Speed[curIndex + 1];
             var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
+            var force = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
 
             var speed = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
             var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
 
             resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetBrakingForce(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
+            force = _tc.GetTractionFore(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
 
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV - (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
@@ -166,18 +166,32 @@ namespace SpeedOptimizer
             var resistance = _constraints.Trackresistance[curIndex] + GetRTM(prevV);
             var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
 
-            var speed = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
-            var avgSpeed = (sp.Speed[curIndex] + speed) / 2;
-
-            resistance = _constraints.Trackresistance[curIndex] + GetRTM(avgSpeed);
-            force = _tc.GetBrakingForce(avgSpeed, _constraints.TractionCurveIndex[curIndex]);
-
-            sp.Force[setIndex] = force;
-            sp.Speed[setIndex] = prevV + (float)Math.Sqrt(2 * (force - resistance) / _tc.Mass * _discInt);
-            avgSpeed = (sp.Speed[curIndex] + sp.Speed[setIndex]) / 2;
-            sp.Time[setIndex] = _discInt / avgSpeed;
-            sp.DrivingMode[setIndex] = DrivingMode.Cruise;
-            sp.Energy[setIndex] = force * _discInt;
+            if (force >= 0)
+            {
+                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
+                if (availableForce < force)
+                {
+                    AccelerateBackwards(sp, i, offset);
+                    return;
+                }
+                else
+                {
+                    sp.Energy[setIndex] = force * _tractionEffDisc;
+                }
+            }
+            else
+            {
+                var availableForce = _tc.GetBrakingForce(prevV, _constraints.BrakingCurveIndex[curIndex]);
+                if (availableForce < force)
+                {
+                    BrakeBackwards(sp, i, offset);
+                    return;
+                }
+                else
+                {
+                    sp.Energy[setIndex] = force * _discInt * _tc.RegenEfficiency;
+                }
+            }
         }
 
         public void CruiseBackwards(SpeedProfile sp, int i, int offset = 0)
@@ -191,7 +205,7 @@ namespace SpeedOptimizer
 
             if (force >= 0)
             {
-                var availableForce = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndex[curIndex]);
+                var availableForce = _tc.GetTractionFore(prevV, _constraints.TractionCurveIndex[curIndex]);
                 if (availableForce < force)
                 {
                     AccelerateBackwards(sp, i, offset);

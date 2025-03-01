@@ -2,7 +2,7 @@
 using TrainCharacteristicsManager;
 using TrainCharacteristicsManager.Models;
 
-namespace SpeedOptimizer.Preprocessing
+namespace SpeedAlgorithm.Preprocessing
 {
     internal class ForceLimitationsHandler
     {

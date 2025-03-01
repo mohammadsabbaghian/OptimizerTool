@@ -1,6 +1,6 @@
-﻿using SpeedOptimizer.Models;
+﻿using SpeedAlgorithm.Models;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
     public class SpeedHelper
     {

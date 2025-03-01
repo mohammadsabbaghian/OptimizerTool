@@ -1,6 +1,6 @@
 ﻿using Shared.Models.Route;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
     public class CurveHelper
     {

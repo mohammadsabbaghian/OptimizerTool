@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SPO\SpeedOptimizer.Models\SpeedOptimizer.Models.csproj" />
+    <ProjectReference Include="..\..\SpeedAlgorithm\SpeedAlgorithm.Models\SpeedAlgorithm.Models.csproj" />
   </ItemGroup>
 
 </Project>

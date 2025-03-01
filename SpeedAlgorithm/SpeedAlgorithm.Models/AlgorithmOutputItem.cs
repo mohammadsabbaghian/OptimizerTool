@@ -1,6 +1,6 @@
 ﻿using Shared.Models;
 
-namespace SpeedOptimizer.Models
+namespace SpeedAlgorithm.Models
 {
     public class AlgorithmOutputItem
     {

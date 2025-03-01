@@ -1,8 +1,8 @@
 ﻿using Shared.Models;
-using SpeedOptimizer.Models;
+using SpeedAlgorithm.Models;
 using TrainCharacteristicsManager;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
     public class CalcBase
     {

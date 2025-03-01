@@ -1,13 +1,13 @@
 ﻿using Shared.Models;
-using SpeedOptimizer.Models;
+using SpeedAlgorithm.Models;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
-    public class SpeedOptimizer
+    public class SpeedAlgorithm
     {
         private CalcBase _calcBase;
 
-        public SpeedOptimizer(CalcBase calcBase) 
+        public SpeedAlgorithm(CalcBase calcBase) 
         {
             _calcBase = calcBase;
         }

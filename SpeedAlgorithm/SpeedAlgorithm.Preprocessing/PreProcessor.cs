@@ -1,10 +1,10 @@
 ﻿using Shared.Models.Route;
 using Shared.Models.Timetable;
-using SpeedOptimizer.Models;
-using SpeedOptimizer.Preprocessing;
+using SpeedAlgorithm.Models;
+using SpeedAlgorithm.Preprocessing;
 using TrainCharacteristicsManager;
 
-namespace SpeedOptimizer
+namespace SpeedAlgorithm
 {
     public class PreProcessor
     {

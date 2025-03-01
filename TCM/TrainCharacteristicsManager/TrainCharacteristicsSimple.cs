@@ -20,6 +20,16 @@ namespace TrainCharacteristicsManager
             return speed == 0 ? TractionForce : Math.Min(TractionForce, TractionPower /speed);
         }
 
+        public float GetBrakingPower(float speed, float tractionPercent)
+        {
+            throw new NotImplementedException();
+        }
+
+        public float GetTractionFore(float speed, int curveIndex)
+        {
+            throw new NotImplementedException();
+        }
+
         public float GetTractionPower(float speed, float tractionPercent)
         {
             throw new NotImplementedException();

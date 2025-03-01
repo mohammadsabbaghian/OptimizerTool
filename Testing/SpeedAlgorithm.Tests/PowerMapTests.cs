@@ -2,7 +2,7 @@
 using System;
 using TrainCharacteristicsManager.Models;
 
-namespace SpeedOptimizer.Tests
+namespace SpeedAlgorithm.Tests
 {
     [TestClass]
     public class PowerMapTests

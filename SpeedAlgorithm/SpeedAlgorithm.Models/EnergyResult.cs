@@ -1,4 +1,4 @@
-﻿namespace SpeedOptimizer.Models
+﻿namespace SpeedAlgorithm.Models
 {
     public class EnergyResult
     {

@@ -1,7 +1,7 @@
 using Shared.Models.Route;
-using SpeedOptimizer.Preprocessing;
+using SpeedAlgorithm.Preprocessing;
 
-namespace SpeedOptimizer.Tests
+namespace SpeedAlgorithm.Tests
 {
     [TestClass]
     public class CurveHelperTests
