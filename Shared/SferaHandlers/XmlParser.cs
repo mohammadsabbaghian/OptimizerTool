@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 
 namespace SferaHandlers
 {
-    public class XmlParser
+    public class XmlParser : IXmlParser
     {
         public static (ISferaMessage, string) DeserializeXmlFile(string filePath)
         {
@@ -51,10 +51,10 @@ namespace SferaHandlers
         static T DeserializeXml<T>(string filePath) where T : class
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-      
+
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
             {
-                return serializer.Deserialize(fileStream) as T ?? 
+                return serializer.Deserialize(fileStream) as T ??
                     throw new InvalidOperationException($"Failed to deserialize XML to {typeof(T).Name}.");
             }
         }

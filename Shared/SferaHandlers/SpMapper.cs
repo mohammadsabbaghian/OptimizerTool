@@ -85,7 +85,6 @@ namespace SferaHandlers
                     segment = new PowerLimitSegment
                     {
                         Start = absPos + (float)clc.location,
-                        End = absPos + (float)clc.,
                         PowerLimit = (float)(clc.maxCurValue * ratedVoltage)
                     };
                 }
