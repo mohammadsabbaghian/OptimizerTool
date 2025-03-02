@@ -5,9 +5,11 @@ namespace SferaHandlers
 {
     public class SpMapper
     {
+        private TrainCharacteristics _trainCharacteristics;
 
-        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles)
+        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles, TrainCharacteristics trainCharacteristics)
         {
+            _trainCharacteristics = trainCharacteristics;
             var routeConstraints = new RouteConstraints();
 
             var spList = journeyProfile.SegmentProfileList;
@@ -35,9 +37,150 @@ namespace SferaHandlers
                 var segmentPositions = GetSegmentPositions(sp.SP_Points.VirtualBalise, absPos);
                 routeConstraints.Points.AddRange(segmentPositions);
 
+                var signalSpeedLimits = GetSignalSpeedLimits(sp.SP_Points.Signal, absPos, (float)sp.SP_Length);
+                routeConstraints.SpeedRestrictionSegments.AddRange(signalSpeedLimits);
+
+                var temporarySpeeds = GetTemporarySpeeds(item.TemporaryConstraints, absPos);
+                routeConstraints.SpeedRestrictionSegments.AddRange(temporarySpeeds);
+
+                var adhesionSegments = GetAdhesionLimits(item.TemporaryConstraints, absPos);
+                routeConstraints.AdhesionSegments.AddRange(adhesionSegments);
+
+                var powerConstraints = GetPowerConstraints(sp, absPos);
+                routeConstraints.PowerSegments.AddRange(powerConstraints);
+
                 absPos += (float)sp.SP_Length;
             }
             return routeConstraints;
+        }
+
+
+        //TODO: inaccurate.
+        private List<PowerLimitSegment> GetPowerConstraints(SegmentProfile sp, float absPos)
+        {
+            var powerSegments = new List<PowerLimitSegment>();
+            var ratedVChange = sp.SP_Characteristics.RatedVoltage.RatedVoltageChange;
+            var ratedVoltage = sp.SP_Characteristics.RatedVoltage.RatedVoltageStart?.voltageValue;
+            if (ratedVoltage == null)
+                ratedVoltage = 25000;
+
+            // Map Neutral Sections
+            if (sp.SP_Characteristics.CurrentLimitation != null)
+            {
+                var cl = sp.SP_Characteristics.CurrentLimitation;
+                var segment = new PowerLimitSegment
+                {
+                    Start = absPos ,
+                    End = absPos,
+                    PowerLimit = (float)(cl.CurrentLimitationStart.maxCurValue * ratedVoltage)
+                };
+
+                for (int i = 0; i < sp.SP_Characteristics.CurrentLimitation.CurrentLimitationChange.Length; i++)
+                {
+                    var clc = sp.SP_Characteristics.CurrentLimitation.CurrentLimitationChange[i];
+                    segment.End +=  (float)clc.location;
+                    powerSegments.Add(segment);
+                    if(ratedVChange!=null)
+                        ratedVoltage = sp.SP_Characteristics.RatedVoltage.RatedVoltageChange.LastOrDefault(x => x.location < clc.location)?.voltageValue;
+                    segment = new PowerLimitSegment
+                    {
+                        Start = absPos + (float)clc.location,
+                        End = absPos + (float)clc.,
+                        PowerLimit = (float)(clc.maxCurValue * ratedVoltage)
+                    };
+                }
+                segment.End = absPos + (float)sp.SP_Length;
+                powerSegments.Add(segment);
+
+            }
+
+            return powerSegments;
+        }
+        private List<SpeedRestrictionSegment> GetSignalSpeedLimits(Signal_ComplexType[] signals, float absPos, float spLength)
+        {
+            var srgs = new List<SpeedRestrictionSegment>();
+            foreach (var signal in signals)
+            {
+                if (signal.SignalInformation.Item is MaxSpeed maxSpeed)
+                {
+                    var srg = new SpeedRestrictionSegment
+                    {
+                        Start = absPos + (float)signal.SignalApplication.StartSignalApplication.location,
+                        End = absPos + (float)signal.SignalApplication.EndSignalApplication.location,
+                        Speed = (float)maxSpeed.speed
+                    };
+                    srgs.Add(srg);
+                }
+            }
+            return srgs;
+        }
+
+        private List<SpeedRestrictionSegment> GetTemporarySpeeds(TemporaryConstraints[] temporaryConstraints, float absPos)
+        {
+            var srgs = new List<SpeedRestrictionSegment>();
+            foreach (var tc in temporaryConstraints)
+            {
+                if (tc.temporaryConstraintType == TemporaryConstraintsTemporaryConstraintType.ASR)
+                {
+                    foreach (var asr in tc.Items)
+                    {
+                        var item = (AdditionalSpeedRestriction)asr;
+
+                        var offset = item.ASR_Front ? 0f : _trainCharacteristics.Length;
+                        var srg = new SpeedRestrictionSegment
+                        {
+                            Start = absPos + (float)tc.startLocation,
+                            End = absPos + (float)tc.endLocation + offset,
+                            Speed = (float)item.ASR_Speed
+                        };
+                        srgs.Add(srg);
+                    }
+                }
+            }
+            return srgs;
+        }
+
+        private List<AdhesionLimitationSegment> GetAdhesionLimits(TemporaryConstraints[] temporaryConstraints, float absPos)
+        {
+            var las = new List<AdhesionLimitationSegment>();
+            foreach (var tc in temporaryConstraints)
+            {
+                if (tc.temporaryConstraintType == TemporaryConstraintsTemporaryConstraintType.Low_Adhesion)
+                {
+                    foreach (var la in tc.Items)
+                    {
+                        var item = (LowAdhesion)la;
+                        var srg = new AdhesionLimitationSegment
+                        {
+                            Start = absPos + (float)tc.startLocation,
+                            End = absPos + (float)tc.endLocation,
+                            Adhesion = (float)MapAdhesionCategory(item.lowAdhesionCategory)
+                        };
+                        las.Add(srg);
+                    }
+                }
+            }
+            return las;
+        }
+
+        private float MapAdhesionCategory(adhesionCategoryType lowAdhesionCategory)
+        {
+            switch (lowAdhesionCategory)
+            {
+                case adhesionCategoryType.ExtremelyLowAdhesion:
+                    return 0.25f;
+                case adhesionCategoryType.VeryLowAdhesion:
+                    return 0.40f;
+                case adhesionCategoryType.LowAdhesion:
+                    return 0.55f;
+                case adhesionCategoryType.DryRailLow:
+                    return 0.7f;
+                case adhesionCategoryType.DryRailMedium:
+                    return 0.85f;
+                case adhesionCategoryType.DryRail:
+                    return 1f;
+            }
+            return 1f;
         }
 
         //Known limitation: train category not considered, nor the ATP system
@@ -170,3 +313,4 @@ namespace SferaHandlers
         }
     }
 }
+ 

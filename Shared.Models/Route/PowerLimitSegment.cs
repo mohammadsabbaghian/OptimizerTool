@@ -2,6 +2,6 @@
 {
     public class PowerLimitSegment : Segment
     {
-        public double PowerLimit { get; set; }
+        public float PowerLimit { get; set; }
     }
 }

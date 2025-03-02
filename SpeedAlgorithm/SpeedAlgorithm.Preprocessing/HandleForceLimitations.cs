@@ -1,6 +1,4 @@
 ﻿using Shared.Models.Route;
-using System.Runtime.Intrinsics.X86;
-using System.Security.Cryptography;
 using TrainCharacteristicsManager;
 using TrainCharacteristicsManager.Models;
 
