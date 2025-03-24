@@ -7,9 +7,9 @@ namespace SferaHandlers
     {
         private TrainCharacteristics _trainCharacteristics;
 
-        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles, TrainCharacteristics trainCharacteristics)
+        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles) //TrainCharacteristics trainCharacteristics)
         {
-            _trainCharacteristics = trainCharacteristics;
+            //_trainCharacteristics = trainCharacteristics;
             var routeConstraints = new RouteConstraints();
 
             var spList = journeyProfile.SegmentProfileList;
