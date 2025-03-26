@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SFERA_B2G_RequestMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TrainIdentification">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OTN_ID">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Company" type="xs:unsignedShort" />
+                          <xs:element name="OperationalTrainNumber" type="xs:unsignedShort" />
+                          <xs:element name="StartDate" type="xs:date" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Sender" type="xs:unsignedShort" />
+              <xs:element name="Recipient" type="xs:unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="SFERA_version" type="xs:decimal" use="required" />
+            <xs:attribute name="message_ID" type="xs:string" use="required" />
+            <xs:attribute name="timestamp" type="xs:dateTime" use="required" />
+            <xs:attribute name="sourceDevice" type="xs:string" use="required" />
+            <xs:attribute name="destinationDevice" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="B2G_Request">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="JP_Request">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TrainIdentification">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="OTN_ID">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Company" type="xs:unsignedShort" />
+                                <xs:element name="OperationalTrainNumber" type="xs:unsignedShort" />
+                                <xs:element name="StartDate" type="xs:date" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
