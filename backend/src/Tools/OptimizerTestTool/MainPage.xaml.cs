@@ -1,9 +1,12 @@
-﻿namespace OptimizerTestTool
+﻿using Shared.Models.Route;
+using Shared.Models.Timetable;
+
+namespace OptimizerTestTool
 {
     public partial class MainPage : ContentPage
     {
-        private JourneyProfile jp;
-        private SegmentProfile[] sp;
+        private TimeConstraints TimeConstraints;
+        private RouteConstraints RouteConstraints;
 
         public MainPage()
         {
@@ -16,58 +19,25 @@
             {
                 var jpResult = await PickFileAsync("Please select a JP file");
 
-                var jpMessage = DeserializeFile<SFERA_G2B_ReplyMessage>(jpResult.FullPath, "JP");
-                var jpPayload = GetPayload(jpMessage, "JP");
+                // Deserialize the JP file and get the handler
+                var (jpMessage, jpVersion, withSp ) = DeserializeFile(jpResult.FullPath, "JP");
+                var handler = SferaMessageHandlerFactory.GetHandler(jpVersion);
 
-                var jp = jpPayload.JourneyProfile[0];
-                var sps = jpPayload.SegmentProfile;
-
-                if (sps == null)
+                ISferaMessage spMessage = null;
+                if (!withSp)
                 {
-                    var spResult = await PickFileAsync("Please select the corresponding SP file");
-
-                    var spMessage = DeserializeFile<SFERA_G2B_ReplyMessage>(spResult.FullPath, "SP");
-                    var spsPayload = GetPayload(spMessage, "SP");
-                    sps = spsPayload.SegmentProfile;
+                    var spResult = await PickFileAsync("Please select a SP file");
+                    (spMessage, string _, bool _) = DeserializeFile(spResult.FullPath, "SP");
                 }
 
-                ValidateSegmentProfiles(jp, sps);
-                await MapProfiles(jp, sps);
+                // Delegate validation and mapping to the handler
+                (TimeConstraints, RouteConstraints) = handler.MapProfiles(jpMessage, spMessage);
+
+                await DisplayAlert("Success", "Mapping was successful.", "OK");
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
-            }
-        }
-
-        private G2B_ReplyPayload GetPayload(SFERA_G2B_ReplyMessage message, string fileType)
-        {
-            var payload = message.Item as G2B_ReplyPayload;
-            if (payload == null)
-            {
-                throw new InvalidCastException($"Failed to cast the payload to the correct type for {fileType} file.");
-            }
-            return payload;
-        }
-
-        private async Task MapProfiles(JourneyProfile jp, SegmentProfile[] sps)
-        {
-            // Map the JP and SP
-            var jpMapper = new SferaHandlers.JpMapper();
-            var jpConstraints = jpMapper.Map(jp, sps);
-            var spMapper = new SferaHandlers.SpMapper();
-            var spConstraints = spMapper.Map(jp, sps);
-            await DisplayAlert("Success", "Mapping was successful.", "OK");
-        }
-
-        private void ValidateSegmentProfiles(JourneyProfile jp, SegmentProfile[] sps)
-        {
-            foreach (var sp in jp.SegmentProfileList)
-            {
-                if (sps.FirstOrDefault(x => x.SP_ID == sp.SP_ID) == null)
-                {
-                    throw new Exception("Not all segment profiles delivered.");
-                }
             }
         }
 
@@ -84,17 +54,15 @@
             return result;
         }
 
-        private T DeserializeFile<T>(string filePath, string fileType) where T : class
+        private (ISferaMessage, string, bool) DeserializeFile(string filePath, string fileType)
         {
-            var message = SferaHandlers.XmlParser.DeserializeXmlFile(filePath).Item1 as T;
+            // Use the XmlParser to get the message and version
+            var (message, _, version, withSP) = XmlParser.DeserializeXmlFile(filePath);
+
             if (message == null)
                 throw new InvalidOperationException($"Failed to deserialize {fileType} file.");
-            return message;
-        }
 
-        private void DisplayResults(string message)
-        {
-            Console.WriteLine(message);
+            return (message, version, withSP);
         }
     }
 }

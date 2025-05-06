@@ -210,7 +210,7 @@ namespace SpeedAlgorithm
             var prevV = sp.Speed[curIndex];
 
             var resistance = _constraints.Trackresistances[curIndex] + GetRTM(prevV);
-            var force = _tc.GetBrakingForce(prevV, _constraints.TractionCurveIndices[curIndex]);
+            var force = resistance * _tc.Mass;
 
             if (force >= 0)
             {
@@ -222,6 +222,7 @@ namespace SpeedAlgorithm
                 }
                 else
                 {
+                    sp.DrivingMode[setIndex] = DrivingMode.Cruise;
                     sp.Energy[setIndex] = force * _tractionEffDisc;
                 }
             }
@@ -235,9 +236,13 @@ namespace SpeedAlgorithm
                 }
                 else
                 {
+                    sp.DrivingMode[setIndex] = DrivingMode.CruiseDecelerate;
                     sp.Energy[setIndex] = force * _discInt * _tc.RegenEfficiency;
                 }
             }
+            sp.Force[setIndex] = force;
+            sp.Speed[setIndex] = prevV;
+            sp.Time[setIndex] = _discInt / prevV;
         }
 
         public void CruiseBackwards(SpeedProfile sp, int i, int offset = 0)
@@ -259,6 +264,7 @@ namespace SpeedAlgorithm
                 }
                 else
                 {
+                    sp.DrivingMode[setIndex] = DrivingMode.Cruise;
                     sp.Energy[setIndex] = force * _tractionEffDisc;
                 }
             }
@@ -272,6 +278,7 @@ namespace SpeedAlgorithm
                 }
                 else
                 {
+                    sp.DrivingMode[setIndex] = DrivingMode.CruiseDecelerate;
                     sp.Energy[setIndex] = force * _discInt * _tc.RegenEfficiency;
                 }
             }
@@ -279,8 +286,6 @@ namespace SpeedAlgorithm
             sp.Force[setIndex] = force;
             sp.Speed[setIndex] = prevV;
             sp.Time[setIndex] = _discInt / prevV;
-            sp.DrivingMode[setIndex] = DrivingMode.Cruise;
-            sp.Energy[setIndex] = force * _discInt;
         }
     }
 }

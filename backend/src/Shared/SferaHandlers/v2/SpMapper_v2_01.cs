@@ -1,9 +1,10 @@
 ﻿using Shared.Models.Route;
 using tc = Shared.Models.Train;
+using SFERA_v2_01;
 
-namespace SferaHandlers
+namespace SferaHandlers.v2
 {
-    public class SpMapper
+    public class SpMapper_v2_01
     {
         private TrainCharacteristics _trainCharacteristics;
 

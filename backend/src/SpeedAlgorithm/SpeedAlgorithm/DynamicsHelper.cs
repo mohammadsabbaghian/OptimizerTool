@@ -15,7 +15,7 @@ namespace SpeedAlgorithm
             _calcBase = calcBase;
         }
 
-        private int PerformAction(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
+        private int Calculate(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
         {
             var methodName = action.Method.Name;
             var minSpeed = (methodName=="Coast") ? _calcBase.algorithmConfiguration.MinimumCoastingSpeed :  _calcBase.algorithmConfiguration.MinimumSpeedAdvice;
@@ -39,7 +39,7 @@ namespace SpeedAlgorithm
             HandleConnection(sp, i, offset);
             return i;
         }
-         private int PerformActionBackwards(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
+         private int CalculateBackwards(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
         {
             var methodName = action.Method.Name;
             var minSpeed = (methodName == "Coast") ? _calcBase.algorithmConfiguration.MinimumCoastingSpeed : _calcBase.algorithmConfiguration.MinimumSpeedAdvice;
@@ -69,52 +69,52 @@ namespace SpeedAlgorithm
 
         public int Accelerate(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformAction(sp, i, offset, speed, _dynamics.Accelerate);
+            return Calculate(sp, i, offset, speed, _dynamics.Accelerate);
         }
 
         public int AccelerateBackwards(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformActionBackwards(sp, i, offset, speed, _dynamics.AccelerateBackwards);
+            return CalculateBackwards(sp, i, offset, speed, _dynamics.AccelerateBackwards);
         }
 
         public int Brake(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformAction(sp, i, offset, speed, _dynamics.Brake);
+            return Calculate(sp, i, offset, speed, _dynamics.Brake);
         }
 
         public int BrakeBackwards(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformActionBackwards(sp, i, offset, speed, _dynamics.BrakeBackwards);
+            return CalculateBackwards(sp, i, offset, speed, _dynamics.BrakeBackwards);
         }
 
         public int Coast(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformAction(sp, i, offset, speed, _dynamics.Coast);
+            return Calculate(sp, i, offset, speed, _dynamics.Coast);
         }
 
         public int CoastBackwards(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformActionBackwards(sp, i, offset, speed, _dynamics.CoastBackwards);
+            return CalculateBackwards(sp, i, offset, speed, _dynamics.CoastBackwards);
         }
 
         public int Cruise(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformAction(sp, i, offset, speed, _dynamics.Cruise);
+            return Calculate(sp, i, offset, speed, _dynamics.Cruise);
         }
 
         public int CruiseBackwards(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformActionBackwards(sp, i, offset, speed, _dynamics.CruiseBackwards);
+            return CalculateBackwards(sp, i, offset, speed, _dynamics.CruiseBackwards);
         }
 
         public int Regenerate(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformAction(sp, i, offset, speed, _dynamics.Regenerate);
+            return Calculate(sp, i, offset, speed, _dynamics.Regenerate);
         }
 
         public int RegenerateBackwards(SpeedProfile sp, int i, int offset = 0, float speed = float.MaxValue)
         {
-            return PerformActionBackwards(sp, i, offset, speed, _dynamics.RegenerateBackwards);
+            return CalculateBackwards(sp, i, offset, speed, _dynamics.RegenerateBackwards);
         }
     }
 }

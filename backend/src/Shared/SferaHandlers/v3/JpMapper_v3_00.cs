@@ -1,8 +1,9 @@
 ﻿using tt = Shared.Models.Timetable;
+using SFERA_v3_00;
 
-namespace SferaHandlers
+namespace SferaHandlers.v3
 {
-    public class JpMapper
+    public class JpMapper_v3_00
     {
         public tt.TimeConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles)
         {
@@ -11,7 +12,7 @@ namespace SferaHandlers
                 TimingPoints = new List<tt.TimingPoint>()
             };
 
-            foreach (var sp in journeyProfile.SegmentProfileList)
+            foreach (var sp in journeyProfile.SegmentProfileReference)
             {
                 var spItem = segmentProfiles.FirstOrDefault(x => x.SP_ID == sp.SP_ID);
                 if (spItem == null || sp.TimingPointConstraints == null) continue;
@@ -26,8 +27,8 @@ namespace SferaHandlers
 
                     if (timingPoint.StoppingPointInformation != null)
                     {
-                        var earliestDeparture = timingPoint.StoppingPointInformation.earliestDepartureTime;
-                        departureTolerance = (int)(timingPoint.StoppingPointInformation.departureTime - earliestDeparture).TotalSeconds;
+                        var earliestDeparture = timingPoint.StoppingPointDepartureDetails.earliestDepartureTime;
+                        departureTolerance = (int)(timingPoint.StoppingPointDepartureDetails.departureTime - earliestDeparture).TotalSeconds;
                     }
                     
                     var timingPointMapped = new tt.TimingPoint
@@ -36,7 +37,7 @@ namespace SferaHandlers
                         Position = tp.location, //LOCATION MUST BE CORRECTED TO BE A LINEAR POSITION
                         StopType = MapStopType(timingPoint.TP_StopSkipPass),
                         ArrivalTime = timingPoint.TP_PlannedLatestArrivalTime,
-                        DepartureTime = timingPoint.StoppingPointInformation.departureTime,
+                        DepartureTime = timingPoint.StoppingPointDepartureDetails.departureTime,
                         ArrivalTolerance = arrivalTolerance,
                         DepartureTolerance = departureTolerance
                     };
