@@ -1,0 +1,6 @@
+@TrainCharacteristics.Service_HostAddress = http://localhost:5005
+
+GET {{TrainCharacteristics.Service_HostAddress}}/trainCharacteristics/
+Accept: application/json
+
+###

@@ -1,111 +1,50 @@
-﻿using Microsoft.Azure.Cosmos;
-using System.Configuration;
-using System.Net;
-using TrainCharacteristicsManager.Models;
-using TrainCharacteristicsManager;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Cosmos;
+using Shared.Models.Train;
 
 namespace TrainCharacteristicsService
 {
     class Program
     {
-        // The Azure Cosmos DB endpoint for running this sample.
-        private static readonly string EndpointUri = ConfigurationManager.AppSettings["EndPointUri"];
-
-        // The primary key for the Azure Cosmos account.
-        private static readonly string PrimaryKey = ConfigurationManager.AppSettings["PrimaryKey"];
-
-        // The Cosmos client instance
-        private CosmosClient cosmosClient;
-
-        // The database we will create
-        private Database database;
-
-        // The container we will create.
-        private Microsoft.Azure.Cosmos.Container container;
-
-        private string databaseId = "TrainCharacteristicsDataBase";
-        private string containerId = "TcDB";
-
-        static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
+            var builder = WebApplication.CreateBuilder(args);
 
-        }
+            // Access configuration
+            var configuration = builder.Configuration;
 
-        public async Task GetStartedAsync()
-        {
-            // Create a new instance of the Cosmos Client
-            this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions() { ApplicationName = "TrainCharactersiticsService" });
-            await this.CreateDatabaseAsync();
-            await this.CreateContainerAndPopulateAsync();
-        }
-        private async Task CreateDatabaseAsync()
-        {
-            // Create a new database
-            this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
-            Console.WriteLine("Created Database: {0}\n", this.database.Id);
-        }
-
-
-        private async Task CreateContainerAndPopulateAsync()
-        {
-            try
+            // Register CosmosClient
+            builder.Services.AddSingleton(s =>
             {
-                // Attempt to read the container
-                this.container = await this.database.GetContainer(containerId).ReadContainerAsync();
-                Console.WriteLine("Container '{0}' exists in the database '{1}'.", containerId, databaseId);
-                return;
-            }
-            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+                var endpointUri = configuration["EndPointUri"];
+                var primaryKey = configuration["PrimaryKey"];
+                return new CosmosClient(endpointUri, primaryKey);
+            });
+
+            // Register database initializer
+            builder.Services.AddSingleton<DatabaseInitializer>();
+
+            // Add minimal API endpoints
+            var app = builder.Build();
+
+            app.MapPost("/api/traincharacteristics", async (List<TrainUnit> trainUnits, DatabaseInitializer dbInitializer) =>
             {
-                Console.WriteLine("Container '{0}' does not exist in the database '{1}'.", containerId, databaseId);
-            }
-
-            // Create a new container
-            this.container = await this.database.CreateContainerAsync(containerId, "/partitionKey");
-
-            var parameters = TrainUnitParametersRepository.GetTrainUnitParametersAsync().Result;
-
-            foreach (var trainParameters in parameters.Values)
-            {
-                ItemResponse<TrainUnitParameters> andersenFamilyResponse = await this.container.CreateItemAsync<TrainUnitParameters>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
-            }
-
-            Console.WriteLine("Created Container: {0}\n", this.container.Id);
-        }
-
-        private async Task ScaleContainerAsync()
-        {
-            // Read the current throughput
-            try
-            {
-                int? throughput = await this.container.ReadThroughputAsync();
-                if (throughput.HasValue)
+                try
                 {
-                    Console.WriteLine("Current provisioned throughput : {0}\n", throughput.Value);
-                    int newThroughput = throughput.Value + 100;
-                    // Update throughput
-                    await this.container.ReplaceThroughputAsync(newThroughput);
-                    Console.WriteLine("New provisioned throughput : {0}\n", newThroughput);
+                    var parameters = await TrainUnitParametersRepository.GetTrainUnitParametersAsync();
+                    var builder = new TrainCharacteristicsBuilder(parameters);
+                    var fullCharacteristics = builder.Build(trainUnits);
+                    return Results.Ok(fullCharacteristics);
                 }
-            }
-            catch (CosmosException cosmosException) when (cosmosException.StatusCode == HttpStatusCode.BadRequest)
-            {
-                Console.WriteLine("Cannot read container throuthput.");
-                Console.WriteLine(cosmosException.ResponseBody);
-            }
-        }
+                catch (Exception ex)
+                {
+                    return Results.Problem($"Internal server error: {ex.Message}");
+                }
+            });
 
-
-        private async Task AddItemToContainerAsync(TrainUnitParameters trainParameters)
-        {
-            try
-            {
-                ItemResponse<TrainUnitParameters> trainParametersResponse = await this.container.ReadItemAsync<TrainUnitParameters>(trainParameters.Class, new PartitionKey(trainParameters.PartitionKey));
-            }
-            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-            {
-                ItemResponse<TrainUnitParameters> trainParametersResponse = await this.container.CreateItemAsync<TrainUnitParameters>(trainParameters, new PartitionKey(trainParameters.PartitionKey));
-            }
+            app.Run();
         }
     }
 }
