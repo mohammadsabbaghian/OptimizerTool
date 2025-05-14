@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -10,12 +5,21 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - checkout: self
   fetchDepth: 0
+- task: SonarCloudPrepare@3
+  inputs:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    SonarQube: 'SonarQube'
+    organization: 'railcopilot'
+    scannerMode: 'dotnet'
+    projectKey: 'RailCoPilot_OptimizerTestTool'
+    projectName: 'OptimizerTestTool'
+- task: DotNetCoreCLI@2
+  inputs:
+    azureSubscription: 'Microsoft Azure Sponsorship(11218716-213c-40fc-b689-29b569215e35)'
+    command: 'build'
+    projects: '**/*.csproj'
+- task: SonarCloudAnalyze@3
+  inputs:
+    jdkversion: 'JAVA_HOME'
