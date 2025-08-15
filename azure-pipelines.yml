@@ -1,0 +1,25 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  fetchDepth: 0
+- task: SonarCloudPrepare@3
+  inputs:
+
+    SonarQube: 'SonarQube'
+    organization: 'railcopilot'
+    scannerMode: 'dotnet'
+    projectKey: 'RailCoPilot_OptimizerTestTool'
+    projectName: 'OptimizerTestTool'
+- task: DotNetCoreCLI@2
+  inputs:
+    azureSubscription: 'Microsoft Azure Sponsorship(11218716-213c-40fc-b689-29b569215e35)'
+    command: 'build'
+    projects: '**/*.csproj'
+- task: SonarCloudAnalyze@3
+  inputs:
+    jdkversion: 'JAVA_HOME'
