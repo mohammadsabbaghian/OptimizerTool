@@ -4,14 +4,14 @@
   "BaseClassType": "DoubleDeckIC",
   "CurveRes": 0.0,
   "Mass": 0.0,
-  "Length": 274.0,
-  "DragA": 392455.0,
-  "DragAmass": 713619.0,
+  "Length": 27.4,
+  "DragA": 39.2455,
+  "DragAmass": 0.00713619,
   "DragB": 0.0,
   "DragBmass": 0.0,
   "DragC": 0.0,
   "DeltaDragC": 0.0,
-  "MaxSpeed": 555556.0,
+  "MaxSpeed": 55.5556,
   "RotatingMassCoefficient": 0.0,
   "NumberOfCars": 1,
   "MechanicalBraking": 0.0,
@@ -21,7 +21,7 @@
   "PreferedBraking": [
     [
       0.0,
-      4.0
+      0.4
     ]
   ],
   "BrakedWeightPercentageG": 0,
@@ -41,6 +41,6 @@
   "BrakingPower": 0.0,
   "TractionForce": 0,
   "TractionPower": 0,
-  "TractionEfficiency": 0.0,
-  "BrakingEfficiency": 0.0
+  "TractionEfficiency": 0.8,
+  "BrakingEfficiency": 0.8
 }

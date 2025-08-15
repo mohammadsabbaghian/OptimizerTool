@@ -2,9 +2,9 @@
 {
     public enum TrafficType
     {
-        Regional,
-        InterCity,
-        Freight,
-        HighSpeed
+        Regional = 0,
+        InterCity = 1,
+        Freight = 2,
+        HighSpeed = 3
     }
 }

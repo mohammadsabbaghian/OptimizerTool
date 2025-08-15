@@ -4,6 +4,8 @@ namespace TrainCharacteristicsManager
 {
     public class TrainCharacteristics : TrainCharacteristicsBase, ITrainCharacteristics
     {
+        public string ModelName => nameof(TrainCharacteristics);
+
         public PowerMap BrakingPowerMap { get; set; }
         public PowerMap TractionPowerMap { get; set; }
         public List<float[]> BrakingCurves { get; set; }

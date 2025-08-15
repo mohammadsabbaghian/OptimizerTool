@@ -1,7 +1,7 @@
 ﻿using Shared.Models.Route;
 using Shared.Models.Train;
 
-namespace SpeedAlgorithm
+namespace SpeedAlgorithm.Preprocessing
 {
     public static class GradientHelper
     {

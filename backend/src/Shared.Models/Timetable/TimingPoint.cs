@@ -9,5 +9,7 @@
         public DateTime DepartureTime { get; set; }
         public int ArrivalTolerance { get; set; }
         public int DepartureTolerance { get; set; }
+
+        public bool IsStop => StopType == StopType.Stop;
     }
 }

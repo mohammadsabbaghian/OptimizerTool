@@ -12,7 +12,7 @@ namespace SpeedAlgorithm.Testing
     public class DynamicsHelperTests
     {
         private DynamicsHelper _dynamicsHelper;
-        private DynamicsConstraints _constraints;
+        private Constraints _constraints;
         private Dynamics _dynamics;
         private CalcBase _calcBase;
         private SpeedProfile _speedProfile;
@@ -26,14 +26,14 @@ namespace SpeedAlgorithm.Testing
             var regenCurves = new List<float[]>();
             var tractionCurves = new List<float[]>();
 
-            _constraints = new DynamicsConstraints(100);
+            _constraints = new Constraints(100, 1);
             _calcBase = new CalcBase
             {
                 algorithmConfiguration = new AlgorithmConfiguration
                 {
                     MinimumSpeedAdvice = 5.0f
                 },
-                DynamicsConstraints = _constraints,
+                Constraints = _constraints,
             };
             var trainCharacteristics = new TrainCharacteristics(brakingPowerMap, tractionPowerMap, brakingCurves, regenCurves, tractionCurves);
             trainCharacteristics.TractionEfficiency = 0.9f;

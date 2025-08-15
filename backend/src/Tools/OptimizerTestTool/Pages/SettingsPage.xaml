@@ -3,16 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OptimizerTestTool.SettingsPage"
              Title="SettingsPage">
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="Notes" VerticalOptions="End" />
-            <Label FontSize="22" Text="v1.0" VerticalOptions="End" />
-        </HorizontalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <!-- Speed related -->
+            <Label Text="Speed Discretization (m/s)" />
+            <Entry x:Name="SpeedDiscretizationEntry" Keyboard="Numeric" TextChanged="SpeedDiscretizationEntry_TextChanged" />
 
-        <Label Text="This app is written in XAML and C# with .NET MAUI." />
-        <Button Text="Learn more..." Clicked="Save_Clicked" />
-    </VerticalStackLayout>
+            <Label Text="Minimum Speed Advice (m/s)" />
+            <Entry x:Name="MinimumSpeedAdviceEntry" Keyboard="Numeric" TextChanged="MinimumSpeedAdviceEntry_TextChanged" />
+
+            <Label Text="Jerk Limitation" />
+            <Entry x:Name="JerkLimitationEntry" Keyboard="Numeric" TextChanged="JerkLimitationEntry_TextChanged" />
+
+            <!-- Distance related -->
+            <Label Text="Min Coasting Distance (m)" />
+            <Entry x:Name="MinCoastingDistanceEntry" Keyboard="Numeric" TextChanged="MinCoastingDistanceEntry_TextChanged" />
+
+            <Label Text="Coasting Step Distance (m)" />
+            <Entry x:Name="CoastingStepDistanceEntry" Keyboard="Numeric" TextChanged="CoastingStepDistanceEntry_TextChanged" />
+
+            <Label Text="Final Advice Threshold (m)" />
+            <Entry x:Name="FinalAdviceThresholdEntry" Keyboard="Numeric" TextChanged="FinalAdviceThresholdEntry_TextChanged" />
+
+            <!-- Time related -->
+            <Label Text="Min Time Till First Timing Point (s)" />
+            <Entry x:Name="MinTimeTillFirstTimingPointEntry" Keyboard="Numeric" TextChanged="MinTimeTillFirstTimingPointEntry_TextChanged" />
+
+            <Label Text="Braking Time Tolerance (s)" />
+            <Entry x:Name="BrakingTimeToleranceEntry" Keyboard="Numeric" TextChanged="BrakingTimeToleranceEntry_TextChanged" />
+
+            <Label Text="Minimum Peak Time (s)" />
+            <Entry x:Name="MinimumPeakTimeEntry" Keyboard="Numeric" TextChanged="MinimumPeakTimeEntry_TextChanged" />
+
+            <Label Text="Reaction Time (s)" />
+            <Entry x:Name="ReactionTimeEntry" Keyboard="Numeric" TextChanged="ReactionTimeEntry_TextChanged" />
+
+            <Label Text="Calculation Time Tolerance (s)" />
+            <Entry x:Name="CalculationTimeToleranceEntry" Keyboard="Numeric" TextChanged="CalculationTimeToleranceEntry_TextChanged" />
+
+            <Label Text="Max Calculation Time (s)" />
+            <Entry x:Name="MaxCalculationTimeEntry" Keyboard="Numeric" TextChanged="MaxCalculationTimeEntry_TextChanged" />
+
+            <!-- Boolean options -->
+            <HorizontalStackLayout>
+                <Label Text="Final Arrival Mandatory" VerticalOptions="Center" />
+                <Switch x:Name="FinalArrivalMandatorySwitch" Toggled="FinalArrivalMandatorySwitch_Toggled" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label Text="Allow Braking Advice" VerticalOptions="Center" />
+                <Switch x:Name="AllowBrakingAdviceSwitch" Toggled="AllowBrakingAdviceSwitch_Toggled" />
+            </HorizontalStackLayout>
+
+            <!-- Additional properties -->
+            <Label Text="Minimum Coasting Speed (m/s)" />
+            <Entry x:Name="MinimumCoastingSpeedEntry" Keyboard="Numeric" TextChanged="MinimumCoastingSpeedEntry_TextChanged" />
+
+            <!-- Save Button -->
+            <Button Text="Save Settings" Clicked="OnSaveSettingsClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using OptimizerTestTool.Pages;
+using OptimizerTestTool.Services;
+using Syncfusion.Maui.Core.Hosting;
+using TrainCharacteristicsManager;
 
 namespace OptimizerTestTool
 {
@@ -9,15 +12,19 @@ namespace OptimizerTestTool
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("OpenSansRegular.ttf", "OpenSansRegular");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            // Register services/pages as usual
+            builder.Services.AddSingleton<TrainCharacteristicsBuilderProvider>();
+            builder.Services.AddSingleton<TrainCharacteristicsBuilder>();
+            builder.Services.AddSingleton<CalculationRepository>();
+            builder.Services.AddSingleton<ConsistBuilderPage>();
+            builder.Services.AddSingleton<SettingsPage>();
+            builder.Services.AddSingleton<MainPage>();
 
             return builder.Build();
         }

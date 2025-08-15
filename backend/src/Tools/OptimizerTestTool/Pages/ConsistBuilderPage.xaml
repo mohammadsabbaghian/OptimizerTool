@@ -4,9 +4,8 @@
              x:Class="OptimizerTestTool.Pages.ConsistBuilderPage"
              Title="Build the consist">
     <VerticalStackLayout>
-        <Picker x:Name="TrainTypePicker" WidthRequest="250" SelectedIndexChanged="TrainTypePicker_SelectedIndexChanged"/>
+        <Picker x:Name="TrainTypePicker" WidthRequest="250"/>
         <Button x:Name="AddTrainUnitBtn" WidthRequest="250" Text="Add" Clicked="AddBtn_Clicked"/>
-        <Button x:Name="ConfirmBtn" WidthRequest="250" Text="Confirm" Clicked="ConfirmBtn_Clicked"/>
         <HorizontalStackLayout>
             <Label Text="Unit Type" WidthRequest="250"/>
             <Label Text="Mass" WidthRequest="100"/>

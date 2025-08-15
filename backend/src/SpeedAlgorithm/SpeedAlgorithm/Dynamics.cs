@@ -6,16 +6,16 @@ namespace SpeedAlgorithm
 {
     public class Dynamics
     {
-        private DynamicsConstraints _constraints;
+        private Constraints _constraints;
         private int _discInt;
         private ITrainCharacteristics _tc;
         private float _tractionEffDisc;
         private float _brakingEffDisc;
 
-        public Dynamics(DynamicsConstraints constraints, CalcBase calcBase, ITrainCharacteristics trainCharacteristics)
+        public Dynamics(Constraints constraints, CalcBase calcBase, ITrainCharacteristics trainCharacteristics)
         {
             _constraints = constraints;
-            _discInt = calcBase.discInt;
+            _discInt = calcBase.DiscInt;
             _tc = trainCharacteristics;
             _tractionEffDisc = _discInt * _tc.TractionEfficiency;
             _brakingEffDisc = _discInt * _tc.RegenEfficiency;

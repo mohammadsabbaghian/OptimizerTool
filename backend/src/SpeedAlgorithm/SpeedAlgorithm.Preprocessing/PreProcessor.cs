@@ -1,10 +1,9 @@
 ﻿using Shared.Models.Route;
 using Shared.Models.Timetable;
 using SpeedAlgorithm.Models;
-using SpeedAlgorithm.Preprocessing;
 using TrainCharacteristicsManager;
 
-namespace SpeedAlgorithm
+namespace SpeedAlgorithm.Preprocessing
 {
     public class PreProcessor
     {
@@ -16,7 +15,7 @@ namespace SpeedAlgorithm
         public int MinimumDiscretisationInterval => 1;
         public int MaximumDiscretisationInterval => 20;
 
-        public DynamicsConstraints Process(TimeConstraints timeConstraints, RouteConstraints routeConstraints, ITrainCharacteristics trainCharacteristics)
+        public Constraints Process(TimeConstraints timeConstraints, RouteConstraints routeConstraints, ITrainCharacteristics trainCharacteristics)
         {
             _routeConstraints = routeConstraints;
             _trainCharacteristics = trainCharacteristics;
@@ -56,7 +55,7 @@ namespace SpeedAlgorithm
 
             var weighedGradients = GradientHelper.GetWeightedAverageGradientArray(routeConstraints.GradientSegments, discInterval, trainCharacteristics.TrainUnits);
 
-            var constraints = new DynamicsConstraints(numberOfDiscInterval);
+            var constraints = new Constraints(numberOfDiscInterval, discInterval);
             var position = routeConstraints.Start;
             var passagePointIndices = new int[timeConstraints.TimingPoints.Count];
             for (int i = 0; i < timeConstraints.TimingPoints.Count; i++)

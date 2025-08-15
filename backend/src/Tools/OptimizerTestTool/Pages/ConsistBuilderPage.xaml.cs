@@ -1,5 +1,7 @@
+using OptimizerTestTool.Services;
 using Shared.Models.Train;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using TrainCharacteristicsManager;
 using TrainCharacteristicsManager.Models;
 
@@ -9,17 +11,29 @@ namespace OptimizerTestTool.Pages;
 public partial class ConsistBuilderPage : ContentPage
 {
     private TrainCharacteristicsBuilder _trainCharacteristicsBuilder;
-
+    private TrainCharacteristicsBuilderProvider _trainCharacteristicsBuilderProvider;
     private Dictionary<string, TrainUnitParameters> _trainParameters;
     private List<TrainUnit> _trainUnits;
     private int _emptyCount;
+    private TrainCharacteristicsSimple _trainCharacteristics;
+    private CalculationRepository _calcRepo;
 
-    public ConsistBuilderPage()
+    public ConsistBuilderPage(CalculationRepository calcRepo, TrainCharacteristicsBuilderProvider trainCharacteristicsBuilderProvider)
     {
         InitializeComponent();
-        InitializeTrainParameters();
-        _emptyCount = (this.Content as VerticalStackLayout).Children.Count;
+        CalcRepo = calcRepo;
+        _trainCharacteristicsBuilderProvider = trainCharacteristicsBuilderProvider;
+        _emptyCount = ((VerticalStackLayout)Content).Children.Count;
     }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        _trainCharacteristicsBuilder = await _trainCharacteristicsBuilderProvider.GetBuilderAsync();
+        InitializeTrainParameters();
+    }
+
+    public CalculationRepository CalcRepo { get; set; }
 
     private void AddBtn_Clicked(object sender, EventArgs e)
     {
@@ -54,39 +68,50 @@ public partial class ConsistBuilderPage : ContentPage
 
         TrainTypePicker.ItemsSource = new ObservableCollection<string>(filteredTypes.Keys);
 
-        (this.Content as VerticalStackLayout).Children.Add(stackLayout);
+        ((VerticalStackLayout)Content).Children.Add(stackLayout);
+
+        UpdateTrainCharacteristics();
     }
 
     private void RemoveEntry(object parameter)
     {
-        var stackLayout = (this.Content as VerticalStackLayout).Children
+        var stackLayout = ((VerticalStackLayout)Content).Children
             .FirstOrDefault(c => c is StackLayout layout && layout.Children.OfType<Label>().Any(l => l.Text == parameter.ToString()));
 
         if (stackLayout != null)
         {
-            (this.Content as VerticalStackLayout).Children.Remove(stackLayout);
-            if ((this.Content as VerticalStackLayout).Children.Count == _emptyCount)
+            ((VerticalStackLayout)Content).Children.Remove(stackLayout);
+            if (((VerticalStackLayout)Content).Children.Count == _emptyCount)
                 InitializeTrainParameters();
         }
-    }
 
-    private void ConfirmBtn_Clicked(object sender, EventArgs e)
-    {
-        // Handle confirm button click
-        _trainCharacteristicsBuilder.Build(_trainUnits);
-    }
-
-    private void TrainTypePicker_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        // Handle picker selection change
+        UpdateTrainCharacteristics();
     }
 
     private async void InitializeTrainParameters()
     {
-        if(_trainParameters == null)
-            _trainParameters = await TrainUnitParametersRepository.GetTrainUnitParametersAsync();
+        _trainParameters = _trainCharacteristicsBuilder.TrainParameters;
         TrainTypePicker.ItemsSource = new ObservableCollection<string>(_trainParameters.Keys);
         TrainTypePicker.SelectedIndex = 0;
-        _trainCharacteristicsBuilder = new TrainCharacteristicsBuilder(_trainParameters);
     }
+    private void UpdateTrainCharacteristics()
+    {
+        if (_trainUnits != null && _trainUnits.Any())
+        {
+            var trainCharacteristics = _trainCharacteristicsBuilder.Build(_trainUnits);
+            ValidateTrainCharacteristics(trainCharacteristics);
+            CalcRepo.TrainCharacteristics = trainCharacteristics;
+        }
+    }
+
+    private void ValidateTrainCharacteristics(TrainCharacteristicsSimple trainCharacteristics)
+    {
+        if (trainCharacteristics == null)
+        {
+            DisplayAlert("Error", "No valid train consist.", "OK");
+            return;
+        }
+    }
+
+   
 }

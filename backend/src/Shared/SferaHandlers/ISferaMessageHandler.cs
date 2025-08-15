@@ -1,5 +1,6 @@
 using Shared.Models.Route;
 using Shared.Models.Timetable;
+using TrainCharacteristicsManager;
 
 public interface ISferaMessageHandler
 {
@@ -16,5 +17,7 @@ public interface ISferaMessageHandler
     /// <summary>
     /// Maps the version-specific models into common domain models.
     /// </summary>
-    (TimeConstraints, RouteConstraints) MapProfiles(ISferaMessage jpMessage, ISferaMessage spMessage);
+    //(TimeConstraints, RouteConstraints) MapProfiles(ISferaMessage jpMessage, ISferaMessage spMessage);
+    
+    (TimeConstraints, RouteConstraints) MapProfiles(ISferaMessage jpMessage, ISferaMessage spMessage, ITrainCharacteristics trainCharacteristics);
 }

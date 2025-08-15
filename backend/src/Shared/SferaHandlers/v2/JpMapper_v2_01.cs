@@ -9,6 +9,7 @@ namespace SferaHandlers.v2
         {
             var timeConstraints = new tt.TimeConstraints
             {
+                TrainNumber = journeyProfile.TrainIdentification.OTN_ID.OperationalTrainNumber,
                 TimingPoints = new List<tt.TimingPoint>()
             };
 

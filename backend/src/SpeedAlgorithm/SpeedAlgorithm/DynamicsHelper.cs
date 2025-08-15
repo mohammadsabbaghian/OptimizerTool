@@ -4,11 +4,11 @@ namespace SpeedAlgorithm
 {
     public class DynamicsHelper
     {
-        private DynamicsConstraints _constraints;
+        private Constraints _constraints;
         private Dynamics _dynamics;
         private CalcBase _calcBase;
 
-        public DynamicsHelper(DynamicsConstraints constraints, Dynamics dynamics, CalcBase calcBase)
+        public DynamicsHelper(Constraints constraints, Dynamics dynamics, CalcBase calcBase)
         {
             _constraints = constraints;
             _dynamics = dynamics;

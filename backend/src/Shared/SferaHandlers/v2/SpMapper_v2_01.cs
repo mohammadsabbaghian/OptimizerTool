@@ -1,14 +1,15 @@
 ﻿using Shared.Models.Route;
 using tc = Shared.Models.Train;
 using SFERA_v2_01;
+using TrainCharacteristicsManager;
 
 namespace SferaHandlers.v2
 {
     public class SpMapper_v2_01
     {
-        private TrainCharacteristics _trainCharacteristics;
+        private ITrainCharacteristics _trainCharacteristics;
 
-        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles) //TrainCharacteristics trainCharacteristics)
+        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles, ITrainCharacteristics trainCharacteristics)
         {
             //_trainCharacteristics = trainCharacteristics;
             var routeConstraints = new RouteConstraints();

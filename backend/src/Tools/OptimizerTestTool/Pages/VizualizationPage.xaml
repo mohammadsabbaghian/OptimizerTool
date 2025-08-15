@@ -1,29 +1,81 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sfChart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
              x:Class="OptimizerTestTool.Pages.VizualizationPage"
-             Title="NewPage1">
-    <HorizontalStackLayout>
-        <VerticalStackLayout>
-            <Label 
-                Text="left column"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-                <Button Text="Save"
-                    Clicked="SaveButton_Clicked" />
+             Title="Distance-Speed Visualization">
 
-                <Button Grid.Column="1"
-                    Text="Delete"
-                    Clicked="DeleteButton_Clicked" />
-            </Grid>
-        </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Label 
-                Text="Right column"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </HorizontalStackLayout>
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <!-- Station Pair Dropdown -->
+        <Label Text="Select Trip (From → To)" />
+        <Picker x:Name="StationPairPicker" />
 
+        <!-- State Inputs -->
+        <Label Text="Departure Time" />
+        <TimePicker x:Name="DepartureTimePicker" />
+
+        <Label Text="Location (m)" />
+        <Slider x:Name="LocationSlider" Minimum="0" Maximum="10000" />
+
+        <Label Text="Speed (km/h)" />
+        <Slider x:Name="SpeedSlider" Minimum="0" Maximum="160" />
+
+        <!-- Random State Button -->
+        <Button Text="Random State" Clicked="OnRandomStateClicked" />
+
+        <!-- Dropdowns -->
+        <HorizontalStackLayout Spacing="8">
+            <Picker x:Name="FirstDropdown" Title="Select Option 1" />
+            <Picker x:Name="SecondDropdown" Title="Select Option 2" />
+        </HorizontalStackLayout>
+
+        <!-- Calculate Button -->
+        <Button Text="Calculate" Clicked="OnCalculateClicked" />
+
+        <!-- Toggle Line Visibility -->
+        <HorizontalStackLayout Spacing="8">
+            <CheckBox x:Name="SpeedLineCheckBox" IsChecked="True" CheckedChanged="OnLineToggleChanged" />
+            <Label Text="Speed Line" VerticalOptions="Center" />
+            <CheckBox x:Name="OtherLineCheckBox" IsChecked="True" CheckedChanged="OnLineToggleChanged" />
+            <Label Text="Other Line" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <!-- Metrics -->
+        <Grid ColumnDefinitions="*,*,*,*">
+            <Label Text="ETA:" />
+            <Label x:Name="EtaLabel" />
+            <Label Text="Energy Used:" />
+            <Label x:Name="EnergyUsedLabel" />
+            <Label Text="Regenerated:" />
+            <Label x:Name="RegeneratedLabel" />
+            <Label Text="Net:" />
+            <Label x:Name="NetLabel" />
+        </Grid>
+
+        <!-- Chart -->
+        <sfChart:SfCartesianChart x:Name="SpeedChart">
+            <sfChart:SfCartesianChart.XAxes>
+                <sfChart:NumericalAxis>
+                    <sfChart:NumericalAxis.Title>
+                        <sfChart:ChartAxisTitle Text="Distance (m)" />
+                    </sfChart:NumericalAxis.Title>
+                </sfChart:NumericalAxis>
+            </sfChart:SfCartesianChart.XAxes>
+            <sfChart:SfCartesianChart.YAxes>
+                <sfChart:NumericalAxis>
+                    <sfChart:NumericalAxis.Title>
+                        <sfChart:ChartAxisTitle Text="Speed (km/h)" />
+                    </sfChart:NumericalAxis.Title>
+                </sfChart:NumericalAxis>
+            </sfChart:SfCartesianChart.YAxes>
+            <sfChart:SfCartesianChart.Series>
+                <!-- Example series, replace with your actual data binding -->
+                <sfChart:LineSeries
+                    ItemsSource="{Binding ChartData}"
+                    XBindingPath="Distance"
+                    YBindingPath="Speed"
+                    StrokeWidth="2"/>
+            </sfChart:SfCartesianChart.Series>
+        </sfChart:SfCartesianChart>
+    </VerticalStackLayout>
 </ContentPage>

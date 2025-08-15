@@ -3,11 +3,7 @@ namespace TrainCharacteristicsManager
 {
     public class TrainCharacteristicsSimple : TrainCharacteristicsBase, ITrainCharacteristics
     {
-        public TrainCharacteristicsSimple()
-        {
-            // Initialize the object
-        }
-
+        public string ModelName => nameof(TrainCharacteristicsSimple);
         public float TractionEfficiency { get; set; }
         public float BrakingEfficiency { get; set; }
         public float BrakingForce{ get; set; }

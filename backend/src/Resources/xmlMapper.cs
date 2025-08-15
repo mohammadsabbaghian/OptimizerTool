@@ -4,7 +4,7 @@ using TrainCharacteristicsManager.Models;
 
 namespace Resources
 {
-    internal class xmlMapper
+    public class xmlMapper
     {
 
         public static async Task<Dictionary<string, TrainUnitParameters>> GetTrainUnitParametersAsync()
@@ -12,7 +12,7 @@ namespace Resources
             var output = new Dictionary<string, TrainUnitParameters>();
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             var rootDirectory = Path.GetPathRoot(baseDirectory);
-            var directory = @"source\\OptimizerTestTool\\resources\\TrainData";
+            var directory = @"D:\Git\Core.Algorithm\src\TrainCharacteristics\Algorithm.TrainCharacteristics.Resources\TrainCharacteristics";
             var path = Path.Combine(rootDirectory, directory);
             Console.WriteLine(path);
             var files = Directory.GetFiles(path, "*.xml");
@@ -51,7 +51,7 @@ namespace Resources
             parameters.MechanicalBraking = float.Parse(doc.SelectSingleNode("//MechanicalBraking")?.InnerText ?? "0");
             parameters.RotatingMassCoefficient = float.Parse(doc.SelectSingleNode("//RotatingMassCoefficient")?.InnerText ?? "0");
 
-            parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//TractionCurves/TractionCurves"));
+            parameters.TractionCurves = LoadForceCurves(doc.SelectNodes("//TractionCurves/TractionCurve"));
             parameters.BrakingCurves = LoadForceCurves(doc.SelectNodes("//ElectricalBrakingCurves/ElectricalBrakingCurve"));
             parameters.TractionPowerMap = LoadPowerMap(doc.SelectSingleNode("//TractionPowerMap/Values"));
             parameters.BrakingPowerMap = LoadPowerMap(doc.SelectSingleNode("//ElectricalBrakingPowerMap/Values"));
@@ -68,6 +68,10 @@ namespace Resources
             parameters.MinimumCoastingDistance = int.Parse(doc.SelectSingleNode("//MinimumCoastingDistance")?.InnerText ?? "0");
             parameters.IsLoco = bool.Parse(doc.SelectSingleNode("//IsLoco")?.InnerText ?? "false");
             parameters.SpeedometerDeviation = float.Parse(doc.SelectSingleNode("//SpeedometerDeviation")?.InnerText ?? "0");
+
+            parameters.BrakingForce = float.Parse(doc.SelectSingleNode("//MaximumElectricBrakeForce")?.InnerText ?? "0");
+            parameters.TractionEfficiency = 0.8f;
+            parameters.BrakingEfficiency = float.Parse(doc.SelectSingleNode("//RegenerationEfficiency")?.InnerText ?? "0.8");
 
             return parameters;
         }

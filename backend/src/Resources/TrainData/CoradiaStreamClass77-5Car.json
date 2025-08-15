@@ -6,12 +6,12 @@
   "Mass": 221730.0,
   "Length": 107.0,
   "DragA": 0.0,
-  "DragAmass": 98.0,
-  "DragB": 5432385.0,
+  "DragAmass": 0.0098,
+  "DragB": 5.432385,
   "DragBmass": 0.0,
-  "DragC": 15.0,
-  "DeltaDragC": 57576.0,
-  "MaxSpeed": 4.4444444E+11,
+  "DragC": 1.5,
+  "DeltaDragC": 5.7576,
+  "MaxSpeed": 44.444443,
   "RotatingMassCoefficient": 0.0,
   "NumberOfCars": 5,
   "MechanicalBraking": 0.0,
@@ -21,7 +21,7 @@
   "PreferedBraking": [
     [
       0.0,
-      7.0
+      0.7
     ]
   ],
   "BrakedWeightPercentageG": 115,
@@ -31,7 +31,7 @@
   "SupportedTypes": [
     "CoradiaStreamClass77"
   ],
-  "MinimumCoastingSpeed": 111111.0,
+  "MinimumCoastingSpeed": 11.1111,
   "MinimumCoastingDistance": 100,
   "IsLoco": false,
   "SpeedometerDeviation": 1.0,
@@ -39,10 +39,10 @@
   "BrakingPowerMap": null,
   "BrakingCurves": [],
   "TractionCurves": [],
-  "BrakingForce": 0.0,
+  "BrakingForce": 225639.0,
   "BrakingPower": 0.0,
   "TractionForce": 228802,
   "TractionPower": 2651934,
-  "TractionEfficiency": 0.0,
+  "TractionEfficiency": 0.8,
   "BrakingEfficiency": 1.0
 }

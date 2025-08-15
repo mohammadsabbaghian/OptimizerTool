@@ -1,15 +1,18 @@
 ﻿using Shared.Models;
+using Shared.Models.Route;
+using Shared.Models.Timetable;
 using SpeedAlgorithm.Models;
+using TrainCharacteristicsManager;
 
 namespace SpeedAlgorithm
 {
-    public class SpeedAlgorithm
+    public class Optimizer
     {
         private CalcBase _calcBase;
 
-        public SpeedAlgorithm(CalcBase calcBase) 
+        public void PreProcess(RouteConstraints routeConstraints, TimeConstraints timeConstraints, TrainCharacteristicsSimple trainCharacteristics, AlgorithmConfiguration algorithmConfiguration)
         {
-            _calcBase = calcBase;
+            _calcBase = new CalcBase(routeConstraints, timeConstraints, trainCharacteristics, algorithmConfiguration);
         }
 
         public AlgorithmOutput Calculate(TrainState currentState)
@@ -17,7 +20,6 @@ namespace SpeedAlgorithm
             var sp = new SpeedProfile(_calcBase.NumberOfIntervals);
 
             GetMaxSpeedProfile(sp);
-
 
             return CreateOutput(sp);
         }
@@ -45,7 +47,7 @@ namespace SpeedAlgorithm
             
             output.TimeResults = _calcBase.TimeHelper.GetTimeResults(sp.Time);
             
-            output.EnergyResults = new EnergyResult(_calcBase.discInt, sp);
+            output.EnergyResults = new EnergyResult(_calcBase.DiscInt, sp);
 
             return output;
         }

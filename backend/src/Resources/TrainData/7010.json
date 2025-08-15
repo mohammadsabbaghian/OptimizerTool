@@ -6,12 +6,12 @@
   "Mass": 350000.0,
   "Length": 201.0,
   "DragA": 0.0,
-  "DragAmass": 22351.0,
+  "DragAmass": 0.022351,
   "DragB": 0.0,
   "DragBmass": 0.0,
-  "DragC": 23715.0,
-  "DeltaDragC": 146285.0,
-  "MaxSpeed": 4.4444444E+11,
+  "DragC": 2.3715,
+  "DeltaDragC": 14.6285,
+  "MaxSpeed": 44.444443,
   "RotatingMassCoefficient": 0.0,
   "NumberOfCars": 10,
   "MechanicalBraking": 0.0,
@@ -21,7 +21,7 @@
   "PreferedBraking": [
     [
       0.0,
-      6.0
+      0.6
     ]
   ],
   "BrakedWeightPercentageG": 120,
@@ -29,7 +29,7 @@
   "DisplayName": "701 Ten-Car",
   "NumAxles": 40,
   "SupportedTypes": [],
-  "MinimumCoastingSpeed": 8333.0,
+  "MinimumCoastingSpeed": 8.333,
   "MinimumCoastingDistance": 500,
   "IsLoco": false,
   "SpeedometerDeviation": 0.0,
@@ -37,10 +37,10 @@
   "BrakingPowerMap": null,
   "BrakingCurves": [],
   "TractionCurves": [],
-  "BrakingForce": 0.0,
+  "BrakingForce": 254640.0,
   "BrakingPower": 0.0,
   "TractionForce": 318300,
   "TractionPower": 3974520,
-  "TractionEfficiency": 0.0,
-  "BrakingEfficiency": 82.0
+  "TractionEfficiency": 0.8,
+  "BrakingEfficiency": 0.82
 }

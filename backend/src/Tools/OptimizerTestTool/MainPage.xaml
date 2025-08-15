@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OptimizerTestTool.MainPage">
+             x:Class="OptimizerTestTool.MainPage"
+             Title="Main Page">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="RailCoPilot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="This is apparently our logo" />
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <!-- Loading message -->
+        <Label x:Name="LoadingLabel" Text="" IsVisible="False" />
 
-            <Label
-                Text="Pick recent projects or start a new one."
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+        <!-- Project List -->
+        <Label Text="Select Project" />
+        <CollectionView x:Name="ProjectListView"
+                SelectionMode="Single"
+                SelectionChanged="OnProjectSelected"
+                HeightRequest="200">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="4">
+                        <Label Text="{Binding}" FontSize="16" VerticalOptions="Center" Grid.Column="0"/>
+                        <Button Text="Delete"
+                        Clicked="OnDeleteProjectClicked"
+                        CommandParameter="{Binding}" 
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        Margin="8,0,0,0"
+                        VerticalOptions="Center"
+                        Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-            <Button
-                x:Name="LoaderBtn"
-                Text="Load file" 
-                Clicked="OnLoadClicked"
-                HorizontalOptions="Fill" />
-            
-                
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- Profile File Picker and Status -->
+        <HorizontalStackLayout Spacing="8">
+            <Button Text="Load Files" Clicked="OnLoadProfileClicked" />
+            <Label x:Name="ProfileStatusLabel" Text="Profile: Not loaded" />
+            <Image x:Name="ProfileCheckmark" Source="checkmark.png" IsVisible="False" WidthRequest="24" HeightRequest="24"/>
+        </HorizontalStackLayout>
 
+        <!-- Status -->
+        <Editor x:Name="StatusLabel" IsEnabled="True" IsReadOnly="True" Text="" />
+
+        <!-- Save Project Button -->
+        <Button Text="Save Project" Clicked="OnSaveProjectClicked" x:Name="SaveProjectButton" IsEnabled="False" />
+
+    </VerticalStackLayout>
 </ContentPage>

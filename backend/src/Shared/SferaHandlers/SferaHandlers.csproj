@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Sfera.Models\Sfera.Models.csproj" />
     <ProjectReference Include="..\..\Shared.Models\Shared.Models.csproj" />
+    <ProjectReference Include="..\..\TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
   </ItemGroup>
 
 </Project>

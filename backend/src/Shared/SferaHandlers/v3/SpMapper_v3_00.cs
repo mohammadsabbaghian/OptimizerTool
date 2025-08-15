@@ -1,16 +1,17 @@
-﻿using Shared.Models.Route;
+﻿using SFERA_v3_00;
+using Shared.Models.Route;
+using TrainCharacteristicsManager;
 using tc = Shared.Models.Train;
-using SFERA_v3_00;
 
 namespace SferaHandlers.v3
 {
     public class SpMapper_v3_00
     {
-        private TrainCharacteristics _trainCharacteristics;
+        private ITrainCharacteristics _trainCharacteristics;
 
-        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles) //TrainCharacteristics trainCharacteristics)
+        public RouteConstraints Map(JourneyProfile journeyProfile, SegmentProfile[] segmentProfiles, ITrainCharacteristics trainCharacteristics)
         {
-            //_trainCharacteristics = trainCharacteristics;
+            _trainCharacteristics = trainCharacteristics;
             var routeConstraints = new RouteConstraints();
 
             var spList = journeyProfile.SegmentProfileReference;
@@ -60,10 +61,15 @@ namespace SferaHandlers.v3
         private List<PowerLimitSegment> GetPowerConstraints(SegmentProfile sp, float absPos)
         {
             var powerSegments = new List<PowerLimitSegment>();
-            var ratedVChange = sp.SP_Characteristics.RatedVoltage.RatedVoltageChange;
-            var ratedVoltage = sp.SP_Characteristics.RatedVoltage.RatedVoltageStart?.voltageValue;
-            if (ratedVoltage == null)
-                ratedVoltage = 25000;
+
+            int? ratedVoltage = 25000;
+            int? ratedVChange = null;
+            if (sp.SP_Characteristics.RatedVoltage != null)
+            {
+                if(sp.SP_Characteristics.RatedVoltage.RatedVoltageChange != null)
+                    ratedVChange = sp.SP_Characteristics.RatedVoltage.RatedVoltageChange[0].voltageValue;
+                ratedVoltage = sp.SP_Characteristics.RatedVoltage.RatedVoltageStart?.voltageValue;
+            }
 
             // Map Neutral Sections
             if (sp.SP_Characteristics.CurrentLimitation != null)
@@ -99,14 +105,48 @@ namespace SferaHandlers.v3
         private List<SpeedRestrictionSegment> GetSignalSpeedLimits(Signal_ComplexType[] signals, float absPos, float spLength)
         {
             var srgs = new List<SpeedRestrictionSegment>();
-            foreach (var signal in signals)
+            if (signals == null || signals.Length == 0) return srgs;
+
+            for (int i = 0; i < signals.Length; i++)
             {
-                if (signal.SignalInformation.Item is MaxSpeed maxSpeed)
+                var signal = signals[i];
+                if (signal.SignalInformation != null && signal.SignalInformation.Item is MaxSpeed maxSpeed)
                 {
+                    float start, end;
+
+                    if (signal.SignalApplication != null &&
+                        signal.SignalApplication.StartSignalApplication != null &&
+                        signal.SignalApplication.EndSignalApplication != null)
+                    {
+                        // Case 1: Use SignalApplication locations
+                        start = absPos + (float)signal.SignalApplication.StartSignalApplication.location;
+                        end = absPos + (float)signal.SignalApplication.EndSignalApplication.location;
+                    }
+                    else if (signal.Signal_ID != null)
+                    {
+                        // Case 2: Use Signal_ID.location
+                        start = absPos + (float)signal.Signal_ID.location;
+
+                        // Find next signal for end location, or use end of segment for last signal
+                        if (i < signals.Length - 1 && signals[i + 1].Signal_ID != null)
+                        {
+                            end = absPos + (float)signals[i + 1].Signal_ID.location;
+                        }
+                        else
+                        {
+                            end = absPos + spLength;
+                        }
+                    }
+                    else
+                    {
+                        // If neither location is available, skip this signal
+                        continue;
+                    }
+
                     var srg = new SpeedRestrictionSegment
                     {
-                        Start = absPos + (float)signal.SignalApplication.StartSignalApplication.location,
-                        End = absPos + (float)signal.SignalApplication.EndSignalApplication.location,
+                        Start = start,
+                        End = end,
                         Speed = (float)maxSpeed.speed
                     };
                     srgs.Add(srg);
@@ -118,6 +158,8 @@ namespace SferaHandlers.v3
         private List<SpeedRestrictionSegment> GetTemporarySpeeds(TemporaryConstraints[] temporaryConstraints, float absPos)
         {
             var srgs = new List<SpeedRestrictionSegment>();
+            if (temporaryConstraints == null) return srgs;
+
             foreach (var tc in temporaryConstraints)
             {
                 if (tc.temporaryConstraintType == TemporaryConstraintsTemporaryConstraintType.ASR)
@@ -126,7 +168,7 @@ namespace SferaHandlers.v3
                     {
                         var item = (AdditionalSpeedRestriction)asr;
 
-                        var offset = item.ASR_Front ? 0f : float.Parse(_trainCharacteristics.TC_Features.trainLength);
+                        var offset = item.ASR_Front ? 0f : _trainCharacteristics.Length;
                         var srg = new SpeedRestrictionSegment
                         {
                             Start = absPos + (float)tc.startLocation,
@@ -143,6 +185,8 @@ namespace SferaHandlers.v3
         private List<AdhesionLimitationSegment> GetAdhesionLimits(TemporaryConstraints[] temporaryConstraints, float absPos)
         {
             var las = new List<AdhesionLimitationSegment>();
+            if (temporaryConstraints == null) return las;
+
             foreach (var tc in temporaryConstraints)
             {
                 if (tc.temporaryConstraintType == TemporaryConstraintsTemporaryConstraintType.Low_Adhesion)
@@ -187,6 +231,10 @@ namespace SferaHandlers.v3
         private List<SpeedRestrictionSegment> GetSpeedLimits(StaticSpeedProfile[] ssps, Signal_ComplexType[] signals, float absPos, float spLength, string atpId = "")
         {
             var srgs = new List<SpeedRestrictionSegment>();
+
+            if (ssps == null || ssps.Length == null)
+                return srgs;
+
             var ssp = string.IsNullOrEmpty(atpId) || ssps.Length == 1
                 ? ssps[0]
                 : ssps.FirstOrDefault(x => x.ATP_System_Identifier.Any(id => id.Value == atpId)) ?? ssps[0];
@@ -250,14 +298,9 @@ namespace SferaHandlers.v3
 
         private static List<CurveSegment> GetCurveProfile(Curves curveItem, float absPos, float spLength)
         {
-            if (curveItem == null)
+            if (curveItem == null || curveItem.CurveStart == null || curveItem.CurveChange == null)
             {
                 return new List<CurveSegment>();
-            }
-
-            if (curveItem.CurveStart == null || curveItem.CurveChange == null)
-            {
-                throw new Exception("Curve data is missing");
             }
 
             var curves = new List<CurveSegment>();

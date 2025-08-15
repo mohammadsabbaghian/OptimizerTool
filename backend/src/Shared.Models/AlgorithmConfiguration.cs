@@ -2,22 +2,25 @@
 {
     public class AlgorithmConfiguration
     {
+        public AlgorithmConfiguration() { }
+
         public AlgorithmConfiguration(bool withDefaultValues = true)
         {
             if (withDefaultValues)
             {
-                //Speed related
+                // Speed related
                 SpeedDiscretization = 5f / 3.6f;
                 MinimumSpeedAdvice = 30f / 0.5f;
                 JerkLimitation = 0.7f;
+                MinimumCoastingSpeed = 0.0f;
 
-                //Distance related
-                MinCoastingDistance = 500;
-                CoastingStepDistance = 20;
+                // Distance related
+                MinCoastingDistance = 500.0;
+                CoastingStepDistance = 20.0;
                 FinalAdviceThreshold = 400;
 
-                //Time related
-                MinTimeTillFirstTimingPoint = 30;
+                // Time related
+                MinTimeTillFirstTimingPoint = 30.0;
                 BrakingTimeTolerance = 5;
                 MinimumPeakTime = 15;
                 ReactionTime = 5;

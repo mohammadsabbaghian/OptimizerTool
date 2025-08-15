@@ -2,6 +2,7 @@ using Shared.Models.Route;
 using Shared.Models.Timetable;
 using System.Xml.Serialization;
 using SFERA_v2_01;
+using TrainCharacteristicsManager;
 
 public class SferaMessageHandler_v2_01 : ISferaMessageHandler
 {
@@ -100,7 +101,7 @@ public class SferaMessageHandler_v2_01 : ISferaMessageHandler
         }
     }
 
-    public (TimeConstraints, RouteConstraints) MapProfiles(ISferaMessage jpMessage, ISferaMessage spMessage)
+    public (TimeConstraints, RouteConstraints) MapProfiles(ISferaMessage jpMessage, ISferaMessage spMessage, ITrainCharacteristics trainCharacteristics)
     {
         ExtractPayload(jpMessage, spMessage);
         
@@ -116,7 +117,7 @@ public class SferaMessageHandler_v2_01 : ISferaMessageHandler
         var timeConstraints = jpMapper.Map(_cachedJourneyProfile, _cachedSegmentProfiles);
 
         var spMapper = new SferaHandlers.v2.SpMapper_v2_01();
-        var routeConstraints = spMapper.Map(_cachedJourneyProfile, _cachedSegmentProfiles);
+        var routeConstraints = spMapper.Map(_cachedJourneyProfile, _cachedSegmentProfiles, trainCharacteristics);
 
         return (timeConstraints, routeConstraints);
     }
