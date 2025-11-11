@@ -299,7 +299,7 @@ namespace SferaHandlers.v2
 
         private static List<SegmentPosition> GetSegmentPositions(VirtualBalise[] vbs, float absPos)
         {
-            if (vbs == null || vbs.Length == 0)
+            if (vbs == null || vbs.Length ==0)
             {
                 return new List<SegmentPosition>();
             }
@@ -307,8 +307,14 @@ namespace SferaHandlers.v2
             foreach (var vb in vbs)
             {
                 var kmReference = vb.identifier ?? string.Empty;
-                // also add latitude and longitude?
-                segmentPositions.Add(new SegmentPosition(position: absPos + vb.location, kmReference: kmReference, altitude: (float)vb.VirtualBalisePosition.altitude));
+                double? lat = null, lon = null, alt= 0;
+                if (vb.VirtualBalisePosition != null)
+                {
+                    lat = (double?)vb.VirtualBalisePosition.latitude;
+                    lon = (double?)vb.VirtualBalisePosition.longitude;
+                    alt = (double?)vb.VirtualBalisePosition.altitude;
+                }
+                segmentPositions.Add(new SegmentPosition(position: absPos + vb.location, kmReference: kmReference, altitude: alt, latitude: lat, longitude: lon));
             }
             return segmentPositions;
         }

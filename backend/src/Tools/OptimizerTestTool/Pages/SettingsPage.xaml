@@ -2,65 +2,110 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OptimizerTestTool.SettingsPage"
-             Title="SettingsPage">
+             Title="Settings">
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="12">
-            <!-- Speed related -->
-            <Label Text="Speed Discretization (m/s)" />
-            <Entry x:Name="SpeedDiscretizationEntry" Keyboard="Numeric" TextChanged="SpeedDiscretizationEntry_TextChanged" />
+        <Grid Padding="16" RowSpacing="12" ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-            <Label Text="Minimum Speed Advice (m/s)" />
-            <Entry x:Name="MinimumSpeedAdviceEntry" Keyboard="Numeric" TextChanged="MinimumSpeedAdviceEntry_TextChanged" />
+            <!-- Left column: Speed and related numeric settings -->
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="12">
+                <Label Text="Speed Settings" FontAttributes="Bold" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Speed Discretization [kmh]" />
+                    <Entry x:Name="SpeedDiscretizationEntry" Keyboard="Numeric" TextChanged="SpeedDiscretizationEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <Label Text="Jerk Limitation" />
-            <Entry x:Name="JerkLimitationEntry" Keyboard="Numeric" TextChanged="JerkLimitationEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Minimum Speed Advice [kmh]" />
+                    <Entry x:Name="MinimumSpeedAdviceEntry" Keyboard="Numeric" TextChanged="MinimumSpeedAdviceEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <!-- Distance related -->
-            <Label Text="Min Coasting Distance (m)" />
-            <Entry x:Name="MinCoastingDistanceEntry" Keyboard="Numeric" TextChanged="MinCoastingDistanceEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Minimum Coasting Speed [kmh]" />
+                    <Entry x:Name="MinimumCoastingSpeedEntry" Keyboard="Numeric" TextChanged="MinimumCoastingSpeedEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <Label Text="Coasting Step Distance (m)" />
-            <Entry x:Name="CoastingStepDistanceEntry" Keyboard="Numeric" TextChanged="CoastingStepDistanceEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Jerk Limitation [m/s2]" />
+                    <Entry x:Name="JerkLimitationEntry" Keyboard="Numeric" TextChanged="JerkLimitationEntry_TextChanged" />
+                </VerticalStackLayout>
+                
+                <Label Text="Distance Settings" FontAttributes="Bold" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Min Coasting Distance (m)" />
+                    <Entry x:Name="MinCoastingDistanceEntry" Keyboard="Numeric" TextChanged="MinCoastingDistanceEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <Label Text="Final Advice Threshold (m)" />
-            <Entry x:Name="FinalAdviceThresholdEntry" Keyboard="Numeric" TextChanged="FinalAdviceThresholdEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Coasting Step Distance (m)" />
+                    <Entry x:Name="CoastingStepDistanceEntry" Keyboard="Numeric" TextChanged="CoastingStepDistanceEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <!-- Time related -->
-            <Label Text="Min Time Till First Timing Point (s)" />
-            <Entry x:Name="MinTimeTillFirstTimingPointEntry" Keyboard="Numeric" TextChanged="MinTimeTillFirstTimingPointEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Final Advice Threshold (m)" />
+                    <Entry x:Name="FinalAdviceThresholdEntry" Keyboard="Numeric" TextChanged="FinalAdviceThresholdEntry_TextChanged" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
 
-            <Label Text="Braking Time Tolerance (s)" />
-            <Entry x:Name="BrakingTimeToleranceEntry" Keyboard="Numeric" TextChanged="BrakingTimeToleranceEntry_TextChanged" />
+            <!-- Right column: Distance, Time and Boolean settings -->
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="12">
+               
 
-            <Label Text="Minimum Peak Time (s)" />
-            <Entry x:Name="MinimumPeakTimeEntry" Keyboard="Numeric" TextChanged="MinimumPeakTimeEntry_TextChanged" />
+                <Label Text="Time Settings" FontAttributes="Bold" />
 
-            <Label Text="Reaction Time (s)" />
-            <Entry x:Name="ReactionTimeEntry" Keyboard="Numeric" TextChanged="ReactionTimeEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Min Time Till First Timing Point (s)" />
+                    <Entry x:Name="MinTimeTillFirstTimingPointEntry" Keyboard="Numeric" TextChanged="MinTimeTillFirstTimingPointEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <Label Text="Calculation Time Tolerance (s)" />
-            <Entry x:Name="CalculationTimeToleranceEntry" Keyboard="Numeric" TextChanged="CalculationTimeToleranceEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Braking Time Tolerance (s)" />
+                    <Entry x:Name="BrakingTimeToleranceEntry" Keyboard="Numeric" TextChanged="BrakingTimeToleranceEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <Label Text="Max Calculation Time (s)" />
-            <Entry x:Name="MaxCalculationTimeEntry" Keyboard="Numeric" TextChanged="MaxCalculationTimeEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Minimum Peak Time (s)" />
+                    <Entry x:Name="MinimumPeakTimeEntry" Keyboard="Numeric" TextChanged="MinimumPeakTimeEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <!-- Boolean options -->
-            <HorizontalStackLayout>
-                <Label Text="Final Arrival Mandatory" VerticalOptions="Center" />
-                <Switch x:Name="FinalArrivalMandatorySwitch" Toggled="FinalArrivalMandatorySwitch_Toggled" />
-            </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Reaction Time (s)" />
+                    <Entry x:Name="ReactionTimeEntry" Keyboard="Numeric" TextChanged="ReactionTimeEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <HorizontalStackLayout>
-                <Label Text="Allow Braking Advice" VerticalOptions="Center" />
-                <Switch x:Name="AllowBrakingAdviceSwitch" Toggled="AllowBrakingAdviceSwitch_Toggled" />
-            </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Calculation Time Tolerance (s)" />
+                    <Entry x:Name="CalculationTimeToleranceEntry" Keyboard="Numeric" TextChanged="CalculationTimeToleranceEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <!-- Additional properties -->
-            <Label Text="Minimum Coasting Speed (m/s)" />
-            <Entry x:Name="MinimumCoastingSpeedEntry" Keyboard="Numeric" TextChanged="MinimumCoastingSpeedEntry_TextChanged" />
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Max Calculation Time (s)" />
+                    <Entry x:Name="MaxCalculationTimeEntry" Keyboard="Numeric" TextChanged="MaxCalculationTimeEntry_TextChanged" />
+                </VerticalStackLayout>
 
-            <!-- Save Button -->
-            <Button Text="Save Settings" Clicked="OnSaveSettingsClicked" />
-        </VerticalStackLayout>
+                <Label Text="Options" FontAttributes="Bold" />
+                <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="Final Arrival Mandatory" VerticalOptions="Center" />
+                        <Switch x:Name="FinalArrivalMandatorySwitch" Toggled="FinalArrivalMandatorySwitch_Toggled" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="Allow Braking Advice" VerticalOptions="Center" />
+                        <Switch x:Name="AllowBrakingAdviceSwitch" Toggled="AllowBrakingAdviceSwitch_Toggled" />
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Save button spanning both columns -->
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Save Settings" Clicked="OnSaveSettingsClicked" HorizontalOptions="Center" />
+        </Grid>
     </ScrollView>
 </ContentPage>

@@ -2,15 +2,16 @@
 {
     public class AlgorithmConfiguration
     {
-        public AlgorithmConfiguration() { }
+        // Delegate parameterless constructor to the constructor that applies default values
+        public AlgorithmConfiguration() : this(true) { }
 
         public AlgorithmConfiguration(bool withDefaultValues = true)
         {
             if (withDefaultValues)
             {
                 // Speed related
-                SpeedDiscretization = 5f / 3.6f;
-                MinimumSpeedAdvice = 30f / 0.5f;
+                SpeedDiscretization = 5.0000f / 3.6f;
+                MinimumSpeedAdvice = 30f / 3.6f;
                 JerkLimitation = 0.7f;
                 MinimumCoastingSpeed = 0.0f;
 

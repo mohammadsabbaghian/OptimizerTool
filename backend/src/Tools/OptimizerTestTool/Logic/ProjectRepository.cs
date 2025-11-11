@@ -69,13 +69,17 @@ public class ProjectRepository
 
             switch (project.SferaVersion)
             {
+                case "v2.00":
                 case "v2.01":
+                case "2.00":
+                case "2.01":
                     project.JourneyProfile = JsonSerializer.Deserialize<SFERA_v2_01.SFERA_G2B_ReplyMessage>(
                         ((JsonElement)project.JourneyProfile).GetRawText());
                     project.SegmentProfiles = JsonSerializer.Deserialize<SFERA_v2_01.SFERA_G2B_ReplyMessage>(
                         ((JsonElement)project.SegmentProfiles).GetRawText());
                     break;
                 case "v3.00":
+                case "3.00":
                     project.JourneyProfile = JsonSerializer.Deserialize<SFERA_v3_00.SFERA_G2B_ReplyMessage>(
                         ((JsonElement)project.JourneyProfile).GetRawText());
                     project.SegmentProfiles = JsonSerializer.Deserialize<SFERA_v3_00.SFERA_G2B_ReplyMessage>(

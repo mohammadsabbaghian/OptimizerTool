@@ -44,8 +44,9 @@ public partial class SettingsPage : ContentPage
     }
     private void PopulateFieldsWithDefaults()
     {
-        SpeedDiscretizationEntry.Text = _calcRepo.AlgorithmConfiguration.SpeedDiscretization.ToString();
-        MinimumSpeedAdviceEntry.Text = _calcRepo.AlgorithmConfiguration.MinimumSpeedAdvice.ToString();
+        SpeedDiscretizationEntry.Text = Math.Round(_calcRepo.AlgorithmConfiguration.SpeedDiscretization * 3.6, 2).ToString();
+        MinimumSpeedAdviceEntry.Text = Math.Round(_calcRepo.AlgorithmConfiguration.MinimumSpeedAdvice * 3.6, 2).ToString();
+        MinimumCoastingSpeedEntry.Text = Math.Round(_calcRepo.AlgorithmConfiguration.MinimumCoastingSpeed * 3.6, 2).ToString(); 
         JerkLimitationEntry.Text = _calcRepo.AlgorithmConfiguration.JerkLimitation.ToString();
         MinCoastingDistanceEntry.Text = _calcRepo.AlgorithmConfiguration.MinCoastingDistance.ToString();
         CoastingStepDistanceEntry.Text = _calcRepo.AlgorithmConfiguration.CoastingStepDistance.ToString();
@@ -58,19 +59,24 @@ public partial class SettingsPage : ContentPage
         MaxCalculationTimeEntry.Text = _calcRepo.AlgorithmConfiguration.MaxCalculationTime.ToString();
         FinalArrivalMandatorySwitch.IsToggled = _calcRepo.AlgorithmConfiguration.FinalArrivalMandatory;
         AllowBrakingAdviceSwitch.IsToggled = _calcRepo.AlgorithmConfiguration.AllowBrakingAdvice;
-        MinimumCoastingSpeedEntry.Text = _calcRepo.AlgorithmConfiguration.MinimumCoastingSpeed.ToString();
     }
 
     private void SpeedDiscretizationEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (float.TryParse(e.NewTextValue, out var value))
-            _calcRepo.AlgorithmConfiguration.SpeedDiscretization = value;
+            _calcRepo.AlgorithmConfiguration.SpeedDiscretization = value / 3.6f;
     }
 
     private void MinimumSpeedAdviceEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (float.TryParse(e.NewTextValue, out var value))
-            _calcRepo.AlgorithmConfiguration.MinimumSpeedAdvice = value;
+            _calcRepo.AlgorithmConfiguration.MinimumSpeedAdvice = value/3.6f;
+    }
+
+    private void MinimumCoastingSpeedEntry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (float.TryParse(e.NewTextValue, out var value))
+            _calcRepo.AlgorithmConfiguration.MinimumCoastingSpeed = value/3.6f;
     }
 
     private void JerkLimitationEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -84,6 +90,8 @@ public partial class SettingsPage : ContentPage
         if (double.TryParse(e.NewTextValue, out var value))
             _calcRepo.AlgorithmConfiguration.MinCoastingDistance = value;
     }
+
+    
 
     private void CoastingStepDistanceEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
@@ -143,11 +151,7 @@ public partial class SettingsPage : ContentPage
         _calcRepo.AlgorithmConfiguration.AllowBrakingAdvice = e.Value;
     }
 
-    private void MinimumCoastingSpeedEntry_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        if (float.TryParse(e.NewTextValue, out var value))
-            _calcRepo.AlgorithmConfiguration.MinimumCoastingSpeed = value;
-    }
+
 
     private async void OnSaveSettingsClicked(object sender, EventArgs e)
     {

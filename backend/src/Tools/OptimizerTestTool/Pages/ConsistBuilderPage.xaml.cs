@@ -17,6 +17,7 @@ public partial class ConsistBuilderPage : ContentPage
     private int _emptyCount;
     private TrainCharacteristicsSimple _trainCharacteristics;
     private CalculationRepository _calcRepo;
+    private bool _isConsistConfirmed = false;
 
     public ConsistBuilderPage(CalculationRepository calcRepo, TrainCharacteristicsBuilderProvider trainCharacteristicsBuilderProvider)
     {
@@ -24,6 +25,14 @@ public partial class ConsistBuilderPage : ContentPage
         CalcRepo = calcRepo;
         _trainCharacteristicsBuilderProvider = trainCharacteristicsBuilderProvider;
         _emptyCount = ((VerticalStackLayout)Content).Children.Count;
+        _trainUnits = new List<TrainUnit>();
+
+        var confirmButton = new Button
+        {
+            Text = "Confirm Final Consist"
+        };
+        confirmButton.Clicked += ConfirmBtn_Clicked;
+        ((VerticalStackLayout)Content).Children.Add(confirmButton);
     }
 
     protected override async void OnAppearing()
@@ -46,7 +55,6 @@ public partial class ConsistBuilderPage : ContentPage
         var selectedTrainType = TrainTypePicker.SelectedItem.ToString();
         var tp = _trainParameters[selectedTrainType];
         var baseType = tp.BaseClassType;
-
 
         var stackLayout = new StackLayout
         {
@@ -96,6 +104,7 @@ public partial class ConsistBuilderPage : ContentPage
     }
     private void UpdateTrainCharacteristics()
     {
+        _trainUnits = GetTrainUnitsFromUI();
         if (_trainUnits != null && _trainUnits.Any())
         {
             var trainCharacteristics = _trainCharacteristicsBuilder.Build(_trainUnits);
@@ -112,6 +121,50 @@ public partial class ConsistBuilderPage : ContentPage
             return;
         }
     }
-
    
+
+    // Button click handler
+    private void ConfirmBtn_Clicked(object sender, EventArgs e)
+    {
+        UpdateTrainCharacteristics();
+        _isConsistConfirmed = true;
+        DisplayAlert("Confirmed", "Train consist confirmed.", "OK");
+    }
+
+    // Override OnDisappearing to build if not confirmed
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        if (!_isConsistConfirmed)
+        {
+            UpdateTrainCharacteristics();
+        }
+    }
+    private List<TrainUnit> GetTrainUnitsFromUI()
+    {
+        var trainUnits = new List<TrainUnit>();
+        foreach (var child in ((VerticalStackLayout)Content).Children)
+        {
+            if (child is StackLayout layout && layout.Children.Count >= 4)
+            {
+                var label = layout.Children[0] as Label;
+                var massEntry = layout.Children[1] as Entry;
+                var tractionEntry = layout.Children[2] as Entry;
+                var brakeEntry = layout.Children[3] as Entry;
+
+                if (label != null && massEntry != null && tractionEntry != null && brakeEntry != null)
+                {
+                    var trainUnit = new TrainUnit
+                    {
+                        Class = label.Text,
+                        TotalMass = float.TryParse(massEntry.Text, out var mass) ? mass : 0,
+                        TractionPercentage = float.TryParse(tractionEntry.Text, out var traction) ? traction : 0,
+                        BrakeWeightPercentage = float.TryParse(brakeEntry.Text, out var brake) ? brake : 0
+                    };
+                    trainUnits.Add(trainUnit);
+                }
+            }
+        }
+        return trainUnits;
+    }
 }

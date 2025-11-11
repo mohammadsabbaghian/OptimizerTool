@@ -349,11 +349,16 @@ namespace SferaHandlers.v3
             foreach (var vb in vbs)
             {
                 var kmReference = vb.identifier ?? string.Empty;
-                // also add latitude and longitude?
-                segmentPositions.Add(new SegmentPosition(position: absPos + vb.location, kmReference: kmReference, altitude: (float)vb.VirtualBalisePosition.altitude));
+                double? lat = null, lon = null, alt= null;
+                if (vb.VirtualBalisePosition != null)
+                {
+                    lat = (double?)vb.VirtualBalisePosition.latitude;
+                    lon = (double?)vb.VirtualBalisePosition.longitude;
+                    alt = (double?)vb.VirtualBalisePosition.altitude;
+                }
+                segmentPositions.Add(new SegmentPosition(position: absPos + vb.location, kmReference: kmReference, altitude: alt, latitude: lat, longitude: lon));
             }
             return segmentPositions;
         }
     }
 }
- 

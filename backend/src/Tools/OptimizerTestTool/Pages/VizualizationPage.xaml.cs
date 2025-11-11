@@ -23,8 +23,11 @@ public partial class VizualizationPage : ContentPage
             _calcRepo = value;
             if (_calcRepo != null)
             {
-                InitializeStationPairs();
-                InitializeStateInputs();
+                if (_calcRepo.RouteConstraints != null && _calcRepo.TimeConstraints != null)
+                {
+                    InitializeStationPairs();
+                    InitializeStateInputs();
+                }
             }
         }
     }
