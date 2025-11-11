@@ -18,6 +18,7 @@ namespace SferaHandlers.v2
 
             var absPos = 0f;
 
+            routeConstraints.Start = absPos;
             foreach (var item in spList)
             {
                 var sp = segmentProfiles.First(x => x.SP_ID == item.SP_ID);
@@ -53,6 +54,8 @@ namespace SferaHandlers.v2
 
                 absPos += (float)sp.SP_Length;
             }
+            routeConstraints.End = absPos;
+
             return routeConstraints;
         }
 

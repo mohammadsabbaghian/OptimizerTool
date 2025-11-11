@@ -63,11 +63,14 @@ namespace SpeedAlgorithm.Preprocessing
                 passagePointIndices[i] = (int)Math.Round(timeConstraints.TimingPoints[i].Position - routeConstraints.Start / discInterval, 0);
             }
 
-            for (int i = 0; i <= numberOfDiscInterval; i++)
+            var last = _routeConstraints.SpeedRestrictionSegments.Last();
+            for (int i = 0; i < numberOfDiscInterval; i++)
             {
                 position += discInterval;
-
-                constraints.SpeedLimits[i] = _routeConstraints.SpeedRestrictionSegments.Where(x => x.Start <= position && x.End >= position).Min(x => x.Speed);
+                if (position > last.End)
+                    constraints.SpeedLimits[i] = last.Speed;
+                else
+                    constraints.SpeedLimits[i] = _routeConstraints.SpeedRestrictionSegments.Where(x => x.Start <= position && x.End >= position).Min(x => x.Speed);
                 constraints.Trackresistances[i] = (float)weighedGradients[i] * 9.81f;
                 constraints.TunnelFactors[i] = _routeConstraints.Tunnels.FirstOrDefault(x => x.Start <= position && x.End >= position)?.TunnelFactor ?? 1f;
                 constraints.PassagePointIndices[i] = passagePointIndices.FirstOrDefault(x => x >= i);

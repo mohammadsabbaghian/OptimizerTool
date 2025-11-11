@@ -1,4 +1,6 @@
-﻿namespace Shared.Models.Route
+﻿using System.Reflection;
+
+namespace Shared.Models.Route
 {
     public class RouteConstraints : Segment
     {

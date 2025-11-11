@@ -64,10 +64,25 @@ public partial class VizualizationPage : ContentPage
             Speed = (float)SpeedSlider.Value
         };
 
-        _optimizer.PreProcess(CalcRepo.RouteConstraints, CalcRepo.TimeConstraints, CalcRepo.TrainCharacteristics, CalcRepo.AlgorithmConfiguration);
+        try
+        {
+            _optimizer.PreProcess(CalcRepo.RouteConstraints, CalcRepo.TimeConstraints, CalcRepo.TrainCharacteristics, CalcRepo.AlgorithmConfiguration);
 
-        var output =_optimizer.Calculate(currentState);
-        VisualizeOutput(output);
+        }
+        catch (Exception e)
+        {
+            DisplayAlert("Error", e.Message + Environment.NewLine + e.InnerException + Environment.NewLine + e.StackTrace, "OK");
+            return;
+        }
+        try
+        {
+            var output = _optimizer.Calculate(currentState);
+            VisualizeOutput(output);
+        }
+        catch (Exception e)
+        {
+            DisplayAlert("Error", e.Message + Environment.NewLine + e.InnerException, "OK");
+        }
     }
 
     private void SaveButton_Clicked(object sender, EventArgs e)

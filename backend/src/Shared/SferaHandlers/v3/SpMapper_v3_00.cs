@@ -17,6 +17,7 @@ namespace SferaHandlers.v3
             var spList = journeyProfile.SegmentProfileReference;
 
             var absPos = 0f;
+            routeConstraints.Start = absPos;
 
             foreach (var item in spList)
             {
@@ -53,6 +54,8 @@ namespace SferaHandlers.v3
 
                 absPos += (float)sp.SP_Length;
             }
+            routeConstraints.End = absPos;
+
             return routeConstraints;
         }
 
