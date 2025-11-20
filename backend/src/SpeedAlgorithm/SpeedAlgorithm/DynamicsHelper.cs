@@ -36,10 +36,12 @@ namespace SpeedAlgorithm
                     break;
                 }
             }
+
             HandleConnection(sp, i, offset);
             return i;
         }
-         private int CalculateBackwards(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
+
+        private int CalculateBackwards(SpeedProfile sp, int i, int offset, float speed, Action<SpeedProfile, int, int> action)
         {
             var methodName = action.Method.Name;
             var minSpeed = (methodName == "Coast") ? _calcBase.algorithmConfiguration.MinimumCoastingSpeed : _calcBase.algorithmConfiguration.MinimumSpeedAdvice;
@@ -62,6 +64,8 @@ namespace SpeedAlgorithm
             HandleConnection(sp, i, offset);
             return i;
         }
+
+
         private void HandleConnection(SpeedProfile sp, int i, int offset)
         {
             // Implement connection handling logic here
