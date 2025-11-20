@@ -2,7 +2,7 @@
 
 namespace SpeedAlgorithm.Models
 {
-    public class SpeedProfile
+    public struct SpeedProfile
     {
         public SpeedProfile(int length)
         {
