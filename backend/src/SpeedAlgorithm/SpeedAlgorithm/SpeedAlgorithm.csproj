@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Helpers\**" />
-    <EmbeddedResource Remove="Helpers\**" />
-    <None Remove="Helpers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\TCM\TrainCharacteristicsManager\TrainCharacteristicsManager.csproj" />
     <ProjectReference Include="..\SpeedAlgorithm.Models\SpeedAlgorithm.Models.csproj" />
     <ProjectReference Include="..\SpeedAlgorithm.Preprocessing\SpeedAlgorithm.Preprocessing.csproj" />

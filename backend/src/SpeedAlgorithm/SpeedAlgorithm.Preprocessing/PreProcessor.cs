@@ -2,6 +2,8 @@
 using Shared.Models.Timetable;
 using SpeedAlgorithm.Models;
 using TrainCharacteristicsManager;
+using System;
+using System.Collections.Generic;
 
 namespace SpeedAlgorithm.Preprocessing
 {
@@ -20,65 +22,90 @@ namespace SpeedAlgorithm.Preprocessing
             _routeConstraints = routeConstraints;
             _trainCharacteristics = trainCharacteristics;
             _timeConstraints = timeConstraints;
+
             var numberOfDiscInterval = GetNumberOfDiscretizationIntervals(routeConstraints.Length);
             var discInterval = GetDiscretizationInterval(routeConstraints.Length, numberOfDiscInterval);
 
             if (routeConstraints.GradientSegments == null)
             {
-                if (routeConstraints.Points.Any(x => x.Altitude.HasValue))
-                {
+                if (routeConstraints.Points != null && routeConstraints.Points.Any(x => x.Altitude.HasValue))
                     routeConstraints.GradientSegments = GradientHelper.GetGradientSegments(routeConstraints.Points);
-                }
                 else
-                {
-                    routeConstraints.GradientSegments = [new GradientSegment(routeConstraints.Start, routeConstraints.End, 0f)];
-                }
+                    routeConstraints.GradientSegments = new List<GradientSegment>() { new GradientSegment(routeConstraints.Start, routeConstraints.End, 0f) };
             }
 
-            if (routeConstraints.Curves.Count > 0)
+            if (routeConstraints.Curves != null && routeConstraints.Curves.Count > 0)
             {
                 var curveHelper = new CurveHelper(trainCharacteristics.CurveRes);
                 routeConstraints.GradientSegments = curveHelper.MergeSegments(routeConstraints.Curves, routeConstraints.GradientSegments);
             }
 
-            if(routeConstraints.Tunnels.Count > 0)
+            if (routeConstraints.Tunnels != null && routeConstraints.Tunnels.Count > 0)
             {
                 var tunnelHelper = new TunnelHelper(trainCharacteristics.FrontalArea);
                 routeConstraints.Tunnels = tunnelHelper.CalculateTunnelFactor(routeConstraints.Tunnels);
             }
 
-            //Handle power and limitations and set traction and braking Curves
-            //NEED TO BE THOUGHT OUT
             var forceLimitationHandler = new ForceLimitationsHandler(routeConstraints, trainCharacteristics);
             var forceCurve = forceLimitationHandler.GetForceCurves(0);
-
 
             var weighedGradients = GradientHelper.GetWeightedAverageGradientArray(routeConstraints.GradientSegments, discInterval, trainCharacteristics.TrainUnits);
 
             var constraints = new Constraints(numberOfDiscInterval, discInterval);
-            var position = routeConstraints.Start;
+
+            // Pre-create arrays and default curve indices
+            constraints.TractionCurveIndices = new int[numberOfDiscInterval];
+            constraints.BrakingCurveIndices = new int[numberOfDiscInterval];
+
+            // Precompute passage point indices (rounded and clamped)
             var passagePointIndices = new int[timeConstraints.TimingPoints.Count];
-            for (int i = 0; i < timeConstraints.TimingPoints.Count; i++)
+            for (int p = 0; p < timeConstraints.TimingPoints.Count; p++)
             {
-                passagePointIndices[i] = (int)Math.Round(timeConstraints.TimingPoints[i].Position - routeConstraints.Start / discInterval, 0);
+                var relPos = timeConstraints.TimingPoints[p].Position - routeConstraints.Start;
+                var idx = (int)Math.Round(relPos / discInterval);
+                idx = Math.Max(0, Math.Min(numberOfDiscInterval - 1, idx));
+                passagePointIndices[p] = idx;
             }
 
-            var last = _routeConstraints.SpeedRestrictionSegments.Last();
+            // Walk through speed restriction segments and tunnels once
+            var speedSegs = _routeConstraints.SpeedRestrictionSegments;
+            int speedSegIdx = 0;
+            var lastSpeedSeg = speedSegs[speedSegs.Count - 1];
+
+            var tunnels = _routeConstraints.Tunnels ?? new List<TunnelSegment>();
+            int tunnelIdx = 0;
+
             for (int i = 0; i < numberOfDiscInterval; i++)
             {
-                position += discInterval;
-                if (position > last.End)
-                    constraints.SpeedLimits[i] = last.Speed;
+                var position = routeConstraints.Start + (i + 1) * discInterval; // matches original advancing position
+
+                // Speed limit lookup: advance pointer until the segment contains position or we passed it
+                while (speedSegIdx < speedSegs.Count && speedSegs[speedSegIdx].End < position) speedSegIdx++;
+                if (speedSegIdx >= speedSegs.Count) constraints.SpeedLimits[i] = lastSpeedSeg.Speed;
                 else
-                    constraints.SpeedLimits[i] = _routeConstraints.SpeedRestrictionSegments.Where(x => x.Start <= position && x.End >= position).Min(x => x.Speed);
+                {
+                    var seg = speedSegs[speedSegIdx];
+                    if (seg.Start <= position && seg.End >= position) constraints.SpeedLimits[i] = seg.Speed;
+                    else constraints.SpeedLimits[i] = lastSpeedSeg.Speed;
+                }
+
+                // Track resistance from weighted gradients (already in same length)
                 constraints.Trackresistances[i] = (float)weighedGradients[i] * 9.81f;
-                constraints.TunnelFactors[i] = _routeConstraints.Tunnels.FirstOrDefault(x => x.Start <= position && x.End >= position)?.TunnelFactor ?? 1f;
-                constraints.PassagePointIndices[i] = passagePointIndices.FirstOrDefault(x => x >= i);
 
-                //constraints.TractionCurveIndices[i] = 0;
-                //constraints.BrakingCurveIndices[i] = 0;
+                // Tunnel factor: advance pointer
+                while (tunnelIdx < tunnels.Count && tunnels[tunnelIdx].End < position) tunnelIdx++;
+                constraints.TunnelFactors[i] = (tunnelIdx < tunnels.Count && tunnels[tunnelIdx].Start <= position && tunnels[tunnelIdx].End >= position)
+                    ? tunnels[tunnelIdx].TunnelFactor
+                    : 1f;
+
+                // Passage point: find earliest passage point index >= i
+                var pp = Array.Find(passagePointIndices, x => x >= i);
+                constraints.PassagePointIndices[i] = pp;
+
+                // Default curve indices: if forceCurve gives per-interval mapping, use it; else default 0
+                constraints.TractionCurveIndices[i] = 0;
+                constraints.BrakingCurveIndices[i] = 0;
             }
-
 
             return constraints;
         }
@@ -86,11 +113,11 @@ namespace SpeedAlgorithm.Preprocessing
         private int GetNumberOfDiscretizationIntervals(float totalDistance)
         {
             var discInterval = Math.Min(Math.Max(totalDistance / InitialNumberOfIntervals, MinimumDiscretisationInterval), MaximumDiscretisationInterval);
-            return (int)Math.Ceiling((1.0 * totalDistance / discInterval));
+            return (int)Math.Ceiling(totalDistance / discInterval);
         }
         private int GetDiscretizationInterval(float totalDistance, int numberOfIntervals)
         {
-            return (int)Math.Round(1.0 * totalDistance / numberOfIntervals);
+            return (int)Math.Round(totalDistance / numberOfIntervals);
         }
     }
 }

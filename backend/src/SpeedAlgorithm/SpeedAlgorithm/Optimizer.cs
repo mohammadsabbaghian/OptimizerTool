@@ -26,7 +26,6 @@ namespace SpeedAlgorithm
 
         private void GetMaxSpeedProfile(SpeedProfile sp)
         {
-            _calcBase.Dynamics
         }
 
         private AlgorithmOutput CreateOutput(SpeedProfile sp)
